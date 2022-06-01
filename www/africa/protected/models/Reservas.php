@@ -94,15 +94,22 @@ class Reservas extends CActiveRecord
 	{
 		return array('PENDIENTE'=>'PENDIENTE','FINALIZADO'=>'FINALIZADO');
 	}
-	public function getDetalleServicios()
+	public function getDetalleServicios($html=true)
 	{	
 		$serv=$this->servicios;
 		$sal="";
 		foreach($serv as $t)
 			if(isset($t->servicio))
-				$sal.=$t->servicio->nombreServicio.' <small><b>$ '.$t->costo.' '.$this->detalle($t);
+				if($html)
+					$sal.=$t->servicio->nombreServicio.' <small><b>$ '.number_format($t->costo,2).' '.$this->detalle($t);
+					else $sal.=$t->servicio->nombreServicio.' $ '.number_format($t->costo,2).' '.$this->detalleSolo($t);
 		
 		return $sal;
+	}
+	private function detalleSolo($t)
+	{
+		if($t->servicio->idCategoria==1)
+			return ''. date("d/m/Y H:i",$t->fechaInicio).' a '.date("H:i",$t->fechaFin).'';
 	}
 	private function detalle($t)
 	{

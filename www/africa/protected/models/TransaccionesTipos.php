@@ -107,6 +107,20 @@ class TransaccionesTipos extends CActiveRecord
 		if($res>0)return $res[0]->proximo;
 		return 0;
 	}
+	public function porEstado($estado)
+	{
+		$criteria=new CDbCriteria;
+
+		$criteria->compare('estado',$estado);
+		return self::model()->findAll($criteria);
+	}
+	public function soloElectronicas()
+	{
+		$criteria=new CDbCriteria;
+
+		$criteria->compare('esElectronica',"1");
+		return self::model()->findAll($criteria);
+	}
 	public function search()
 	{
 		// Warning: Please modify the following code to remove attributes that

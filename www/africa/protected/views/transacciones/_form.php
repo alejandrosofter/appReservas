@@ -46,7 +46,7 @@
 <div class='span4'>
 	<div class="">
 		<?php echo $form->labelEx($model,'idTipoComprobante',array('class'=>'')); ?>
-		<?php echo $form->dropDownList($model,'idTipoComprobante',CHtml::listData(TransaccionesTipos::model()->findAll(), 'id', 'nombreTipoTransaccion'),array ('style'=>'','onchange'=>'nroFactura()')); ?>
+		<?php echo $form->dropDownList($model,'idTipoComprobante',CHtml::listData(TransaccionesTipos::model()->porEstado(1), 'id', 'nombreTipoTransaccion'),array ('style'=>'','onchange'=>'nroFactura()')); ?>
 		<?php echo $form->error($model,'idTipoComprobante'); ?>
 	</div>
 	<div class="">

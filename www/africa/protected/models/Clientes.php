@@ -39,17 +39,19 @@ class Clientes extends CActiveRecord
 	/**
 	 * @return array validation rules for model attributes.
 	 */
+	//ALTER TABLE `clientes` ADD `idTipoComprobante` INT(50) NOT NULL AFTER `cuit`, ADD `tipoDoc` INT(50) NOT NULL AFTER `idTipoComprobante`;
+
 	public function rules()
 	{
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('nombres,direccion,localidad, telefonoFijo, telefonoMovil, email', 'length', 'max'=>255),
+			array('nombres,direccion,localidad, telefonoFijo,idTipoComprobante,tipoDoc, telefonoMovil, email', 'length', 'max'=>255),
 			array('descripcionCliente', 'safe'),
 			array('nombres,email,telefonoMovil,idCondicionIva,cuit', 'required'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('buscar,id,direccion,localidad, nombres, telefonoFijo, telefonoMovil, email, descripcionCliente', 'safe', 'on'=>'search'),
+			array('buscar,id,direccion,localidad, nombres,idTipoComprobante,tipoDoc, telefonoFijo, telefonoMovil, email, descripcionCliente', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -83,6 +85,8 @@ class Clientes extends CActiveRecord
 			'email' => 'Email',
 			'direccion' => 'Dirección',
 			'descripcionCliente' => 'Descripcion Cliente',
+			"idTipoComprobante" => "Tipo Comprobante (defecto)",
+			"tipoDoc" => "Tipo Doc (Dni/Cuit)",
 		);
 	}
 

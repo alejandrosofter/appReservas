@@ -137,11 +137,20 @@ jQuery.timeago.settings.strings = {
   jQuery("abbr.timeago").timeago();
   
 });
- $(".imprime").fancybox({
+$(".imprime").fancybox({
     fitToView : false,
     width   : '500px',
     height    : '400px',
     autoSize  : false,
+    closeClick  : false,
+    openEffect  : 'none',
+    closeEffect : 'none'
+  });
+  $(".imprimeGrande").fancybox({
+    // fitToView : true,
+    width   : '900px',
+    height    : '500px',
+    // autoSize  : true,
     closeClick  : false,
     openEffect  : 'none',
     closeEffect : 'none'
@@ -177,7 +186,7 @@ jQuery.timeago.settings.strings = {
                    
                     array('label'=>'Ver Reservas', 'url'=>'index.php?r=reservas'),
                     array('label'=>'Agregar', 'url'=>'index.php?r=reservas/create'),
-                    '---',
+                   
                     array('label'=>'Ver Feriados', 'url'=>'index.php?r=feriados'),
                     array('label'=>'Agregar', 'url'=>'index.php?r=feriados/create'),
                 )),
@@ -200,6 +209,8 @@ jQuery.timeago.settings.strings = {
                     array('label'=>'Ver Transacciones', 'url'=>'index.php?r=transacciones'),
                     array('label'=>'Agregar Ingreso', 'url'=>'index.php?r=transacciones/createIngreso'),
                     array('label'=>'Agregar Egreso', 'url'=>'index.php?r=transacciones/createEgreso'),
+                    "--",
+                    array('label'=>'Comprobantes Electronicos', 'url'=>'index.php?r=facturasElectronicas'),
                 )),
                  array('label'=>'Estadisticas','icon'  => 'signal', 'url'=>'index.php?r=estadisticas', 'items'=>array(
                    

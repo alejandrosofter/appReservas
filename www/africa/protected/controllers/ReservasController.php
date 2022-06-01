@@ -35,6 +35,7 @@ class ReservasController extends RController
 			'model'=>$model,
 		));
 	}
+	
 	public function accessRules()
 	{
 		return array(

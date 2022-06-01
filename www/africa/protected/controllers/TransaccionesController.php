@@ -17,6 +17,17 @@ class TransaccionesController extends RController
 			'rights', // perform access control for CRUD operations
 		);
 	}
+	public function actionNuevoPago()
+	{
+		$this->layout="//layouts/layoutSolo";
+		// $model=$this->loadModel($_GET['id']);
+		if(isset($_POST['Transacciones'])){
+			$model->ingresarPago($_POST['Transacciones']);
+			return;
+		}
+		$this->render('nuevoPago',array(
+		));
+	}
 	public function actionGetProximo()
 	{
 		$tipo=TransaccionesTiposNro::model()->getProximo($_GET['idTipo']);
@@ -142,7 +153,8 @@ class TransaccionesController extends RController
 				$modelCliente->save();
 				if(isset($_POST['idReservaPago']))
 					if($_POST['idReservaPago']!='')$this->agregaReservaPago($_POST['idReservaPago'],$model->id);
-				$this->render('imprimirTransaccion',array(
+				if($model->tipoComprobante->esElectronica) $this->redirect(array('/facturasElectronicas/create','idTransaccionCliente'=>$modelCliente->id));
+				else $this->render('imprimirTransaccion',array(
 			'model'=>$model,'modelCliente'=>$modelCliente
 		));
 				return;

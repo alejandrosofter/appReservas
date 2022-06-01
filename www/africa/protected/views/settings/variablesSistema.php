@@ -27,6 +27,7 @@ $form = $this->beginWidget('CActiveForm', array(
                 <li class=""><a href="#lC" data-toggle="tab">Datos de Horarios</a></li>
                 <li class=""><a href="#lD" data-toggle="tab">Datos de Email</a></li>
                 <li class=""><a href="#lF" data-toggle="tab">Autorizaciones</a></li>
+                <li class=""><a href="#facturaElectronica" data-toggle="tab">Factura Electronica</a></li>
               </ul>
               <div class="tab-content">
                 <div class="tab-pane active" id="lA">
@@ -60,6 +61,9 @@ $form = $this->beginWidget('CActiveForm', array(
                 </div>
                 <div class="tab-pane" id="lF">
                    <?=$this->renderPartial('_autoriza', array(), true)?>
+                </div>
+                <div class="tab-pane" id="facturaElectronica">
+                   <?=$this->renderPartial('_facturaElectronica', array(), true)?>
                 </div>
               </div>
             </div>

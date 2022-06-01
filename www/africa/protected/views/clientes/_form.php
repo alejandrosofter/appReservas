@@ -33,27 +33,29 @@
 		<?php echo $form->error($model,'email'); ?>
 	</div>
 
-	<? if($model->isNewRecord ){?>
+	<?php
+	 if($model->isNewRecord ){ 
+	?>
 	<div class="">
 		<?php echo $form->labelEx($model,'Hacer la reserva',array('class'=>'')); ?>
 		<?php echo CHtml::checkBox('nuevaReserva',1); ?>
 	</div>
-	<?}?>
-	<div class=" buttons">
-		<?php echo CHtml::submitButton($model->isNewRecord ? 'Aceptar' : 'Guardar',array('class'=>'btn btn-primary')); ?>
-	</div>
-</div>
-<div class="span5">
+	<?php
+	}
+?>
+	
 	<div class="">
 		<?php echo $form->labelEx($model,'idCondicionIva',array('class'=>'')); ?>
 		<?php echo $form->dropDownList($model,'idCondicionIva',CHtml::listData(CondicionesIva::model()->findAll(), 'id', 'nombreCondicionIva'),array ('style'=>'')); ?>
 		<?php echo $form->error($model,'idCondicionIva'); ?>
 	</div>
-	<div class="">
-		<?php echo $form->labelEx($model,'cuit',array('class'=>'')); ?>
-		<?php echo $form->textField($model,'cuit',array('class'=>'','size'=>60,'maxlength'=>255)); ?>
-		<?php echo $form->error($model,'cuit'); ?>
+	<div class=" buttons">
+		<?php echo CHtml::submitButton($model->isNewRecord ? 'Aceptar' : 'Guardar',array('class'=>'btn btn-primary')); ?>
 	</div>
+</div>
+<div class="span5">
+	
+
 	<div class="">
 		<?php echo $form->labelEx($model,'direccion',array('class'=>'')); ?>
 		<?php echo $form->textField($model,'direccion',array('class'=>'','size'=>60,'maxlength'=>255)); ?>
@@ -63,6 +65,24 @@
 		<?php echo $form->labelEx($model,'localidad',array('class'=>'')); ?>
 		<?php echo $form->textField($model,'localidad',array('class'=>'','size'=>60,'maxlength'=>255)); ?>
 		<?php echo $form->error($model,'localidad'); ?>
+	</div>
+	<div class="">
+			<?php echo $form->labelEx($model,'idTipoComprobante',array('class'=>'')); ?>
+			<?php echo $form->dropDownList($model,'idTipoComprobante',CHtml::listData(FacturasElectronicas::model()->getTiposComprobantes(), 'Id', 'Desc'),array ('style'=>'','onchange'=>'nroFactura()')); ?>
+
+			<?php echo $form->error($model,'idTipoComprobante'); ?>
+	</div>
+	<div class="">
+			<?php echo $form->labelEx($model,'tipoDoc',array('class'=>'')); ?>
+			<?php echo $form->dropDownList($model,'tipoDoc',CHtml::listData(FacturasElectronicas::model()->getTipoDocumentos(), 'Id', 'Desc'),array ('style'=>'','onchange'=>'nroFactura()')); ?>
+
+			<?php echo $form->error($model,'tipoDoc'); ?>
+
+	</div>
+	<div class="">
+		<?php echo $form->labelEx($model,'cuit',array('class'=>'')); ?>
+		<?php echo $form->textField($model,'cuit',array('class'=>'','size'=>60,'maxlength'=>255)); ?>
+		<?php echo $form->error($model,'cuit'); ?>
 	</div>
 </div>
 
