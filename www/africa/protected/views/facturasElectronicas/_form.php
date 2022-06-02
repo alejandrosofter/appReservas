@@ -37,12 +37,18 @@
 <div class="span4">
 	
 	
-	<div class="">
+<div class="">
 			<?php echo $form->labelEx($model,'idTipoComprobante',array('class'=>'')); ?>
-			<?php echo $form->dropDownList($model,'idTipoComprobante',CHtml::listData(FacturasElectronicas::model()->getTiposComprobantes(), 'Id', 'Desc'),array ('style'=>'','onchange'=>'nroFactura()')); ?>
+			<?php echo $form->dropDownList($model,'idTipoComprobante',CHtml::listData(FacturasElectronicas::model()->getTiposComprobantes(), 'Id', 'Desc'),array ('style'=>'','onchange'=>'cambiaTipoComprobante()')); ?>
 
 			<?php echo $form->error($model,'idTipoComprobante'); ?>
 	</div>
+	<?php
+	if($model->necesitaNroComprobante()){?>
+	<div id="nroComprobanteNotaCredito" >
+		<?php echo $form->textFieldRow($model,'nroComprobanteNotaCredito',array('class'=>'span1')); ?>
+	</div>
+	<?php } ?>
 	<div class="">
 			<?php echo $form->labelEx($model,'tipoDoc',array('class'=>'')); ?>
 			<?php echo $form->dropDownList($model,'tipoDoc',CHtml::listData(FacturasElectronicas::model()->getTipoDocumentos(), 'Id', 'Desc'),array ('style'=>'','onchange'=>'nroFactura()')); ?>
@@ -73,4 +79,21 @@ function cambiaCliente()
 	$("#FacturasElectronicas_tipoDoc").val(data.tipoDoc);
 });
 }
+//ALTER TABLE `facturasElectronicas` ADD `nroComprobanteNotaCredito` INT(50) NULL AFTER `nroComprobante`;
+
+function cambiaTipoComprobante()
+{
+	const codigosNotasDeCredito=[3,8,13,53,203,208,213]
+	const idTipoComprobante=Number($("#FacturasElectronicas_idTipoComprobante").val())
+	console.log(codigosNotasDeCredito.indexOf(idTipoComprobante));
+	if(codigosNotasDeCredito.indexOf(idTipoComprobante)>-1)
+	{
+		$("#nroComprobanteNotaCredito").show();
+	}
+	else
+	{
+		$("#nroComprobanteNotaCredito").hide();
+	}
+}
+
 </script>

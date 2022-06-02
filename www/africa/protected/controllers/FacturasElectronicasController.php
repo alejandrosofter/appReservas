@@ -54,6 +54,7 @@ class FacturasElectronicasController extends Controller
 		$nroCae=$model->nroCae;
 		$vtoCae=$model->fechaVto;
 		$letraComprobante=str_replace("Factura","",$model->getNombreTipoComprobante());
+		$letraComprobante=str_replace("Nota de Crédito","",$model->getNombreTipoComprobante());
 		$codigoComprobante=str_pad($model->idTipoComprobante,3,"0", STR_PAD_LEFT);
 		$cantidad=1;
 		$subTotal=number_format($importeTotal*$cantidad,2);
@@ -66,7 +67,7 @@ class FacturasElectronicasController extends Controller
 			'condicionIva'=>$condicionIva,"domicilio"=>$domicilio,'importeTotal'=>$importeTotal,
 			'importeSubTotal'=>$importeSubTotal,'nroCae'=>$nroCae,'vtoCae'=>$vtoCae,
 			"letraComprobante"=>$letraComprobante,"codigoComprobante"=>$codigoComprobante,
-			"tipoComprobante"=>strtoupper($model->getNombreTipoComprobante()),
+			"tipoComprobante"=>mb_strtoupper($model->getNombreTipoComprobante(), 'UTF-8'),
 			"puntoVenta"=>$model->getNroPuntoVenta(),"items"=>$items
 		));
 	}

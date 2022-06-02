@@ -1902,3 +1902,168 @@ Stack trace:
 REQUEST_URI=/africa/index.php?r=facturasElectronicas/create&idTransaccionCliente=18071
 HTTP_REFERER=http://localhost/africa/index.php?r=transacciones/createIngreso
 ---
+2022/06/02 10:24:29 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "test"' in /var/www/html/framework/web/CWebApplication.php:280
+Stack trace:
+#0 /var/www/html/framework/web/CWebApplication.php(135): CWebApplication->runController('test')
+#1 /var/www/html/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#2 /var/www/html/africa/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/africa/index.php?r=test
+---
+2022/06/02 10:45:42 [error] [exception.CHttpException.500] exception 'CHttpException' with message '(10197) Si el comprobante es Debito o Credito, enviar estructura CbteAsoc o PeriodoAsoc.' in /var/www/html/africa/protected/controllers/FacturasElectronicasController.php:135
+Stack trace:
+#0 [internal function]: FacturasElectronicasController->actionEnviarAfip('14')
+#1 /var/www/html/framework/web/actions/CAction.php(107): ReflectionMethod->invokeArgs(Object(FacturasElectronicasController), Array)
+#2 /var/www/html/framework/web/actions/CInlineAction.php(48): CAction->runWithParamsInternal(Object(FacturasElectronicasController), Object(ReflectionMethod), Array)
+#3 /var/www/html/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#4 /var/www/html/framework/web/CController.php(287): CController->runAction(Object(CInlineAction))
+#5 /var/www/html/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/html/framework/web/CWebApplication.php(276): CController->run('enviarAfip')
+#7 /var/www/html/framework/web/CWebApplication.php(135): CWebApplication->runController('facturasElectro...')
+#8 /var/www/html/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#9 /var/www/html/africa/index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/africa/index.php?r=facturasElectronicas/enviarAfip&id=14
+HTTP_REFERER=http://localhost/africa/index.php?r=facturasElectronicas/sendComprobanteAfip&id=14
+---
+2022/06/02 10:48:16 [error] [exception.CHttpException.500] exception 'CHttpException' with message '(10197) Si el comprobante es Debito o Credito, enviar estructura CbteAsoc o PeriodoAsoc.' in /var/www/html/africa/protected/controllers/FacturasElectronicasController.php:135
+Stack trace:
+#0 [internal function]: FacturasElectronicasController->actionEnviarAfip('15')
+#1 /var/www/html/framework/web/actions/CAction.php(107): ReflectionMethod->invokeArgs(Object(FacturasElectronicasController), Array)
+#2 /var/www/html/framework/web/actions/CInlineAction.php(48): CAction->runWithParamsInternal(Object(FacturasElectronicasController), Object(ReflectionMethod), Array)
+#3 /var/www/html/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#4 /var/www/html/framework/web/CController.php(287): CController->runAction(Object(CInlineAction))
+#5 /var/www/html/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/html/framework/web/CWebApplication.php(276): CController->run('enviarAfip')
+#7 /var/www/html/framework/web/CWebApplication.php(135): CWebApplication->runController('facturasElectro...')
+#8 /var/www/html/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#9 /var/www/html/africa/index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/africa/index.php?r=facturasElectronicas/enviarAfip&id=15
+HTTP_REFERER=http://localhost/africa/index.php?r=facturasElectronicas/sendComprobanteAfip&id=15
+---
+2022/06/02 10:49:44 [error] [exception.CHttpException.500] exception 'CHttpException' with message '(10197) Si el comprobante es Debito o Credito, enviar estructura CbteAsoc o PeriodoAsoc.' in /var/www/html/africa/protected/controllers/FacturasElectronicasController.php:135
+Stack trace:
+#0 [internal function]: FacturasElectronicasController->actionEnviarAfip('15')
+#1 /var/www/html/framework/web/actions/CAction.php(107): ReflectionMethod->invokeArgs(Object(FacturasElectronicasController), Array)
+#2 /var/www/html/framework/web/actions/CInlineAction.php(48): CAction->runWithParamsInternal(Object(FacturasElectronicasController), Object(ReflectionMethod), Array)
+#3 /var/www/html/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#4 /var/www/html/framework/web/CController.php(287): CController->runAction(Object(CInlineAction))
+#5 /var/www/html/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/html/framework/web/CWebApplication.php(276): CController->run('enviarAfip')
+#7 /var/www/html/framework/web/CWebApplication.php(135): CWebApplication->runController('facturasElectro...')
+#8 /var/www/html/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#9 /var/www/html/africa/index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/africa/index.php?r=facturasElectronicas/enviarAfip&id=15
+HTTP_REFERER=http://localhost/africa/index.php?r=facturasElectronicas/sendComprobanteAfip&id=15
+---
+2022/06/02 11:16:20 [error] [exception.CHttpException.500] exception 'CHttpException' with message '(10197) Si el comprobante es Debito o Credito, enviar estructura CbteAsoc o PeriodoAsoc.' in /var/www/html/africa/protected/controllers/FacturasElectronicasController.php:135
+Stack trace:
+#0 [internal function]: FacturasElectronicasController->actionEnviarAfip('14')
+#1 /var/www/html/framework/web/actions/CAction.php(107): ReflectionMethod->invokeArgs(Object(FacturasElectronicasController), Array)
+#2 /var/www/html/framework/web/actions/CInlineAction.php(48): CAction->runWithParamsInternal(Object(FacturasElectronicasController), Object(ReflectionMethod), Array)
+#3 /var/www/html/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#4 /var/www/html/framework/web/CController.php(287): CController->runAction(Object(CInlineAction))
+#5 /var/www/html/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/html/framework/web/CWebApplication.php(276): CController->run('enviarAfip')
+#7 /var/www/html/framework/web/CWebApplication.php(135): CWebApplication->runController('facturasElectro...')
+#8 /var/www/html/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#9 /var/www/html/africa/index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/africa/index.php?r=facturasElectronicas/enviarAfip&id=14
+HTTP_REFERER=http://localhost/africa/index.php?r=facturasElectronicas/sendComprobanteAfip&id=14
+---
+2022/06/02 11:18:28 [error] [php] Object of class stdClass could not be converted to int (/var/www/html/africa/afip.php-master/src/Afip.php:466)
+Stack trace:
+#0 /var/www/html/africa/afip.php-master/src/Class/ElectronicBilling.php(322): ElectronicBilling->ExecuteRequest()
+#1 /var/www/html/africa/afip.php-master/src/Class/ElectronicBilling.php(92): ElectronicBilling->ExecuteRequest()
+#2 /var/www/html/africa/afip.php-master/src/Class/ElectronicBilling.php(134): ElectronicBilling->CreateVoucher()
+#3 /var/www/html/africa/protected/models/FacturasElectronicas.php(200): ElectronicBilling->CreateNextVoucher()
+#4 /var/www/html/africa/protected/controllers/FacturasElectronicasController.php(125): FacturasElectronicas->crearComprobante()
+#5 unknown(0): FacturasElectronicasController->actionEnviarAfip()
+#6 /var/www/html/framework/web/actions/CAction.php(107): ReflectionMethod->invokeArgs()
+#7 /var/www/html/framework/web/actions/CInlineAction.php(48): CInlineAction->runWithParamsInternal()
+#8 /var/www/html/framework/web/CController.php(309): CInlineAction->runWithParams()
+#9 /var/www/html/framework/web/CController.php(287): FacturasElectronicasController->runAction()
+#10 /var/www/html/framework/web/CController.php(266): FacturasElectronicasController->runActionWithFilters()
+#11 /var/www/html/framework/web/CWebApplication.php(276): FacturasElectronicasController->run()
+#12 /var/www/html/framework/web/CWebApplication.php(135): CWebApplication->runController()
+#13 /var/www/html/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#14 /var/www/html/africa/index.php(13): CWebApplication->run()
+REQUEST_URI=/africa/index.php?r=facturasElectronicas/enviarAfip&id=14
+in /var/www/html/africa/afip.php-master/src/Afip.php (466)
+in /var/www/html/africa/afip.php-master/src/Afip.php (466)
+in /var/www/html/africa/afip.php-master/src/Class/ElectronicBilling.php (322)
+2022/06/02 11:19:25 [error] [php] Object of class stdClass could not be converted to int (/var/www/html/africa/afip.php-master/src/Afip.php:466)
+Stack trace:
+#0 /var/www/html/africa/afip.php-master/src/Class/ElectronicBilling.php(322): ElectronicBilling->ExecuteRequest()
+#1 /var/www/html/africa/afip.php-master/src/Class/ElectronicBilling.php(92): ElectronicBilling->ExecuteRequest()
+#2 /var/www/html/africa/afip.php-master/src/Class/ElectronicBilling.php(134): ElectronicBilling->CreateVoucher()
+#3 /var/www/html/africa/protected/models/FacturasElectronicas.php(200): ElectronicBilling->CreateNextVoucher()
+#4 /var/www/html/africa/protected/controllers/FacturasElectronicasController.php(125): FacturasElectronicas->crearComprobante()
+#5 unknown(0): FacturasElectronicasController->actionEnviarAfip()
+#6 /var/www/html/framework/web/actions/CAction.php(107): ReflectionMethod->invokeArgs()
+#7 /var/www/html/framework/web/actions/CInlineAction.php(48): CInlineAction->runWithParamsInternal()
+#8 /var/www/html/framework/web/CController.php(309): CInlineAction->runWithParams()
+#9 /var/www/html/framework/web/CController.php(287): FacturasElectronicasController->runAction()
+#10 /var/www/html/framework/web/CController.php(266): FacturasElectronicasController->runActionWithFilters()
+#11 /var/www/html/framework/web/CWebApplication.php(276): FacturasElectronicasController->run()
+#12 /var/www/html/framework/web/CWebApplication.php(135): CWebApplication->runController()
+#13 /var/www/html/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#14 /var/www/html/africa/index.php(13): CWebApplication->run()
+REQUEST_URI=/africa/index.php?r=facturasElectronicas/enviarAfip&id=14
+in /var/www/html/africa/afip.php-master/src/Afip.php (466)
+in /var/www/html/africa/afip.php-master/src/Afip.php (466)
+in /var/www/html/africa/afip.php-master/src/Class/ElectronicBilling.php (322)
+2022/06/02 11:21:53 [error] [php] Object of class stdClass could not be converted to int (/var/www/html/africa/afip.php-master/src/Afip.php:466)
+Stack trace:
+#0 /var/www/html/africa/afip.php-master/src/Class/ElectronicBilling.php(322): ElectronicBilling->ExecuteRequest()
+#1 /var/www/html/africa/afip.php-master/src/Class/ElectronicBilling.php(92): ElectronicBilling->ExecuteRequest()
+#2 /var/www/html/africa/afip.php-master/src/Class/ElectronicBilling.php(134): ElectronicBilling->CreateVoucher()
+#3 /var/www/html/africa/protected/models/FacturasElectronicas.php(208): ElectronicBilling->CreateNextVoucher()
+#4 /var/www/html/africa/protected/controllers/FacturasElectronicasController.php(125): FacturasElectronicas->crearComprobante()
+#5 unknown(0): FacturasElectronicasController->actionEnviarAfip()
+#6 /var/www/html/framework/web/actions/CAction.php(107): ReflectionMethod->invokeArgs()
+#7 /var/www/html/framework/web/actions/CInlineAction.php(48): CInlineAction->runWithParamsInternal()
+#8 /var/www/html/framework/web/CController.php(309): CInlineAction->runWithParams()
+#9 /var/www/html/framework/web/CController.php(287): FacturasElectronicasController->runAction()
+#10 /var/www/html/framework/web/CController.php(266): FacturasElectronicasController->runActionWithFilters()
+#11 /var/www/html/framework/web/CWebApplication.php(276): FacturasElectronicasController->run()
+#12 /var/www/html/framework/web/CWebApplication.php(135): CWebApplication->runController()
+#13 /var/www/html/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#14 /var/www/html/africa/index.php(13): CWebApplication->run()
+REQUEST_URI=/africa/index.php?r=facturasElectronicas/enviarAfip&id=14
+in /var/www/html/africa/afip.php-master/src/Afip.php (466)
+in /var/www/html/africa/afip.php-master/src/Afip.php (466)
+in /var/www/html/africa/afip.php-master/src/Class/ElectronicBilling.php (322)
+2022/06/02 11:22:34 [error] [exception.CHttpException.500] exception 'CHttpException' with message '(10197) Si el comprobante es Debito o Credito, enviar estructura CbteAsoc o PeriodoAsoc.' in /var/www/html/africa/protected/controllers/FacturasElectronicasController.php:135
+Stack trace:
+#0 [internal function]: FacturasElectronicasController->actionEnviarAfip('14')
+#1 /var/www/html/framework/web/actions/CAction.php(107): ReflectionMethod->invokeArgs(Object(FacturasElectronicasController), Array)
+#2 /var/www/html/framework/web/actions/CInlineAction.php(48): CAction->runWithParamsInternal(Object(FacturasElectronicasController), Object(ReflectionMethod), Array)
+#3 /var/www/html/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#4 /var/www/html/framework/web/CController.php(287): CController->runAction(Object(CInlineAction))
+#5 /var/www/html/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/html/framework/web/CWebApplication.php(276): CController->run('enviarAfip')
+#7 /var/www/html/framework/web/CWebApplication.php(135): CWebApplication->runController('facturasElectro...')
+#8 /var/www/html/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#9 /var/www/html/africa/index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/africa/index.php?r=facturasElectronicas/enviarAfip&id=14
+HTTP_REFERER=http://localhost/africa/index.php?r=facturasElectronicas/sendComprobanteAfip&id=14
+---
+2022/06/02 11:25:53 [error] [php] strtoupper() expects exactly 1 parameter, 2 given (/var/www/html/africa/protected/controllers/FacturasElectronicasController.php:70)
+Stack trace:
+#0 /var/www/html/framework/web/actions/CAction.php(107): ReflectionMethod->invokeArgs()
+#1 /var/www/html/framework/web/actions/CInlineAction.php(48): CInlineAction->runWithParamsInternal()
+#2 /var/www/html/framework/web/CController.php(309): CInlineAction->runWithParams()
+#3 /var/www/html/framework/web/CController.php(287): FacturasElectronicasController->runAction()
+#4 /var/www/html/framework/web/CController.php(266): FacturasElectronicasController->runActionWithFilters()
+#5 /var/www/html/framework/web/CWebApplication.php(276): FacturasElectronicasController->run()
+#6 /var/www/html/framework/web/CWebApplication.php(135): CWebApplication->runController()
+#7 /var/www/html/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#8 /var/www/html/africa/index.php(13): CWebApplication->run()
+REQUEST_URI=/africa/index.php?r=facturasElectronicas/imprimir&id=14
+in /var/www/html/africa/protected/controllers/FacturasElectronicasController.php (70)
+in /var/www/html/africa/index.php (13)

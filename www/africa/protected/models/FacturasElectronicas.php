@@ -53,9 +53,44 @@ class FacturasElectronicas extends CActiveRecord
 		$cuit=Settings::model()->getValorSistema('DATOS_EMPRESA_CUIT');
 		return new Afip(array('CUIT' => $cuit,"production"=>true));
 	}
+	public function necesitaNroComprobante()
+	{
+		//chequeo si idTipoComprobante esta dentro del array
+		if (in_array($this->idTipoComprobante, $this->getCodigosNotasCredito())) return true;
+		return false;
+	}
+	public function getCodigosNotasCredito()
+	{
+		return array(3,8,13,53,203,208,213);
+	}
+	public function getComprobanteAsociado()
+	{
+		if($this->necesitaNroComprobante())
+		{
+			$cuit=Settings::model()->getValorSistema('DATOS_EMPRESA_CUIT');
+			$comprobante=FacturasElectronicas::model()->findByAttributes(array('nroComprobante'=>$this->nroComprobanteNotaCredito));
+			// return 
+			// array("CbteAsoc"=>
+			// 	array(
+			// 		"Nro"=>$comprobante->nroComprobante,
+			// 		"Tipo"=>$comprobante->idTipoComprobante,
+			// 		"PtoVta"=>$this->getPuntoVenta(),
+			// 	)
+			// 	);	
+			return  array(
+				'CbteAsoc' => array('Tipo' => $comprobante->idTipoComprobante,
+				'PtoVta' => $this->getNroPuntoVenta(),
+				'Nro' => $comprobante->nroComprobante,
+				'Cuit' => $cuit,
+				'CbteFch' => intval(date('Ymd', strtotime($comprobante->fecha)))
+				));									
+		}
+		return null;
+	}
 public function getData($importeTotal,$calculaIva)
 {
 	$pv=$this->getPuntoVenta();
+	$codigosNotasDeCredito=$this->getCodigosNotasCredito();
 	$importeNeto=$calculaIva?$importeTotal/1.21:$importeTotal;
 	$importeIva=$calculaIva?$importeTotal-$importeNeto:0;
 	$arrIva=$calculaIva?array(
@@ -64,6 +99,7 @@ public function getData($importeTotal,$calculaIva)
 		'Importe' 	=> $this->formatImporte($importeIva) // Importe 
 	):array();
 	return  array(
+		'CbtesAsoc'=> $this->getComprobanteAsociado(),
 		'CantReg' 	=> 1,  // Cantidad de comprobantes a registrar
 		'PtoVta' 	=> $pv->Nro,  // Punto de venta
 		'CbteTipo' 	=> $this->idTipoComprobante,  // Tipo de comprobante (ver tipos disponibles) 
@@ -186,13 +222,13 @@ public function infoComprobante($nroComprobante,$ptoVenta,$tipoComprobante)
 		// will receive user inputs.
 		return array(
 			array('fecha, detalle, importe, estado, idTipoComprobante, doc, tipoDoc, idCliente', 'required'),
-			array('nroCae, idTransaccion, idTipoComprobante, tipoDoc, idCliente', 'numerical', 'integerOnly'=>true),
+			array('nroCae, idTransaccion,nroComprobanteNotaCredito, idTipoComprobante, tipoDoc, idCliente', 'numerical', 'integerOnly'=>true),
 			array('detalle,detalleError, fechaVto,nroComprobante', 'length', 'max'=>255),
 			array('importe', 'length', 'max'=>10),
 			array('estado, doc', 'length', 'max'=>50),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('buscar,id, fecha, detalle, importe, nroComprobante,fechaVto,detalleError, nroCae, estado, idTransaccion, idTipoComprobante, doc, tipoDoc, idCliente', 'safe', 'on'=>'search'),
+			array('buscar,id, fecha, detalle, importe,nroComprobanteNotaCredito, nroComprobante,fechaVto,detalleError, nroCae, estado, idTransaccion, idTipoComprobante, doc, tipoDoc, idCliente', 'safe', 'on'=>'search'),
 		);
 	}
 
