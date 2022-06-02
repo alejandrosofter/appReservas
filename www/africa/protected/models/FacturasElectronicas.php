@@ -77,13 +77,15 @@ class FacturasElectronicas extends CActiveRecord
 			// 		"PtoVta"=>$this->getPuntoVenta(),
 			// 	)
 			// 	);	
-			return  array(
-				'CbteAsoc' => array('Tipo' => $comprobante->idTipoComprobante,
-				'PtoVta' => $this->getNroPuntoVenta(),
-				'Nro' => $comprobante->nroComprobante,
-				'Cuit' => $cuit,
-				'CbteFch' => intval(date('Ymd', strtotime($comprobante->fecha)))
-				));									
+			if(isset($comprobante))
+				return  array(
+					'CbteAsoc' => array('Tipo' => $comprobante->idTipoComprobante,
+					'PtoVta' => $this->getNroPuntoVenta(),
+					'Nro' => $comprobante->nroComprobante,
+					'Cuit' => $cuit,
+					'CbteFch' => intval(date('Ymd', strtotime($comprobante->fecha)))
+					));		
+					else throw new CHttpException(500, 'No se encontro el comprobante asociado');							
 		}
 		return null;
 	}
