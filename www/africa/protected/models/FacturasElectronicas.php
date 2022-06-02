@@ -77,7 +77,7 @@ class FacturasElectronicas extends CActiveRecord
 			// 		"PtoVta"=>$this->getPuntoVenta(),
 			// 	)
 			// 	);	
-			if(isset($comprobante))
+			if(isset( $comprobante->idTipoComprobante))
 				return  array(
 					'CbteAsoc' => array('Tipo' => $comprobante->idTipoComprobante,
 					'PtoVta' => $this->getNroPuntoVenta(),
