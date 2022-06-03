@@ -57,7 +57,7 @@ class FacturasElectronicasController extends Controller
 		$letraComprobante=str_replace("Nota de Crédito","",$letraComprobante);
 		$codigoComprobante=str_pad($model->idTipoComprobante,3,"0", STR_PAD_LEFT);
 		$cantidad=1;
-		$subTotal=number_format($importeTotal*$cantidad,2);
+		$subTotal=number_format($$model->importe*$cantidad,2);
 		$item=array('cantidad'=>$cantidad,'unidadMedida'=>'unidad','detalle'=>$model->detalle,'importeUnidad'=>$importeTotal,'subTotal'=>$subTotal);
 		$items=array($item);
 		$this->render('factura',array(
