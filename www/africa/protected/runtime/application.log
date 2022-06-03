@@ -2241,3 +2241,18 @@ Stack trace:
 #5 {main}
 REQUEST_URI=/africa/index.php?r=facturasElectronicas/chekcServer
 ---
+2022/06/03 21:14:06 [error] [exception.CHttpException.500] exception 'CHttpException' with message 'Failed to open /var/www/html/africa/afip.php-master/src/Afip_res/cert
+' in /var/www/html/africa/protected/controllers/FacturasElectronicasController.php:87
+Stack trace:
+#0 /var/www/html/framework/web/actions/CInlineAction.php(50): FacturasElectronicasController->actionCheckServer()
+#1 /var/www/html/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#2 /var/www/html/framework/web/CController.php(287): CController->runAction(Object(CInlineAction))
+#3 /var/www/html/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#4 /var/www/html/framework/web/CWebApplication.php(276): CController->run('CheckServer')
+#5 /var/www/html/framework/web/CWebApplication.php(135): CWebApplication->runController('facturasElectro...')
+#6 /var/www/html/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#7 /var/www/html/africa/index.php(13): CApplication->run()
+#8 {main}
+REQUEST_URI=/africa/index.php?r=facturasElectronicas/CheckServer
+HTTP_REFERER=http://localhost/africa/index.php?r=facturasElectronicas%2Findex&FacturasElectronicas%5Bbuscar%5D=&yt0=Buscar
+---

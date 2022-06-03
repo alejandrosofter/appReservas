@@ -171,7 +171,7 @@ public function formatearFecha2($fecha,$masDias=0,$formato="Ymd")
 }
 
 private function formatImporte($importe){
-	return number_format($importe,2);
+	return number_format($importe,2,".","");
 }
 public function getListaTributos()
 {

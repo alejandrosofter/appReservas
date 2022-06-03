@@ -47,6 +47,7 @@ $this->menu=array(
 		),
 	),
 )); ?>
+
 <div class="span5" id="checkServer">
 	Estado AFIP <button class="btn btn-success" onClick="checkAfip()">Check</button><br>
 <div id="okAfip" style="display:none" class="alert alert-success">
