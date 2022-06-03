@@ -54,7 +54,7 @@ class FacturasElectronicasController extends Controller
 		$nroCae=$model->nroCae;
 		$vtoCae=$model->fechaVto;
 		$letraComprobante=str_replace("Factura","",$model->getNombreTipoComprobante());
-		$letraComprobante=str_replace("Nota de Crédito","",$model->getNombreTipoComprobante());
+		$letraComprobante=str_replace("Nota de Crédito","",$letraComprobante);
 		$codigoComprobante=str_pad($model->idTipoComprobante,3,"0", STR_PAD_LEFT);
 		$cantidad=1;
 		$subTotal=number_format($importeTotal*$cantidad,2);
@@ -76,6 +76,18 @@ class FacturasElectronicasController extends Controller
 		$pv=FacturasElectronicas::model()->getTiposComprobantes();
 
 		print_r($pv);
+	}
+	public function actionCheckServer()
+	{
+		try{
+			$data=FacturasElectronicas::model()->getEstadoServidor();
+			echo CJSON::encode($data);
+		}
+		catch(Exception $e){
+			throw new CHttpException(500,$e->getMessage());
+		}
+		
+		
 	}
 
 	/**

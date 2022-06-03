@@ -10,7 +10,10 @@ $this->menu=array(
 <header id="page-header">
 <h1 id="page-title">Administración de Comprobantes Electronicos</h1>
 </header>
-<?=$this->renderPartial('_search',array('model'=>$model));?><?php $this->widget('zii.widgets.grid.CGridView', array(
+
+<?=$this->renderPartial('_search',array('model'=>$model));?>
+
+<?php $this->widget('zii.widgets.grid.CGridView', array(
 	'id'=>'fe-grid',
 	'dataProvider'=>$model->search(),
 	
@@ -44,3 +47,26 @@ $this->menu=array(
 		),
 	),
 )); ?>
+<div class="span5" id="checkServer">
+	Estado AFIP <button class="btn btn-success" onClick="checkAfip()">Check</button><br>
+<div id="okAfip" style="display:none" class="alert alert-success">
+<strong>¡Bien!</strong> El servidor de AFIP está conectado.
+</div>
+<div id="errorAfip" style="display:none"  class="alert alert-error">
+<strong>Ops!</strong> No puedo conectar con AFIP, puede que sus servidores no esten funcionando
+</div>
+</div>
+<script>
+var cliente;
+function checkAfip()
+{
+	$.getJSON('index.php?r=facturasElectronicas/CheckServer', function(data) {
+    $("#okAfip").show();
+	$("#errorAfip").hide();
+})
+.fail(function() {
+	$("#okAfip").hide();
+	$("#errorAfip").show();
+});
+}
+</script>

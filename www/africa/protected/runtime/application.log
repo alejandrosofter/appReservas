@@ -2067,3 +2067,177 @@ Stack trace:
 REQUEST_URI=/africa/index.php?r=facturasElectronicas/imprimir&id=14
 in /var/www/html/africa/protected/controllers/FacturasElectronicasController.php (70)
 in /var/www/html/africa/index.php (13)
+2022/06/03 09:51:02 [error] [exception.Exception] exception 'Exception' with message '(500) Error interno de aplicación: - Metodo FEParamGetTiposCbteTipos' in /var/www/html/africa/afip.php-master/src/Class/ElectronicBilling.php:380
+Stack trace:
+#0 /var/www/html/africa/afip.php-master/src/Class/ElectronicBilling.php(324): ElectronicBilling->_CheckErrors('FEParamGetTipos...', Object(stdClass))
+#1 /var/www/html/africa/afip.php-master/src/Class/ElectronicBilling.php(198): ElectronicBilling->ExecuteRequest('FEParamGetTipos...')
+#2 /var/www/html/africa/protected/models/FacturasElectronicas.php(143): ElectronicBilling->GetVoucherTypes()
+#3 /var/www/html/africa/protected/views/clientes/_form.php(71): FacturasElectronicas->getTiposComprobantes()
+#4 /var/www/html/framework/web/CBaseController.php(127): require('/var/www/html/a...')
+#5 /var/www/html/framework/web/CBaseController.php(96): CBaseController->renderInternal('/var/www/html/a...', Array, true)
+#6 /var/www/html/framework/web/CController.php(870): CBaseController->renderFile('/var/www/html/a...', Array, true)
+#7 /var/www/html/africa/protected/views/clientes/create.php(14): CController->renderPartial('_form', Array)
+#8 /var/www/html/framework/web/CBaseController.php(127): require('/var/www/html/a...')
+#9 /var/www/html/framework/web/CBaseController.php(96): CBaseController->renderInternal('/var/www/html/a...', Array, true)
+#10 /var/www/html/framework/web/CController.php(870): CBaseController->renderFile('/var/www/html/a...', Array, true)
+#11 /var/www/html/framework/web/CController.php(783): CController->renderPartial('create', Array, true)
+#12 /var/www/html/africa/protected/controllers/ClientesController.php(73): CController->render('create', Array)
+#13 /var/www/html/framework/web/actions/CInlineAction.php(50): ClientesController->actionCreate()
+#14 /var/www/html/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#15 /var/www/html/framework/web/filters/CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#16 /var/www/html/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#17 /var/www/html/africa/protected/modules/rights/components/RController.php(36): CFilter->filter(Object(CFilterChain))
+#18 /var/www/html/framework/web/filters/CInlineFilter.php(59): RController->filterRights(Object(CFilterChain))
+#19 /var/www/html/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#20 /var/www/html/framework/web/CController.php(292): CFilterChain->run()
+#21 /var/www/html/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#22 /var/www/html/framework/web/CWebApplication.php(276): CController->run('create')
+#23 /var/www/html/framework/web/CWebApplication.php(135): CWebApplication->runController('clientes/create')
+#24 /var/www/html/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#25 /var/www/html/africa/index.php(13): CApplication->run()
+#26 {main}
+REQUEST_URI=/africa/index.php?r=clientes/create
+HTTP_REFERER=http://localhost/africa/
+---
+2022/06/03 09:51:21 [error] [exception.Exception] exception 'Exception' with message '(500) Error interno de aplicación: - Metodo FEParamGetTiposCbteTipos' in /var/www/html/africa/afip.php-master/src/Class/ElectronicBilling.php:380
+Stack trace:
+#0 /var/www/html/africa/afip.php-master/src/Class/ElectronicBilling.php(324): ElectronicBilling->_CheckErrors('FEParamGetTipos...', Object(stdClass))
+#1 /var/www/html/africa/afip.php-master/src/Class/ElectronicBilling.php(198): ElectronicBilling->ExecuteRequest('FEParamGetTipos...')
+#2 /var/www/html/africa/protected/models/FacturasElectronicas.php(143): ElectronicBilling->GetVoucherTypes()
+#3 /var/www/html/africa/protected/controllers/FacturasElectronicasController.php(76): FacturasElectronicas->getTiposComprobantes()
+#4 /var/www/html/framework/web/actions/CInlineAction.php(50): FacturasElectronicasController->actionTest()
+#5 /var/www/html/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#6 /var/www/html/framework/web/CController.php(287): CController->runAction(Object(CInlineAction))
+#7 /var/www/html/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 /var/www/html/framework/web/CWebApplication.php(276): CController->run('test')
+#9 /var/www/html/framework/web/CWebApplication.php(135): CWebApplication->runController('facturasElectro...')
+#10 /var/www/html/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#11 /var/www/html/africa/index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/africa/index.php?r=facturasElectronicas/test
+---
+2022/06/03 09:56:30 [error] [exception.Exception] exception 'Exception' with message '(500) Error interno de aplicación: - Metodo FEParamGetTiposCbteTipos' in /var/www/html/africa/afip.php-master/src/Class/ElectronicBilling.php:380
+Stack trace:
+#0 /var/www/html/africa/afip.php-master/src/Class/ElectronicBilling.php(324): ElectronicBilling->_CheckErrors('FEParamGetTipos...', Object(stdClass))
+#1 /var/www/html/africa/afip.php-master/src/Class/ElectronicBilling.php(198): ElectronicBilling->ExecuteRequest('FEParamGetTipos...')
+#2 /var/www/html/africa/protected/models/FacturasElectronicas.php(143): ElectronicBilling->GetVoucherTypes()
+#3 /var/www/html/africa/protected/controllers/FacturasElectronicasController.php(76): FacturasElectronicas->getTiposComprobantes()
+#4 /var/www/html/framework/web/actions/CInlineAction.php(50): FacturasElectronicasController->actionTest()
+#5 /var/www/html/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#6 /var/www/html/framework/web/CController.php(287): CController->runAction(Object(CInlineAction))
+#7 /var/www/html/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 /var/www/html/framework/web/CWebApplication.php(276): CController->run('test')
+#9 /var/www/html/framework/web/CWebApplication.php(135): CWebApplication->runController('facturasElectro...')
+#10 /var/www/html/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#11 /var/www/html/africa/index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/africa/index.php?r=facturasElectronicas/test
+---
+2022/06/03 09:56:34 [error] [exception.Exception] exception 'Exception' with message '(500) Error interno de aplicación: - Metodo FEParamGetTiposCbteTipos' in /var/www/html/africa/afip.php-master/src/Class/ElectronicBilling.php:380
+Stack trace:
+#0 /var/www/html/africa/afip.php-master/src/Class/ElectronicBilling.php(324): ElectronicBilling->_CheckErrors('FEParamGetTipos...', Object(stdClass))
+#1 /var/www/html/africa/afip.php-master/src/Class/ElectronicBilling.php(198): ElectronicBilling->ExecuteRequest('FEParamGetTipos...')
+#2 /var/www/html/africa/protected/models/FacturasElectronicas.php(143): ElectronicBilling->GetVoucherTypes()
+#3 /var/www/html/africa/protected/controllers/FacturasElectronicasController.php(76): FacturasElectronicas->getTiposComprobantes()
+#4 /var/www/html/framework/web/actions/CInlineAction.php(50): FacturasElectronicasController->actionTest()
+#5 /var/www/html/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#6 /var/www/html/framework/web/CController.php(287): CController->runAction(Object(CInlineAction))
+#7 /var/www/html/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 /var/www/html/framework/web/CWebApplication.php(276): CController->run('test')
+#9 /var/www/html/framework/web/CWebApplication.php(135): CWebApplication->runController('facturasElectro...')
+#10 /var/www/html/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#11 /var/www/html/africa/index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/africa/index.php?r=facturasElectronicas/test
+---
+2022/06/03 09:56:49 [error] [exception.Exception] exception 'Exception' with message '(500) Error interno de aplicación: - Metodo FEParamGetTiposCbteTipos' in /var/www/html/africa/afip.php-master/src/Class/ElectronicBilling.php:380
+Stack trace:
+#0 /var/www/html/africa/afip.php-master/src/Class/ElectronicBilling.php(324): ElectronicBilling->_CheckErrors('FEParamGetTipos...', Object(stdClass))
+#1 /var/www/html/africa/afip.php-master/src/Class/ElectronicBilling.php(198): ElectronicBilling->ExecuteRequest('FEParamGetTipos...')
+#2 /var/www/html/africa/protected/models/FacturasElectronicas.php(143): ElectronicBilling->GetVoucherTypes()
+#3 /var/www/html/africa/protected/controllers/FacturasElectronicasController.php(76): FacturasElectronicas->getTiposComprobantes()
+#4 /var/www/html/framework/web/actions/CInlineAction.php(50): FacturasElectronicasController->actionTest()
+#5 /var/www/html/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#6 /var/www/html/framework/web/CController.php(287): CController->runAction(Object(CInlineAction))
+#7 /var/www/html/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 /var/www/html/framework/web/CWebApplication.php(276): CController->run('test')
+#9 /var/www/html/framework/web/CWebApplication.php(135): CWebApplication->runController('facturasElectro...')
+#10 /var/www/html/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#11 /var/www/html/africa/index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/africa/index.php?r=facturasElectronicas/test
+---
+2022/06/03 09:56:53 [error] [exception.Exception] exception 'Exception' with message '(500) Error interno de aplicación: - Metodo FEParamGetTiposCbteTipos' in /var/www/html/africa/afip.php-master/src/Class/ElectronicBilling.php:380
+Stack trace:
+#0 /var/www/html/africa/afip.php-master/src/Class/ElectronicBilling.php(324): ElectronicBilling->_CheckErrors('FEParamGetTipos...', Object(stdClass))
+#1 /var/www/html/africa/afip.php-master/src/Class/ElectronicBilling.php(198): ElectronicBilling->ExecuteRequest('FEParamGetTipos...')
+#2 /var/www/html/africa/protected/models/FacturasElectronicas.php(143): ElectronicBilling->GetVoucherTypes()
+#3 /var/www/html/africa/protected/views/clientes/_form.php(71): FacturasElectronicas->getTiposComprobantes()
+#4 /var/www/html/framework/web/CBaseController.php(127): require('/var/www/html/a...')
+#5 /var/www/html/framework/web/CBaseController.php(96): CBaseController->renderInternal('/var/www/html/a...', Array, true)
+#6 /var/www/html/framework/web/CController.php(870): CBaseController->renderFile('/var/www/html/a...', Array, true)
+#7 /var/www/html/africa/protected/views/clientes/create.php(14): CController->renderPartial('_form', Array)
+#8 /var/www/html/framework/web/CBaseController.php(127): require('/var/www/html/a...')
+#9 /var/www/html/framework/web/CBaseController.php(96): CBaseController->renderInternal('/var/www/html/a...', Array, true)
+#10 /var/www/html/framework/web/CController.php(870): CBaseController->renderFile('/var/www/html/a...', Array, true)
+#11 /var/www/html/framework/web/CController.php(783): CController->renderPartial('create', Array, true)
+#12 /var/www/html/africa/protected/controllers/ClientesController.php(73): CController->render('create', Array)
+#13 /var/www/html/framework/web/actions/CInlineAction.php(50): ClientesController->actionCreate()
+#14 /var/www/html/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#15 /var/www/html/framework/web/filters/CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#16 /var/www/html/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#17 /var/www/html/africa/protected/modules/rights/components/RController.php(36): CFilter->filter(Object(CFilterChain))
+#18 /var/www/html/framework/web/filters/CInlineFilter.php(59): RController->filterRights(Object(CFilterChain))
+#19 /var/www/html/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#20 /var/www/html/framework/web/CController.php(292): CFilterChain->run()
+#21 /var/www/html/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#22 /var/www/html/framework/web/CWebApplication.php(276): CController->run('create')
+#23 /var/www/html/framework/web/CWebApplication.php(135): CWebApplication->runController('clientes/create')
+#24 /var/www/html/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#25 /var/www/html/africa/index.php(13): CApplication->run()
+#26 {main}
+REQUEST_URI=/africa/index.php?r=clientes/create
+HTTP_REFERER=http://localhost/africa/
+---
+2022/06/03 09:57:07 [error] [exception.Exception] exception 'Exception' with message '(500) Error interno de aplicación: - Metodo FEParamGetTiposCbteTipos' in /var/www/html/africa/afip.php-master/src/Class/ElectronicBilling.php:380
+Stack trace:
+#0 /var/www/html/africa/afip.php-master/src/Class/ElectronicBilling.php(324): ElectronicBilling->_CheckErrors('FEParamGetTipos...', Object(stdClass))
+#1 /var/www/html/africa/afip.php-master/src/Class/ElectronicBilling.php(198): ElectronicBilling->ExecuteRequest('FEParamGetTipos...')
+#2 /var/www/html/africa/protected/models/FacturasElectronicas.php(143): ElectronicBilling->GetVoucherTypes()
+#3 /var/www/html/africa/protected/views/clientes/_form.php(71): FacturasElectronicas->getTiposComprobantes()
+#4 /var/www/html/framework/web/CBaseController.php(127): require('/var/www/html/a...')
+#5 /var/www/html/framework/web/CBaseController.php(96): CBaseController->renderInternal('/var/www/html/a...', Array, true)
+#6 /var/www/html/framework/web/CController.php(870): CBaseController->renderFile('/var/www/html/a...', Array, true)
+#7 /var/www/html/africa/protected/views/clientes/create.php(14): CController->renderPartial('_form', Array)
+#8 /var/www/html/framework/web/CBaseController.php(127): require('/var/www/html/a...')
+#9 /var/www/html/framework/web/CBaseController.php(96): CBaseController->renderInternal('/var/www/html/a...', Array, true)
+#10 /var/www/html/framework/web/CController.php(870): CBaseController->renderFile('/var/www/html/a...', Array, true)
+#11 /var/www/html/framework/web/CController.php(783): CController->renderPartial('create', Array, true)
+#12 /var/www/html/africa/protected/controllers/ClientesController.php(73): CController->render('create', Array)
+#13 /var/www/html/framework/web/actions/CInlineAction.php(50): ClientesController->actionCreate()
+#14 /var/www/html/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#15 /var/www/html/framework/web/filters/CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#16 /var/www/html/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#17 /var/www/html/africa/protected/modules/rights/components/RController.php(36): CFilter->filter(Object(CFilterChain))
+#18 /var/www/html/framework/web/filters/CInlineFilter.php(59): RController->filterRights(Object(CFilterChain))
+#19 /var/www/html/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#20 /var/www/html/framework/web/CController.php(292): CFilterChain->run()
+#21 /var/www/html/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#22 /var/www/html/framework/web/CWebApplication.php(276): CController->run('create')
+#23 /var/www/html/framework/web/CWebApplication.php(135): CWebApplication->runController('clientes/create')
+#24 /var/www/html/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#25 /var/www/html/africa/index.php(13): CApplication->run()
+#26 {main}
+REQUEST_URI=/africa/index.php?r=clientes/create
+HTTP_REFERER=http://localhost/africa/
+---
+2022/06/03 10:11:36 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'El sistema no ha podido encontrar la acción "chekcServer" solicitada.' in /var/www/html/framework/web/CController.php:484
+Stack trace:
+#0 /var/www/html/framework/web/CController.php(271): CController->missingAction('chekcServer')
+#1 /var/www/html/framework/web/CWebApplication.php(276): CController->run('chekcServer')
+#2 /var/www/html/framework/web/CWebApplication.php(135): CWebApplication->runController('facturasElectro...')
+#3 /var/www/html/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#4 /var/www/html/africa/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/africa/index.php?r=facturasElectronicas/chekcServer
+---
