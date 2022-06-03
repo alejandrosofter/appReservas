@@ -188,6 +188,9 @@ class FacturasElectronicasController extends Controller
 			$model->tipoDoc=$modeloTransaccion->cliente->tipoDoc;
 			$model->idTipoComprobante=$modeloTransaccion->cliente->idTipoComprobante;
 
+		}else{
+			$model->idTipoComprobante=6;//FACTURA B
+			$model->tipoDoc=96; //DNI
 		}
 		if(isset($_POST['FacturasElectronicas']))
 		{
