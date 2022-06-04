@@ -51,6 +51,7 @@ class FacturasElectronicasController extends Controller
 		$domicilio=$model->cliente->direccion;
 		$importeTotal=number_format($model->importe,2);
 		$importeSubTotal=number_format($model->importe,2);
+		$importeIva=number_format($model->importe*0.21,2);
 		$nroCae=$model->nroCae;
 		$vtoCae=$model->fechaVto;
 		$letraComprobante=str_replace("Factura","",$model->getNombreTipoComprobante());
@@ -68,12 +69,16 @@ class FacturasElectronicasController extends Controller
 			'importeSubTotal'=>$importeSubTotal,'nroCae'=>$nroCae,'vtoCae'=>$vtoCae,
 			"letraComprobante"=>$letraComprobante,"codigoComprobante"=>$codigoComprobante,
 			"tipoComprobante"=>mb_strtoupper($model->getNombreTipoComprobante(), 'UTF-8'),
-			"puntoVenta"=>$model->getNroPuntoVenta(),"items"=>$items
+			"importeIva"=>$importeIva,
+			"puntoVenta"=>$model->getNroPuntoVenta(),"items"=>$items,"linkQr"=>$model->getLinkQr()
 		));
 	}
+	//ALTER TABLE `facturasElectronicas` CHANGE `nroCae` `nroCae` VARCHAR(100) NOT NULL;
 	public function actionTest()
 	{
-		$pv=FacturasElectronicas::model()->getTiposComprobantes();
+		$nroComp=isset($_GET['nroComp'])?$_GET['nroComp']:1;
+		
+		$pv=FacturasElectronicas::model()->infoComprobante($nroComp,4,6);
 
 		print_r($pv);
 	}

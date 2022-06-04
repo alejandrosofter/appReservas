@@ -87,18 +87,28 @@ function imprimir()
     <img style="position:absolute;top:8.80in;left:0.22in;width:8.59in;height:1.44in" src="images/factura/vi_47.png" />
     <div style="position:absolute;top:9.65in;left:8.42in;width:0.30in;line-height:0.16in;"><span style="font-style:normal;font-weight:bold;font-size:9pt;font-family:Helvetica;color:#000000">0,00</span><span style="font-style:normal;font-weight:bold;font-size:9pt;font-family:Helvetica;color:#000000"> </span><br/></SPAN></div>
     <div style="position:absolute;top:9.38in;left:8.19in;width:0.53in;line-height:0.16in;"><span style="font-style:normal;font-weight:bold;font-size:9pt;font-family:Helvetica;color:#000000"><?=$importeSubTotal;?></span><span style="font-style:normal;font-weight:bold;font-size:9pt;font-family:Helvetica;color:#000000"> </span><br/></SPAN></div>
+    <?php  if(trim($letraComprobante)==='A'){?>
+        <div style="position:absolute;top:9.1in;left:8.19in;width:0.53in;line-height:0.16in;"><span style="font-style:normal;font-weight:bold;font-size:9pt;font-family:Helvetica;color:#000000"><?=$importeIva;?></span><span style="font-style:normal;font-weight:bold;font-size:9pt;font-family:Helvetica;color:#000000"> </span><br/></SPAN></div>
+    <?php }?>
+
     <div style="position:absolute;top:9.93in;left:8.13in;width:0.59in;line-height:0.18in;"><span style="font-style:normal;font-weight:bold;font-size:10pt;font-family:Helvetica;color:#000000"><?=$importeTotal;?></span><span style="font-style:normal;font-weight:bold;font-size:10pt;font-family:Helvetica;color:#000000"> </span><br/></SPAN></div>
     <div style="position:absolute;top:9.38in;left:6.73in;width:0.74in;line-height:0.16in;"><span style="font-style:normal;font-weight:bold;font-size:9pt;font-family:Helvetica;color:#000000">Subtotal: $</span><span style="font-style:normal;font-weight:bold;font-size:9pt;font-family:Helvetica;color:#000000"> </span><br/></SPAN></div>
+<?php  if(trim($letraComprobante)==='A'){?>
+    <div style="position:absolute;top:9.1in;left:6.73in;width:0.74in;line-height:0.16in;"><span style="font-style:normal;font-weight:bold;font-size:9pt;font-family:Helvetica;color:#000000">IVA 21: $</span><span style="font-style:normal;font-weight:bold;font-size:9pt;font-family:Helvetica;color:#000000"> </span><br/></SPAN></div>
+<?php }?>
     <div style="position:absolute;top:9.65in;left:5.80in;width:1.68in;line-height:0.16in;"><span style="font-style:normal;font-weight:bold;font-size:9pt;font-family:Helvetica;color:#000000">Importe Otros Tributos: $</span><span style="font-style:normal;font-weight:bold;font-size:9pt;font-family:Helvetica;color:#000000"> </span><br/></SPAN></div>
     <div style="position:absolute;top:9.93in;left:6.30in;width:1.18in;line-height:0.18in;"><span style="font-style:normal;font-weight:bold;font-size:10pt;font-family:Helvetica;color:#000000">Importe Total: $</span><span style="font-style:normal;font-weight:bold;font-size:10pt;font-family:Helvetica;color:#000000"> </span><br/></SPAN></div>
     <img style="position:absolute;top:10.52in;left:1.74in;width:1.39in;height:0.35in" src="images/factura/ri_1.png" />
+    
     <div style="position:absolute;top:10.37in;left:6.61in;width:1.88in;line-height:0.18in;"><span style="font-style:normal;font-weight:bold;font-size:10pt;font-family:Helvetica;color:#000000">CAE N°: </span></SPAN><br/></div>
     <div style="position:absolute;top:10.60in;left:5.58in;width:2.49in;line-height:0.18in;"><span style="font-style:normal;font-weight:bold;font-size:10pt;font-family:Helvetica;color:#000000">Fecha de Vto. de CAE: </span></SPAN><br/></div>
     <div style="position:absolute;top:11.00in;left:1.74in;width:1.67in;line-height:0.16in;"><span style="font-style:italic;font-weight:bold;font-size:9pt;font-family:Helvetica;color:#000000">Comprobante Autorizado</span><span style="font-style:italic;font-weight:bold;font-size:9pt;font-family:Helvetica;color:#000000"> </span><br/></SPAN></div>
     <div style="position:absolute;top:11.29in;left:1.74in;width:4.52in;line-height:0.11in;"><span style="font-style:italic;font-weight:bold;font-size:6pt;font-family:Helvetica;color:#000000">Esta Administración Federal no se responsabiliza por los datos ingresados en el detalle de la operación</span><span style="font-style:italic;font-weight:bold;font-size:6pt;font-family:Helvetica;color:#000000"> </span><br/></SPAN></div>
     <div style="position:absolute;top:10.60in;left:5.58in;width:2.49in;line-height:0.18in;"><DIV style="position:relative; left:1.69in;"><span style="font-style:normal;font-weight:normal;font-size:10pt;font-family:Helvetica;color:#000000"><?=$vtoCae;?></span><span style="font-style:normal;font-weight:normal;font-size:10pt;font-family:Helvetica;color:#000000"> </span><br/></SPAN></DIV></div>
     <div style="position:absolute;top:10.37in;left:6.61in;width:1.88in;line-height:0.18in;"><DIV style="position:relative; left:0.66in;"><span style="font-style:normal;font-weight:normal;font-size:10pt;font-family:Helvetica;color:#000000"><?=$nroCae;?></span><span style="font-style:normal;font-weight:normal;font-size:10pt;font-family:Helvetica;color:#000000"> </span><br/></SPAN></DIV></div>
-    <img style="position:absolute;top:10.36in;left:0.30in;width:1.21in;height:1.21in" src="images/factura/ri_2.png" />
+
+    <img style="position:absolute;top:10.36in;left:0.30in;width:1.21in;height:1.21in" src="https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl=<?=$linkQr;?>&choe=UTF-8" title="Link to Google.com" />
+
 </div>
 <style>
 .tablaTitulo th{

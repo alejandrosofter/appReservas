@@ -169,7 +169,31 @@ public function formatearFecha2($fecha,$masDias=0,$formato="Ymd")
 	if($masDias>0) $time = strtotime('+'.$masDias.' day', $time);
 	return date($formato,$time);
 }
+public function getLinkQr()
+{
+	$cuit=Settings::model()->getValorSistema('DATOS_EMPRESA_CUIT');
+	$data=array(
+		"ver"=>1,
+		"fecha"=>$this->fecha,
+		"cuit"=>(int)$cuit,
+		"ptoVta"=>(int)$this->getNroPuntoVenta(),
+		"tipoCmp"=>(int)$this->idTipoComprobante,
+		"nroCmp"=>(int)$this->nroComprobante,
+		"importe"=>(float) $this->importe,
+		"moneda"=>"PES",
+		"ctz"=>(float) 1,
+		"tipoDocRec"=>(int)$this->tipoDoc,
+		"nroDocRec"=>(int)$this->doc,
+		"tipoDocAut"=>"A",
+		"codAut"=>(int)$this->nroCae
 
+	);
+	$json=json_encode($data);
+	$base64=base64_encode($json);
+	return "https://serviciosweb.afip.gob.ar/genericos/comprobantes/cae.aspx?p=".$base64;
+	// $afip=$this::model()->getAfip();
+	// return $afip->ElectronicBilling->GetQrCode($this->idTipoComprobante,$this->getNroPuntoVenta(),$this->getProximoNro($this->getNroPuntoVenta(),$this->idTipoComprobante));
+}
 private function formatImporte($importe){
 	return number_format($importe,2,".","");
 }
