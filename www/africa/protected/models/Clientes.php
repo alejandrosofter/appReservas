@@ -48,7 +48,7 @@ class Clientes extends CActiveRecord
 		return array(
 			array('nombres,direccion,localidad, telefonoFijo,idTipoComprobante,tipoDoc, telefonoMovil, email', 'length', 'max'=>255),
 			array('descripcionCliente', 'safe'),
-			array('nombres,email,telefonoMovil,idCondicionIva,cuit', 'required'),
+			array('nombres,telefonoMovil,idCondicionIva,cuit', 'required'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
 			array('buscar,id,direccion,localidad, nombres,idTipoComprobante,tipoDoc, telefonoFijo, telefonoMovil, email, descripcionCliente', 'safe', 'on'=>'search'),

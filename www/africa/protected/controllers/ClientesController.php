@@ -58,7 +58,8 @@ class ClientesController extends RController
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
-
+		$model->idTipoComprobante=6; // FACTURA B
+		$model->tipoDoc=96;// DNI
 		if(isset($_POST['Clientes']))
 		{
 			$model->attributes=$_POST['Clientes'];
