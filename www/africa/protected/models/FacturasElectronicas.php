@@ -48,6 +48,11 @@ class FacturasElectronicas extends CActiveRecord
 		$modeloCliente->idTipoComprobante=$this->idTipoComprobante;
 		$modeloCliente->save();
 	}
+	public function getNombreCliente()
+	{
+		$modeloCliente=Clientes::model()->findByPk($this->idCliente);
+		return $modeloCliente->nombres;
+	}
 	private function getAfip()
 	{
 		$cuit=Settings::model()->getValorSistema('DATOS_EMPRESA_CUIT');

@@ -19,6 +19,8 @@ $this->menu=array(
 	
 	'columns'=>array(
 		'fecha',
+		array('type'=>'html','value'=>'$data->nombreCliente', 'header'=>'Cliente'), 
+
 		'detalle',
 		array('type'=>'html','value'=>'"<strong> $ ".number_format($data->importe,2)."</strong>"', 'header'=>'Importe'), 
 		'nroCae',
