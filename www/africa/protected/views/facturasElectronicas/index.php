@@ -23,7 +23,7 @@ $this->menu=array(
 
 		'detalle',
 		array('type'=>'html','value'=>'"<strong> $ ".number_format($data->importe,2)."</strong>"', 'header'=>'Importe'), 
-		'nroCae',
+		array('type'=>'html','value'=>'$data->nombreTipoComprobante', 'header'=>'Tipo Comp.'), 
 		array('type'=>'html','value'=>'"<small>".str_pad($data->nroComprobante,4,"0",STR_PAD_LEFT)."</small>"', 'header'=>'Nro Comp.'), 
 		array('header'=>'Estado','value'=>'"<b title=\'".$data->detalleError."\'>".$data->estado."</b>"','type'=>'html'),
 		array(
