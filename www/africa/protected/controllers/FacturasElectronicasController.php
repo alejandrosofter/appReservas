@@ -51,7 +51,7 @@ class FacturasElectronicasController extends Controller
 		$domicilio=$model->cliente->direccion;
 		$importeTotal=number_format($model->importe,2);
 		$importeSubTotal=number_format($model->importe,2);
-		$importeIva=number_format($model->importe*0.21,2);
+		$importeIva=number_format($model->importe-($model->importe/1.21),2);
 		$nroCae=$model->nroCae;
 		$vtoCae=$model->fechaVto;
 		$letraComprobante=str_replace("Factura","",$model->getNombreTipoComprobante());
@@ -196,6 +196,17 @@ class FacturasElectronicasController extends Controller
 		}else{
 			$model->idTipoComprobante=6;//FACTURA B
 			$model->tipoDoc=96; //DNI
+			
+		}
+		if(isset($_GET['idReserva'])){
+			$modeloReserva=Reservas::model()->findByPk($_GET['idReserva']);
+			$modeloCliente=Clientes::model()->findByPk($modeloReserva->idCliente);
+			$model->detalle=$modeloReserva->getDetalleServicios(false);
+			$model->idCliente=$modeloReserva->idCliente;
+			$model->importe=$modeloReserva->importe;
+			$model->doc=$modeloCliente->cuit;
+			$model->tipoDoc=$modeloCliente->tipoDoc;
+			$model->idTipoComprobante=$modeloCliente->idTipoComprobante;
 		}
 		if(isset($_POST['FacturasElectronicas']))
 		{

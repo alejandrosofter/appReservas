@@ -26,15 +26,23 @@ $this->menu=array(
 
 		//array('header'=>'Comienza ...','type'=>'html','value'=>'"<abbr class=\'timeago\' title=\'".$data->comienza."\'></abbr>"'),
 		array(
-			'class'=>'CButtonColumn','template'=>'{cambiaImporte} {update} {delete}',
+			'htmlOptions'=>array('style'=>'width:90px'),
+			'class'=>'CButtonColumn', 'template'=>'{facturar} {cambiaImporte} {update} {delete}',
 			'buttons'=>array(
-						'cambiaImporte' => array(
-		                'label'=>'Cambiar Importe',
-		                 'options'=>array('class'=>'imprime','data-fancybox-type'=>'iframe'),
-		                'imageUrl'=>'images/iconos/famfam/money.png',
-		                'url' => '"index.php?r=reservas/cambiarImporte&id=".$data->id',
+				'cambiaImporte' => array(
+					'label'=>'Cambiar Importe',
+					 'options'=>array('class'=>'imprime','data-fancybox-type'=>'iframe'),
+					'imageUrl'=>'images/iconos/famfam/money.png',
+					'url' => '"index.php?r=reservas/cambiarImporte&id=".$data->id',
 
-		            ),
+				),
+				'facturar' => array(
+					'label'=>'Facturar',
+					//  'options'=>array('class'=>'imprime','data-fancybox-type'=>'iframe'),
+					'imageUrl'=>'images/iconos/famfam/tab_go.png',
+					'url' => '"index.php?r=facturasElectronicas/create&idReserva=".$data->id',
+
+				),
 				),
 		),
 	),
