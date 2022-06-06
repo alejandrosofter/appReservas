@@ -18,7 +18,8 @@ $this->menu=array(
 	'dataProvider'=>$model->search(),
 	
 	'columns'=>array(
-		'fecha',
+		array('type'=>'html','value'=>'"<small>".Yii::app()->dateFormatter->format("dd/MM/yy",$data->fecha)."</small>"', 'header'=>'Fecha'), 
+
 		array('type'=>'html','value'=>'$data->nombreCliente', 'header'=>'Cliente'), 
 
 		'detalle',
