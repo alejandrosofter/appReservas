@@ -192,13 +192,13 @@ class FacturasElectronicasController extends Controller
 			$model->importe=$modeloTransaccion->transaccionCli->importeFacturado;
 			$model->detalle=$modeloTransaccion->transaccionCli->reservaTransaccion->reserva->getDetalleServicios(false);
 			$model->doc=$modeloTransaccion->cliente->cuit;
-			$model->tipoDoc=$modeloTransaccion->cliente->tipoDoc?$modeloTransaccion->cliente->tipoDoc:$TIPODOC_DEFAULT;
-			$model->idTipoComprobante=$modeloTransaccion->cliente->idTipoComprobante?$modeloTransaccion->cliente->idTipoComprobante:$TIPOCOMP_DEFAULT;
+			$model->tipoDoc=isset($modeloTransaccion->cliente->tipoDoc)?$modeloTransaccion->cliente->tipoDoc:$TIPODOC_DEFAULT;
+			$model->idTipoComprobante=isset($modeloTransaccion->cliente->idTipoComprobante)?$modeloTransaccion->cliente->idTipoComprobante:$TIPOCOMP_DEFAULT;
 
 		}else{
 			
-			$model->idTipoComprobante=6;//FACTURA B
-			$model->tipoDoc=96; //DNI
+			$model->idTipoComprobante=$TIPOCOMP_DEFAULT;//FACTURA B
+			$model->tipoDoc=$TIPODOC_DEFAULT; //DNI
 			
 		}
 		if(isset($_GET['idReserva'])){
