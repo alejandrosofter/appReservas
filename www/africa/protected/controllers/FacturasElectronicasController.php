@@ -198,8 +198,8 @@ class FacturasElectronicasController extends Controller
 
 		}else{
 			
-			$model->idTipoComprobante=$this->TIPOCOMP_DEFAULT;//FACTURA B
-			$model->tipoDoc=$this->TIPODOC_DEFAULT; //DNI
+			$model->idTipoComprobante=$model->TIPOCOMP_DEFAULT;//FACTURA B
+			$model->tipoDoc=$model->TIPODOC_DEFAULT; //DNI
 			
 		}
 		if(isset($_GET['idReserva'])){
