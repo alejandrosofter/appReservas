@@ -175,8 +175,7 @@ class FacturasElectronicasController extends Controller
 		
 		
 	}
-	$TIPOCOMP_DEFAULT=6;
-	$TIPODOC_DEFAULT=96;
+	
 	public function actionCreate()
 	{
 		$model=new FacturasElectronicas;
@@ -185,6 +184,8 @@ class FacturasElectronicasController extends Controller
 		// $this->performAjaxValidation($model);
 		$model->fecha=date("Y-m-d");
 		$model->estado="PENDIENTE"	;
+		$model->idTipoComprobante=80;//FACTURA B
+		
 		if(isset($_GET['idTransaccionCliente'])){
 			$modeloTransaccion=TransaccionesClientes::model()->findByPk($_GET['idTransaccionCliente']);
 			$model->idTransaccion=$modeloTransaccion->idTransaccion;
@@ -192,13 +193,13 @@ class FacturasElectronicasController extends Controller
 			$model->importe=$modeloTransaccion->transaccionCli->importeFacturado;
 			$model->detalle=$modeloTransaccion->transaccionCli->reservaTransaccion->reserva->getDetalleServicios(false);
 			$model->doc=$modeloTransaccion->cliente->cuit;
-			$model->tipoDoc=isset($modeloTransaccion->cliente->tipoDoc)?$modeloTransaccion->cliente->tipoDoc:$TIPODOC_DEFAULT;
-			$model->idTipoComprobante=isset($modeloTransaccion->cliente->idTipoComprobante)?$modeloTransaccion->cliente->idTipoComprobante:$TIPOCOMP_DEFAULT;
+			$model->tipoDoc=($modeloTransaccion->cliente->tipoDoc!=0)?$modeloTransaccion->cliente->tipoDoc:$model->TIPODOC_DEFAULT;
+			$model->idTipoComprobante=($modeloTransaccion->cliente->idTipoComprobante!=0)?$modeloTransaccion->cliente->idTipoComprobante:$model->TIPOCOMP_DEFAULT;
 
 		}else{
 			
-			$model->idTipoComprobante=$TIPOCOMP_DEFAULT;//FACTURA B
-			$model->tipoDoc=$TIPODOC_DEFAULT; //DNI
+			$model->idTipoComprobante=$this->TIPOCOMP_DEFAULT;//FACTURA B
+			$model->tipoDoc=$this->TIPODOC_DEFAULT; //DNI
 			
 		}
 		if(isset($_GET['idReserva'])){

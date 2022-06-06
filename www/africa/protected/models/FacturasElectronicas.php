@@ -29,6 +29,8 @@ class FacturasElectronicas extends CActiveRecord
 	 * @return FacturasElectronicas the static model class
 	 */
 	 public $buscar;
+	 public $TIPOCOMP_DEFAULT=6;
+	public $TIPODOC_DEFAULT=96;
 	public static function model($className=__CLASS__)
 	{
 		return parent::model($className);

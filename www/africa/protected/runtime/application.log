@@ -2351,3 +2351,33 @@ Stack trace:
 REQUEST_URI=/africa/index.php?r=facturasElectronicas/create&idReserva=7986
 HTTP_REFERER=http://localhost/africa/index.php?r=reservas
 ---
+2022/06/06 19:33:06 [error] [exception.CException] exception 'CException' with message 'Propiedad "FacturasElectronicasController"."TIPOCOMP_DEFAULT" no se encuentra definida.' in /var/www/html/framework/base/CComponent.php:131
+Stack trace:
+#0 /var/www/html/africa/protected/controllers/FacturasElectronicasController.php(187): CComponent->__get('TIPOCOMP_DEFAUL...')
+#1 /var/www/html/framework/web/actions/CInlineAction.php(50): FacturasElectronicasController->actionCreate()
+#2 /var/www/html/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#3 /var/www/html/framework/web/CController.php(287): CController->runAction(Object(CInlineAction))
+#4 /var/www/html/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#5 /var/www/html/framework/web/CWebApplication.php(276): CController->run('create')
+#6 /var/www/html/framework/web/CWebApplication.php(135): CWebApplication->runController('facturasElectro...')
+#7 /var/www/html/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#8 /var/www/html/africa/index.php(13): CApplication->run()
+#9 {main}
+REQUEST_URI=/africa/index.php?r=facturasElectronicas/create&idTransaccionCliente=18073
+HTTP_REFERER=http://localhost/africa/index.php?r=transacciones/createIngreso
+---
+2022/06/06 19:36:23 [error] [exception.CException] exception 'CException' with message 'Propiedad "FacturasElectronicasController"."TIPODOC_DEFAULT" no se encuentra definida.' in /var/www/html/framework/base/CComponent.php:131
+Stack trace:
+#0 /var/www/html/africa/protected/controllers/FacturasElectronicasController.php(196): CComponent->__get('TIPODOC_DEFAULT')
+#1 /var/www/html/framework/web/actions/CInlineAction.php(50): FacturasElectronicasController->actionCreate()
+#2 /var/www/html/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#3 /var/www/html/framework/web/CController.php(287): CController->runAction(Object(CInlineAction))
+#4 /var/www/html/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#5 /var/www/html/framework/web/CWebApplication.php(276): CController->run('create')
+#6 /var/www/html/framework/web/CWebApplication.php(135): CWebApplication->runController('facturasElectro...')
+#7 /var/www/html/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#8 /var/www/html/africa/index.php(13): CApplication->run()
+#9 {main}
+REQUEST_URI=/africa/index.php?r=facturasElectronicas/create&idTransaccionCliente=18073
+HTTP_REFERER=http://localhost/africa/index.php?r=transacciones/createIngreso
+---
