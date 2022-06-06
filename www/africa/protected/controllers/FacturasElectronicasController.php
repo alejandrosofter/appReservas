@@ -175,6 +175,8 @@ class FacturasElectronicasController extends Controller
 		
 		
 	}
+	$TIPOCOMP_DEFAULT=6;
+	$TIPODOC_DEFAULT=96;
 	public function actionCreate()
 	{
 		$model=new FacturasElectronicas;
@@ -190,10 +192,11 @@ class FacturasElectronicasController extends Controller
 			$model->importe=$modeloTransaccion->transaccionCli->importeFacturado;
 			$model->detalle=$modeloTransaccion->transaccionCli->reservaTransaccion->reserva->getDetalleServicios(false);
 			$model->doc=$modeloTransaccion->cliente->cuit;
-			$model->tipoDoc=$modeloTransaccion->cliente->tipoDoc;
-			$model->idTipoComprobante=$modeloTransaccion->cliente->idTipoComprobante;
+			$model->tipoDoc=$modeloTransaccion->cliente->tipoDoc?$modeloTransaccion->cliente->tipoDoc:$TIPODOC_DEFAULT;
+			$model->idTipoComprobante=$modeloTransaccion->cliente->idTipoComprobante?$modeloTransaccion->cliente->idTipoComprobante:$TIPOCOMP_DEFAULT;
 
 		}else{
+			
 			$model->idTipoComprobante=6;//FACTURA B
 			$model->tipoDoc=96; //DNI
 			
