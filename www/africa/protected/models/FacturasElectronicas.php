@@ -324,7 +324,7 @@ public function infoComprobante($nroComprobante,$ptoVenta,$tipoComprobante)
 		$criteria->compare('doc',$this->buscar,true,'OR');
 		$criteria->compare('tipoDoc',$this->buscar,'OR');
 		$criteria->compare('idCliente',$this->buscar,'OR');
-		$criteria->order="fecha DESC";
+		$criteria->order="id DESC";
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
 		));
