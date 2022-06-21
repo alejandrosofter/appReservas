@@ -107,7 +107,7 @@ class TareasReservas extends CActiveRecord
 		$criteria->limit=Settings::model()->getValorSistema('CANTIDAD_PROXIMOS_ALERTA');
 		$criteria->compare('tarea.estado',Tareas::PENDIENTE,false);
 		// $criteria->join="inner join reservas_servicios on reservas_servicios.idReserva = t.idReserva";
-		// $criteria->order="FROM_UNIXTIME(MIN(fechaInicio))";
+		$criteria->order="reserva.fecha desc";
 		// $criteria->group="t.id";
 		return self::model()->with('comienza','tarea','reserva')->findAll($criteria);
 	}
