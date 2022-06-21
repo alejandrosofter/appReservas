@@ -56,7 +56,7 @@ class FacturasElectronicasController extends Controller
 		$vtoCae=$model->fechaVto;
 		$letraComprobante=str_replace("Factura","",$model->getNombreTipoComprobante());
 		$letraComprobante=str_replace("Nota de Crédito","",$letraComprobante);
-		$importeSubTotal=number_format($letraComprobante=="A"?($model->importe/1.21):$model->importe,2);
+		$importeSubTotal=number_format(trim($letraComprobante)=="A"?($model->importe/1.21):$model->importe,2);
 		$codigoComprobante=str_pad($model->idTipoComprobante,3,"0", STR_PAD_LEFT);
 		$cantidad=1;
 		$subTotal=number_format($model->importe*$cantidad,2);
