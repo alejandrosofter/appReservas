@@ -312,19 +312,10 @@ public function infoComprobante($nroComprobante,$ptoVenta,$tipoComprobante)
 
 		$criteria=new CDbCriteria;
 
-		$criteria->compare('id',$this->buscar,'OR');
-		$criteria->compare('fecha',$this->buscar,true,'OR');
-		$criteria->compare('detalle',$this->buscar,true,'OR');
-		$criteria->compare('importe',$this->buscar,true,'OR');
-		$criteria->compare('fechaVto',$this->buscar,true,'OR');
-		$criteria->compare('nroCae',$this->buscar,'OR');
-		$criteria->compare('estado',$this->buscar,true,'OR');
-		$criteria->compare('idTransaccion',$this->buscar,'OR');
-		$criteria->compare('idTipoComprobante',$this->buscar,'OR');
-		$criteria->compare('doc',$this->buscar,true,'OR');
-		$criteria->compare('tipoDoc',$this->buscar,'OR');
-		$criteria->compare('idCliente',$this->buscar,'OR');
-		$criteria->order="id DESC";
+		$criteria->compare('cliente.nombres',$this->buscar,'OR');
+		// $criteria->compare('t.nroComprobante',$this->buscar,'OR');
+		$criteria->with=array('cliente');
+		$criteria->order="t.id DESC";
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
 		));
