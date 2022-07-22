@@ -43,12 +43,12 @@
 
 			<?php echo $form->error($model,'idTipoComprobante'); ?>
 	</div>
-	<?php
-	if($model->necesitaNroComprobante()){?>
+
+	
 	<div id="nroComprobanteNotaCredito" >
 		<?php echo $form->textFieldRow($model,'nroComprobanteNotaCredito',array('class'=>'span1')); ?>
+		<i>Solo para notas de credito (nro del comprobante a anular - solo el nro)</i>
 	</div>
-	<?php } ?>
 	<div class="">
 			<?php echo $form->labelEx($model,'tipoDoc',array('class'=>'')); ?>
 			<?php echo $form->dropDownList($model,'tipoDoc',CHtml::listData(FacturasElectronicas::model()->getTipoDocumentos(), 'Id', 'Desc'),array ('style'=>'','onchange'=>'nroFactura()')); ?>
