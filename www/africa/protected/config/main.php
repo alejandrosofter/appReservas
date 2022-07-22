@@ -80,6 +80,8 @@ return array(
 		// uncomment the following to use a MySQL database
 		'db'=>array(
 			'connectionString' => 'mysql:host=localhost;dbname=africa', //de la base africa
+
+			
 			// 'connectionString' => 'mysql:host=db;dbname=africa',
 			'emulatePrepare' => true,
 			'username' => 'root',
