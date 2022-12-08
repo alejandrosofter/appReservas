@@ -81,18 +81,22 @@ class Reservas extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('idCliente,dias,idTipoReserva', 'numerical', 'integerOnly'=>true),
-			array('importe,dias,idTipoReserva', 'numerical'),
+			array('importe,oldImporte,dias,idTipoReserva', 'numerical'),
 			array('idCliente,idTipoReserva,fecha', 'required'),
 			array('nombreCumpleano, estado', 'length', 'max'=>255),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('buscar,id,fecha,dias,idTipoReserva, idCliente, nombreCumpleano, estado, importe', 'safe', 'on'=>'search'),
+			array('fechaUpdateImporte,oldImporte,buscar,id,fecha,dias,idTipoReserva, idCliente, nombreCumpleano, estado, importe', 'safe', 'on'=>'search'),
 		);
 	}
 
 	public function getEstados()
 	{
 		return array('PENDIENTE'=>'PENDIENTE','FINALIZADO'=>'FINALIZADO');
+	}
+	public function getEstadosReserva()
+	{
+		return array('PENDIENTE'=>'PENDIENTE','CANCELADA'=>'CANCELADA');
 	}
 	public function getDetalleServicios($html=true)
 	{	
@@ -230,13 +234,102 @@ class Reservas extends CActiveRecord
 				return true;
 		return false;
 	}
+	public function estadoActualizacion(){
+		if($this->importe!=$this->oldImporte){
+			return Yii::app()->dateFormatter->format("dd/MM/yy",$this->fechaUpdateImporte)." $".$this->oldImporte."->$".$this->importe;
+		}
+		return "-";
+	}
+	public function estadoActualizarTarifa(){
+		$dias=$this->getDiasReserva();
+		$cantidadDias= Settings::model()->getValorSistema('RESERVAS_DIAS_VTO');
+		return $cantidadDias>$dias?"ACTUALIZABLE":"EN FECHA";
+	}
+	public function vencimientos($returnArray=false)
+	{
+		$cantidadDias=Settings::model()->getValorSistema('RESERVAS_DIAS_VTO');
+		$criteria=new CDbCriteria;
+		$criteria->with=array('pagado');
+		$criteria->addCondition('DATEDIFF(NOW(),t.fecha)>'.$cantidadDias);
+		$criteria->addCondition('t.estado="PENDIENTE"');
+		// $criteria->addCondition('pagado>=t.importe');
+		$criteria->order="t.id desc";
+		if($returnArray) return self::model()->findAll($criteria);
+		return new CActiveDataProvider($this, array(
+			'criteria'=>$criteria,
+		));
+
+	}
+	public function actualizarImporteReserva(){
+		$this->actualizarReservasServicios();
+		$this->recalcularImporte();
+	}
+	public function actualizarReservasServicios(){
+		
+		foreach($this->servicios as $servicio){
+			$fecha=date('Y-m-d',strtotime($this->fecha));
+			$newValue=Servicios::model()->importeServicio($servicio->idServicio,$fecha);
+			// 
+			$servicio->costo=$newValue['importe'];
+			$servicio->save();
+		}
+	}
+	public function recalcularImporte(){
+		$importe=0;
+	
+		foreach($this->servicios as $servicio)
+			$importe+=$servicio->costo;
+		$oldImporte=$this->importe;
+		$this->importe=$importe;
+		
+		if($oldImporte!=$importe){
+			echo "actualizando reserva nuevo valor".$importe." old value ".$oldImporte." <br>";
+			$this->oldImporte=$oldImporte;
+			$this->fechaUpdateImporte=date('Y-m-d H:i:s');
+			$this->save();
+		}
+		// else {
+		// 	echo "no se actualiza importe <br>";
+		// }
+		
+	}
+	public function actualizaReservaEstado()
+	{
+		// $reserva=Reservas::model()->findByPk($idReserva);
+		$estado=$this->pagado>=$this->importe?"CANCELADA":"PENDIENTE";
+		$this->estado=$estado;
+		echo date('Y',strtotime($this->fecha))."<BR>";
+	
+		//si la el anio de la reserva es menor al anio actual, la cancelo
+		if(date('Y',strtotime($this->fecha))*1<=2020)$this->estado='CANCELADA';
+		$this->save();
+	}
+	public function getColor(){
+		if($this->estado=='CANCELADA')return '#919191';
+		if($this->estado=='PENDIENTE')return '#fd6363';
+	}
+	public function buscar()
+	{
+		// Warning: Please modify the following code to remove attributes that
+		// should not be searched.
+
+		$criteria=new CDbCriteria;
+		$criteria->with=array('pagado');
+		$criteria->compare('cliente.nombres',$this->buscar,'OR');
+		$criteria->compare('nombreCumpleano',$this->buscar,true,'OR');
+		if($this->dias!='')$criteria->addCondition('DATEDIFF(NOW(),t.fecha)>'.$this->dias);
+		$criteria->join="INNER join reservas_servicios on t.id=reservas_servicios.idReserva";
+		
+		$criteria->order="t.id desc";
+		return self::model()->with('serv','pagado','tieneGastro')->findAll($criteria);
+	}
 	public function search()
 	{
 		// Warning: Please modify the following code to remove attributes that
 		// should not be searched.
 
 		$criteria=new CDbCriteria;
-
+		$criteria->with=array('pagado');
 		$criteria->compare('cliente.nombres',$this->buscar,'OR');
 		$criteria->compare('nombreCumpleano',$this->buscar,true,'OR');
 		if($this->dias!='')$criteria->addCondition('DATEDIFF(NOW(),t.fecha)>'.$this->dias);

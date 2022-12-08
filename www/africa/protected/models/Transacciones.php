@@ -47,7 +47,7 @@ class Transacciones extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			
-			array('importe,importeFacturado', 'numerical'),
+			array('importe,importeFacturado,idFormaPago', 'numerical'),
 			array('color', 'length', 'max'=>255),
 			array('fecha, detalle', 'safe'),
 			array('fecha, importe,nroComprobante,idTipoComprobante', 'required'),
@@ -156,8 +156,10 @@ class Transacciones extends CActiveRecord
 		return array(
 			'cliente' => array(self::HAS_ONE, 'TransaccionesClientes', 'idTransaccion'),
 			'reservaTransaccion' => array(self::HAS_ONE, 'ReservasTransacciones', 'idTransaccion'),
+
 			'proveedor' => array(self::HAS_ONE, 'TransaccionesProveedores', 'idTransaccion'),
 			'tipoComprobante' => array(self::BELONGS_TO, 'TransaccionesTipos', 'idTipoComprobante'),
+			'formaPago' => array(self::BELONGS_TO, 'FormasDePago', 'idFormaPago'),
 			'prov' => array(self::HAS_ONE, 'Proveedores', array('idProveedor'=>'id'),'through'=>'proveedor'),
 			'cli' => array(self::HAS_ONE, 'Clientes', array('idCliente'=>'id'),'through'=>'cliente'),
 			
@@ -179,9 +181,23 @@ class Transacciones extends CActiveRecord
 			'detalle' => 'Detalle',
 			'idTipoComprobante' => 'Tipo Comprobante',
 			'color' => 'Color',
+			'idFormaPago' => 'Forma De Pago',
 		);
 	}
+	
+	public function getTransacciones()
+	{
+		// Warning: Please modify the following code to remove attributes that
+		// should not be searched.
 
+		$criteria=new CDbCriteria;
+		$criteria->with=array('cliente');
+		$criteria->compare('fecha',$this->fecha,false);
+		$criteria->compare('idFormaPago',$this->idFormaPago,false);
+		$criteria->order='t.fecha desc';
+		return self::model()->findAll($criteria);
+		
+	}
 	public function ultimaFactura($condIva)
 	{
 		// Warning: Please modify the following code to remove attributes that
@@ -201,7 +217,7 @@ class Transacciones extends CActiveRecord
 		// should not be searched.
 
 		$criteria=new CDbCriteria;
-		$criteria->with=array('prov','cli');
+		$criteria->with=array('prov','cli',"formaPago");
 		if($this->fechaInicio!='')
 			$criteria->addBetweenCondition('fecha',$this->fechaInicio,$this->fechaFin);
 		$criteria->compare('detalle',$this->buscar,true,'OR');

@@ -91,6 +91,7 @@ class ReservasTransacciones extends CActiveRecord
 		$model->importe=$item['importe'];
 		$model->fecha=$item['fecha']==''?Date('Y-m-d'):$item['fecha'];
 		$model->detalle="Entrega por reserva!";
+		$model->idFormaPago=$item['idFormaPago'];
 		$model->idTipoComprobante=2; //es recivo X
 		$model->importeFacturado=$model->idTipoComprobante==2?0:$model->importe;
 		$model->nroComprobante=TransaccionesTiposNro::model()->getProximo(2);

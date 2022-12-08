@@ -147,10 +147,43 @@ class ReservasController extends RController
 		}
 		echo 'RIPEADOS!';
 	}
+	public function actionVencimientos(){
+		$model=new Reservas;
+		
+		$this->render('vencimientos',array(
+			'model'=>$model,
+		));
+	}
+	
+	
+	public function actionCheckValores(){
+		$arr=Reservas::model()->vencimientos(true);
+		echo "CHECKEANDO VALORES DE RESERVAS VENCIDAS ".count($arr)." <br>";
+		foreach($arr as $modeloReserva){
+		
+			if($modeloReserva->estadoActualizarTarifa()=="ACTUALIZABLE")
+				$modeloReserva->actualizarImporteReserva();
+		}
+			
+	}
+	public function actionRipEstados(){
+		$arr=Reservas::model()->buscar();
+		foreach($arr as $modeloReserva){
+			$modeloReserva->actualizaReservaEstado();
+			// if($item->pagado<$item->importe){
+			// 	$item->estado="PENDIENTE";
+			// 	$item->save();
+			// }else {
+			// 	$item->estado="CANCELADA";
+			// 	$item->save();
+			// }
+		}
+		echo 'RIPEADOS!';
+	}
 	public function actionCreate()
 	{
 		$model=new Reservas;
-
+		$model->estado="PENDIENTE";
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 		$arr=array();

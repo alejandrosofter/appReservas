@@ -37,11 +37,16 @@
 						<?php echo $form->dropDownList($model,'idTipoReserva',CHtml::listData(ReservasTipos::model()->findAll(), 'id', 'nombreTipoReserva'),array ('style'=>'width:100%')); ?>
 						<?php echo $form->error($model,'idTipoReserva'); ?>
 					</div>
+					<div class="">
+						<?php echo $form->labelEx($model,'estado',array('class'=>'')); ?>
+						<?php echo $form->dropDownList($model,'estado',$model->getEstadosReserva(),array ('style'=>'width:100%')); ?>
+						<?php echo $form->error($model,'estado'); ?>
+					</div>
 					
 </div>
 <div class="span6"><?=$this->renderPartial('servicios',array('model'=>$model))?></div>
 <div class="span3 pull-right"><?=$this->renderPartial('tareas',array('model'=>$model))?></div>
-<div class="span3 pull-right"><?=$this->renderPartial('pagos',array('model'=>$model))?>
+<div class="span3 pull-right"><?=$this->renderPartial('pagos',array('model'=>$model,"form"=>$form))?>
 <?=!isset($nuevo)?"<span class='text-warning'>En las modificaciones de reserva <b>no se pueden modificar los pagos</b></span>":""?>
 </div>
 

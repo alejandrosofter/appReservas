@@ -186,9 +186,11 @@ $(".imprime").fancybox({
                    
                     array('label'=>'Ver Reservas', 'url'=>'index.php?r=reservas'),
                     array('label'=>'Agregar', 'url'=>'index.php?r=reservas/create'),
-                   
+                    '---',
                     array('label'=>'Ver Feriados', 'url'=>'index.php?r=feriados'),
                     array('label'=>'Agregar', 'url'=>'index.php?r=feriados/create'),
+                    '---',
+                    array('label'=>'Vencimientos', 'url'=>'index.php?r=reservas/vencimientos'),
                 )),
                 array('label'=>'Servicios','icon'  => 'wrench', 'url'=>'#', 'items'=>array(
                    
@@ -211,6 +213,10 @@ $(".imprime").fancybox({
                     array('label'=>'Agregar Egreso', 'url'=>'index.php?r=transacciones/createEgreso'),
                     "--",
                     array('label'=>'Comprobantes Electronicos', 'url'=>'index.php?r=facturasElectronicas'),
+                    "--",
+                    array('label'=>'Cierre de Caja', 'url'=>'index.php?r=cierreCaja'),
+                   "--",
+                    array('label'=>'Formas de Pago', 'url'=>'index.php?r=formasDePago'),
                 )),
                  array('label'=>'Estadisticas','icon'  => 'signal', 'url'=>'index.php?r=estadisticas', 'items'=>array(
                    

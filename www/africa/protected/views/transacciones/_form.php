@@ -50,6 +50,11 @@
 		<?php echo $form->error($model,'idTipoComprobante'); ?>
 	</div>
 	<div class="">
+		<?php echo $form->labelEx($model,'idFormaPago',array('class'=>'')); ?>
+		<?php echo $form->dropDownList($model,'idFormaPago',CHtml::listData(FormasDePago::model()->findAll(), 'id', 'nombreFormaPago'),array ('style'=>'')); ?>
+		<?php echo $form->error($model,'idFormaPago'); ?>
+	</div>
+	<div class="">
 		<?php echo $form->labelEx($model,'nroComprobante',array('class'=>'')); ?>
 		<?php echo $form->textField($model,'nroComprobante',array('class'=>'')); ?>
 		<?php echo $form->error($model,'nroComprobante'); ?>

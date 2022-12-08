@@ -8,7 +8,11 @@
 <div id='agregaPago' style='display:none'>
 <input style="font-size:11px;width:60px" placeholder="Importe" id="importePago" name="importePago" type="text"></input>
   <input type="radio" class='escucha' onclick='nroFactura()' name="idTipoComprobante" checked value="2">Recibo
-
+	<div class="">
+		<?php echo $form->labelEx($model,'formaDePago',array('class'=>'')); ?>
+		<?php echo $form->dropDownList($model,'id',CHtml::listData(FormasDePago::model()->findAll(), 'id', 'nombreFormaPago'),array ('style'=>'')); ?>
+		<?php echo $form->error($model,'formaPago'); ?>
+	</div>
   
 
  </div>
@@ -48,18 +52,21 @@ function nroFactura()
 }
  function agregarPago()
  {
- 	var pago={id:-pagos.length,fecha:'',importe:$('#importePago').val(),idTipoComprobante:$("input[name='idTipoComprobante']:checked").val() };
- 	agregarItemPago(pago);
+  var el = document.getElementById('Reservas_formaDePago');
+
+ 	var pago={label_formaPago:$('select[id=Reservas_id] option:selected').text(), formaPago:$('select[id=Reservas_id] option:selected').val(),id:-pagos.length,fecha:'',importe:$('#importePago').val(),idTipoComprobante:$("input[name='idTipoComprobante']:checked").val() };
+ 	console.log(pago)
+  agregarItemPago(pago);
       mostrarAgregarPago()
  }
  function agregarItemPago(pago)
 {
-      pagos.push({id:pago.id,fecha:pago.fecha,importe:pago.importe,nroComprobante:pago.nroComprobante,idTipoComprobante:pago.idTipoComprobante});
+      pagos.push({idFormaPago:pago.formaPago, id:pago.id,fecha:pago.fecha,importe:pago.importe,nroComprobante:pago.nroComprobante,idTipoComprobante:pago.idTipoComprobante});
       $('#nroComprobante').val('');
       $('#importePago').val('');
       $('#importePago').focus();
       var tipo=pago.idTipoComprobante==1?'Fact.':'Rec.';
-      $('#tablaPagos tr:last').after('<tr id="filaTarea_'+pago.id+'"><td>$ '+pago.importe+'</td><td>'+tipo+'</td><td><a href="#" onclick="quitarPagoaHoy('+pago.id+')"><img src="images/iconos/famfam/cancel.png"/></a></td></tr>');
+      $('#tablaPagos tr:last').after('<tr id="filaTarea_'+pago.id+'"><td>$ '+pago.importe+'</td><td>'+tipo+"("+pago.label_formaPago+")"+'</td><td><a href="#" onclick="quitarPagoaHoy('+pago.id+')"><img src="images/iconos/famfam/cancel.png"/></a></td></tr>');
      
 }
 function mostrarAgregarPago()

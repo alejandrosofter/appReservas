@@ -25,6 +25,7 @@ $this->menu=array(
 		'detalle',
 		array('header'=>'Importe Percibido','type'=>'html','value'=>'"$ ".$data->importe'),
 		array('header'=>'Importe Facturado','type'=>'html','value'=>'$data->importeFacturado==""?"-":"$ ".$data->importeFacturado'),
+		array('header'=>'Forma De Pago','type'=>'html','value'=>'isset($data->formaPago)?$data->formaPago->nombreFormaPago:""'),
 		array(
 			'class'=>'CButtonColumn','template'=>'{imprimir} {update} {delete}',
 			'buttons'=>array(

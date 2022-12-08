@@ -92,6 +92,15 @@ class TransaccionesController extends RController
 			$forma = str_replace("%".$campo, $item,$forma);
 		return $forma;
 	}
+	public function actiongetImporteTransacciones(){
+		$model=new Transacciones;
+	$model->attributes=isset($_POST['Transacciones'])?$_POST['Transacciones']:array();
+	$items=$model->getTransacciones();
+	$importe=0;
+	foreach($items as $item)
+		$importe+=$item->importe;
+	echo $importe;
+	}
 	public function actionGetImpresion()
 	{
 		$transaccion=Transacciones::model()->findByPk($_GET['id']);
@@ -135,7 +144,13 @@ class TransaccionesController extends RController
 			'model'=>$this->loadModel($id),
 		));
 	}
-
+public function actionGetTransacciones(){
+	$model=new Transacciones;
+	$model->attributes=isset($_POST['Transacciones'])?$_POST['Transacciones']:array();
+	$this->renderPartial('getTransacciones',array(
+		'model'=>$model
+	));
+}
 	public function actionCreateIngreso()
 	{
 		$model=new Transacciones;
@@ -173,7 +188,11 @@ class TransaccionesController extends RController
 		$mod->idReserva=$idReserva;
 		$mod->idTransaccion=$idTransaccion;
 		$mod->save();
+		$modelReserva=Reservas::model()->findByPk($idReserva);
+		$modelReserva->actualizaReservaEstado();
+		// $this->actualizaReserva($idReserva);
 	}
+	
 	public function actionCreateEgreso()
 	{
 		$model=new Transacciones;

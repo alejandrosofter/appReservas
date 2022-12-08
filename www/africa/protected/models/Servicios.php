@@ -83,6 +83,31 @@ class Servicios extends CActiveRecord
 			'tareasServicioses' => array(self::HAS_MANY, 'TareasServicios', 'idServicio'),
 		);
 	}
+	public function importeServicio($idServicio,$fecha)
+	{
+		$servicio=Servicios::model()->findByPk($idServicio);
+		$esFeriado=Feriados::model()->esFeriado($fecha);
+		$i = strtotime($fecha);
+		$dia= jddayofweek(cal_to_jd(CAL_GREGORIAN, date("m",$i),date("d",$i), date("Y",$i)) , 0 );
+		$esFinde=$dia==0 || $dia==6;
+		if($esFeriado||$esFinde) $imp= $servicio->importe2; else $imp=$servicio->importe;
+
+		$promocion=PromocionesServicios::model()->getPromociones($idServicio,$fecha);
+
+		$imp=$this->aplicarDescuentos($promocion,$imp);
+		$arr=array('importe'=> $imp,'dia'=>$dia,'promocion'=>$promocion);
+		return $arr;
+	}
+	private function aplicarDescuentos($promociones,$imp)
+	{
+		foreach($promociones as $prom){
+			$descuentaPorcentaje=$imp*($prom->promocion->porcentaje/100);
+			$descuentaImporte=$prom->promocion->importe;
+			$imp-=$descuentaPorcentaje;
+			$imp-=$descuentaImporte;
+		}
+		return $imp;
+	}
 
 	/**
 	 * @return array customized attribute labels (name=>label)
