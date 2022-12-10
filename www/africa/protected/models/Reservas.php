@@ -298,7 +298,6 @@ class Reservas extends CActiveRecord
 		// $reserva=Reservas::model()->findByPk($idReserva);
 		$estado=$this->pagado>=$this->importe?"CANCELADA":"PENDIENTE";
 		$this->estado=$estado;
-		echo date('Y',strtotime($this->fecha))."<BR>";
 	
 		//si la el anio de la reserva es menor al anio actual, la cancelo
 		if(date('Y',strtotime($this->fecha))*1<=2020)$this->estado='CANCELADA';
