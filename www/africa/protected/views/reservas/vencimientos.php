@@ -16,8 +16,7 @@
 // 			}
 // 		}
 // },
-	'rowCssClassExpression'=>'$data->estado=="CANCELADA"?"row-reservaCancelada":"row-reservaPendiente"',
-
+	
 	'columns'=>array(
 		array('type'=>'html','value'=>'"<small>".Yii::app()->dateFormatter->format("dd/MM/yy",$data->fecha)."</small>"', 'header'=>'Fecha'), 
 
