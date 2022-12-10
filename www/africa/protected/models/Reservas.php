@@ -235,7 +235,7 @@ class Reservas extends CActiveRecord
 		return false;
 	}
 	public function estadoActualizacion(){
-		if($this->importe!=$this->oldImporte){
+		if($this->importe!= $this->oldImporte && $this->oldImporte!=0){
 			return Yii::app()->dateFormatter->format("dd/MM/yy",$this->fechaUpdateImporte)." $".$this->oldImporte."->$".$this->importe;
 		}
 		return "-";
