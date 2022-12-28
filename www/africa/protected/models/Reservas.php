@@ -303,6 +303,16 @@ class Reservas extends CActiveRecord
 		if(date('Y',strtotime($this->fecha))*1<=2020)$this->estado='CANCELADA';
 		$this->save();
 	}
+	public function rollBackImporte()
+	{
+		if($this->oldImporte>0){
+			$this->importe=$this->oldImporte;
+			$this->oldImporte=0;
+			$this->fechaUpdateImporte=null;
+			$this->save();
+			echo "Rollback a reserva ".$this->nombreCumpleano." importe ".$this->importe." old importe ".$this->oldImporte." <br>";
+		}
+	}
 	public function getColor(){
 		if($this->estado=='CANCELADA')return '#919191';
 		if($this->estado=='PENDIENTE')return '#fd6363';

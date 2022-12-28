@@ -180,6 +180,21 @@ class ReservasController extends RController
 		}
 		echo 'RIPEADOS!';
 	}
+	public function actionRollBackReservas(){
+		$arr=Reservas::model()->buscar();
+		foreach($arr as $modeloReserva){
+			$modeloReserva->rollBackImporte();
+			// if($item->pagado<$item->importe){
+			// 	$item->estado="PENDIENTE";
+			// 	$item->save();
+			// }else {
+			// 	$item->estado="CANCELADA";
+			// 	$item->save();
+			// }
+		}
+		echo 'RIPEADOS!';
+	}
+	
 	public function actionCreate()
 	{
 		$model=new Reservas;
