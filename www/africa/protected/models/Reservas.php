@@ -260,18 +260,40 @@ class Reservas extends CActiveRecord
 		));
 
 	}
-	public function actualizarImporteReserva(){
-		$this->actualizarReservasServicios();
-		$this->recalcularImporte();
+	public function actualizarImporteReserva($cambiaValor){
+		if($cambiaValor){
+			$this->actualizarReservasServicios();
+			$this->recalcularImporte();
+		}else{
+			return $this->checkReservasServicios();
+		}
+	}
+	private function checkReservasServicios(){
+		
+		foreach($this->servicios as $servicio)
+		if($servicio->servicio->categoria->id==1){ //SOLAMENTE PARA SERVICIOS DE PELOTERO
+			$fecha=date('Y-m-d',strtotime($this->fecha));
+			$newValue=Servicios::model()->importeServicio($servicio->idServicio,$fecha);
+			if($servicio->costo!=$newValue['importe']){
+				echo "La reserva ".$this->nombreCumpleano." se podria actualizar el importe de $".$servicio->costo." a $".$newValue['importe']."<br>";
+				return true;
+			}
+				
+		
+		}
+		return false;
 	}
 	public function actualizarReservasServicios(){
 		
-		foreach($this->servicios as $servicio){
+		foreach($this->servicios as $servicio)
+		if($servicio->servicio->categoria->id==1){ //SOLAMENTE PARA SERVICIOS DE PELOTERO
 			$fecha=date('Y-m-d',strtotime($this->fecha));
 			$newValue=Servicios::model()->importeServicio($servicio->idServicio,$fecha);
-			// 
-			$servicio->costo=$newValue['importe'];
-			$servicio->save();
+			if($servicio->costo!=$newValue['importe']){
+				$servicio->costo=$newValue['importe'];
+				$servicio->save();
+			}
+			
 		}
 	}
 	public function recalcularImporte(){

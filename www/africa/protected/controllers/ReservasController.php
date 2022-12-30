@@ -159,10 +159,22 @@ class ReservasController extends RController
 	public function actionCheckValores(){
 		$arr=Reservas::model()->vencimientos(true);
 		echo "CHECKEANDO VALORES DE RESERVAS VENCIDAS ".count($arr)." <br>";
+		$conta=0;
 		foreach($arr as $modeloReserva){
 		
 			if($modeloReserva->estadoActualizarTarifa()=="ACTUALIZABLE")
-				$modeloReserva->actualizarImporteReserva();
+				$conta+=$modeloReserva->actualizarImporteReserva(false)?1:0;
+		}
+		echo "EXISTEN $conta Reservas con valores vencidos para acutalizar";
+			
+	}
+	public function actionActualizaValores(){
+		$arr=Reservas::model()->vencimientos(true);
+		echo "CHECKEANDO VALORES DE RESERVAS VENCIDAS ".count($arr)." <br>";
+		foreach($arr as $modeloReserva){
+		
+			if($modeloReserva->estadoActualizarTarifa()=="ACTUALIZABLE")
+				$modeloReserva->actualizarImporteReserva(true);
 		}
 			
 	}

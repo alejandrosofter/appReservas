@@ -1,7 +1,8 @@
 
 <h1>VENCIMIENTOS de reservas</h1>
 <div class="">
-<a class="btn btn-primary" onclick="checkValores()">CHECKEAR y ACTUALIZAR VALORES</a> 
+<a class="btn btn-primary" onclick="checkValores()">CHECKEAR VALORES</a> 
+<a class="btn btn-" onclick="actualizarValores()">ACTUALIZAR VALORES</a> 
 <div id="resCheck"></div>
 </div>
 
@@ -54,9 +55,30 @@
 	),
 )); ?>
 <script>
+function actualizarValores(){
+	var answer = confirm("¿Está seguro de hacer la actualizacion de importes?")
+	if (answer){
+		_actualizaValores()
+	}
+	else{
+		return false;
+	}
+}
 function checkValores(){
 	$("#resCheck").html("Aguerde...");
     $.get('index.php?r=reservas/checkValores', function(data,error) {
+		// console.log(data)
+        $("#resCheck").html(data);
+	
+		//actualizar pagina
+		// location.reload();
+
+
+})
+}
+function _actualizaValores(){
+	$("#resCheck").html("Aguerde...");
+    $.get('index.php?r=reservas/actualizaValores', function(data,error) {
 		// console.log(data)
         $("#resCheck").html(data);
 		setTimeout(() => {

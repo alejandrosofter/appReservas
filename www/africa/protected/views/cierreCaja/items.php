@@ -34,6 +34,9 @@ foreach($formasPago as $formaPago)
                 Importe
             </th>
             <th style="width:100px">
+                Nro Comp.
+            </th>
+            <th style="width:100px">
                 Saldo
             </th>
             <!-- <th>
@@ -56,6 +59,9 @@ foreach($formasPago as $formaPago)
         </td>
         <td>
             <?php echo Yii::app()->numberFormatter->formatCurrency($item->importe,"") ?>
+        </td>
+        <td>
+            <?php echo ($item->nroComprobante) ?>
         </td>
         <td>
             <?php echo Yii::app()->numberFormatter->formatCurrency($saldo,"") ?>
