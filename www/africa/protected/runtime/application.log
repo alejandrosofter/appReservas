@@ -4702,3 +4702,21 @@ Stack trace:
 #5 {main}
 REQUEST_URI=/africa/index.php?r=reservas/rollBackImporte
 ---
+2022/12/30 11:13:38 [error] [php] Indirect modification of overloaded property Reservas::$servicios has no effect (/var/www/html/africa/protected/models/Reservas.php:319)
+Stack trace:
+#0 /var/www/html/framework/web/CController.php(309): CInlineAction->runWithParams()
+#1 /var/www/html/framework/web/filters/CFilterChain.php(134): ReservasController->runAction()
+#2 /var/www/html/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#3 /var/www/html/africa/protected/modules/rights/components/RController.php(36): RightsFilter->filter()
+#4 /var/www/html/framework/web/filters/CInlineFilter.php(59): ReservasController->filterRights()
+#5 /var/www/html/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter()
+#6 /var/www/html/framework/web/CController.php(292): CFilterChain->run()
+#7 /var/www/html/framework/web/CController.php(266): ReservasController->runActionWithFilters()
+#8 /var/www/html/framework/web/CWebApplication.php(276): ReservasController->run()
+#9 /var/www/html/framework/web/CWebApplication.php(135): CWebApplication->runController()
+#10 /var/www/html/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#11 /var/www/html/africa/index.php(13): CWebApplication->run()
+REQUEST_URI=/africa/index.php?r=reservas/RollBackReservas
+in /var/www/html/africa/protected/models/Reservas.php (319)
+in /var/www/html/africa/protected/controllers/ReservasController.php (186)
+in /var/www/html/africa/protected/modules/rights/components/RController.php (36)

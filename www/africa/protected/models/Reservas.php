@@ -305,13 +305,25 @@ class Reservas extends CActiveRecord
 	}
 	public function rollBackImporte()
 	{
-		if($this->oldImporte>0){
-			$this->importe=$this->oldImporte;
-			$this->oldImporte=0;
-			$this->fechaUpdateImporte=null;
-			$this->save();
-			echo "Rollback a reserva ".$this->nombreCumpleano." importe ".$this->importe." old importe ".$this->oldImporte." <br>";
+		$importe=0;
+	
+		foreach($this->servicios as $servicio)
+			$importe+=$servicio->costo;
+		// if($this->oldImporte>0){
+		// 	$this->importe=$this->oldImporte;
+		// 	$this->oldImporte=0;
+		// 	$this->fechaUpdateImporte=null;
+		// 	$this->save();
+		if($this->importe!=$importe && count($this->servicios)==1){
+			echo "ACTUALIZA VALOR SERVICIO <br>";
+			foreach($this->servicios as $servicio){
+				$servicio->costo=$this->importe;
+				$servicio->save();
+			}
 		}
+		if(count($this->servicios)>1 && $this->importe!=$importe)	
+		 echo "CAMBIO MANUAL idReserva ".$this->id." cantidad servicios: ".count($this->servicios)." a reserva ".$this->nombreCumpleano." importe ".$this->importe." importe ".$importe." <br>"; 
+		// }
 	}
 	public function getColor(){
 		if($this->estado=='CANCELADA')return '#919191';
