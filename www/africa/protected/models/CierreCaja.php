@@ -40,7 +40,7 @@ class CierreCaja extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('fecha,importe, formaDePago', 'required'),
+			array('fecha,importe', 'required'),
 			array('formaDePago', 'length', 'max'=>50),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
@@ -69,7 +69,6 @@ class CierreCaja extends CActiveRecord
 		return array(
 			'id' => 'ID',
 			'fecha' => 'Fecha',
-			'formaDePago' => 'Forma De Pago',
 			'importe' => 'Importe',
 		);
 	}

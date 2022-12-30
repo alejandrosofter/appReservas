@@ -54,7 +54,7 @@ class CierreCajaController extends RController
 
 		$params["fecha"]=$cierre->fecha;
 		$params["importe"]=$cierre->importe;
-		$params["formaDePago"]=$cierre->formaPago->nombreFormaPago;
+		
 		$params['items']= $this->renderPartial('items',array('model'=>$cierre),true);
 		$dataPalantilla=Settings::getValorSistema("PLANTILLA_INFORMES",$params);
 		$dat['data']=$dataPalantilla;
@@ -74,6 +74,7 @@ class CierreCajaController extends RController
 		}
 
 	}
+	
 	public function actionCreate()
 	{
 		$model=new CierreCaja;

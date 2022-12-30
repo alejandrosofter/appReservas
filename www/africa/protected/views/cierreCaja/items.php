@@ -8,54 +8,67 @@
   padding-left: 10px;
 }
 </style>
-<table  >
-    <tr >
-    <!-- <th>
-            Fecha
-        </th> -->
-        <th style="width:400px">
-            Cliente
-        </th>
-        <th style="width:100px">
-            Importe
-        </th>
-        <th style="width:100px">
-            Saldo
-        </th>
-        <!-- <th>
-            Forma de Pago
-        </th> -->
-    </tr>
-
 <?php
-$items=$model->items;
-if(!isset($items))
-    $items=array();
-    $saldo=0;
-for($i=0;$i<count($items);$i++)
+//loop con formas de pago
+$formasPago=FormasDePago::model()->findAll();
+foreach($formasPago as $formaPago)
 {
-    $item=$items[$i]->transaccion; 
-    $saldo+=$item->importe;
-?>
-<tr>
-<!-- <td>
-        <?php echo Yii::app()->dateFormatter->format("dd/MM/yyyy",$item->fecha) ?>
-    </td> -->
-    <td>
-        <?php echo $item->cliente->cliente->nombres; ?>
-    </td>
-    <td>
-        <?php echo Yii::app()->numberFormatter->formatCurrency($item->importe,"") ?>
-    </td>
-    <td>
-        <?php echo Yii::app()->numberFormatter->formatCurrency($saldo,"") ?>
-    </td>
-   
+    $modelTransaccion=new Transacciones;
+	$modelTransaccion->fecha=$model->fecha;
+    $modelTransaccion->idFormaPago=$formaPago->id;
+    $items=$modelTransaccion->getTransacciones($formaPago->id);
+    if(!isset($items))
+        $items=array();
+        $saldo=0;
+    ?>
+    <h3><?php echo $formaPago->nombreFormaPago; ?></h3>
+    <table  >
+        <tr >
+        <!-- <th>
+                Fecha
+            </th> -->
+            <th style="width:400px">
+                Cliente
+            </th>
+            <th style="width:100px">
+                Importe
+            </th>
+            <th style="width:100px">
+                Saldo
+            </th>
+            <!-- <th>
+                Forma de Pago
+            </th> -->
+        </tr>
+    
+    <?php
+    for($i=0;$i<count($items);$i++)
+    {
+        $item=$items[$i]; 
+        $saldo+=$item->importe;
+    ?>
+    <tr>
     <!-- <td>
-        <?php echo $item->formaPago->nombreFormaPago; ?>
-    </td> -->
-</tr>
-<?php
+            <?php echo Yii::app()->dateFormatter->format("dd/MM/yyyy",$item->fecha) ?>
+        </td> -->
+        <td>
+            <?php echo $item->cliente->cliente->nombres; ?>
+        </td>
+        <td>
+            <?php echo Yii::app()->numberFormatter->formatCurrency($item->importe,"") ?>
+        </td>
+        <td>
+            <?php echo Yii::app()->numberFormatter->formatCurrency($saldo,"") ?>
+        </td>
+       
+        <!-- <td>
+            <?php echo $item->formaPago->nombreFormaPago; ?>
+        </td> -->
+    </tr>
+    <?php
+    }
+    ?>
+    </table>
+    <?php
 }
 ?>
-</table>

@@ -10,6 +10,9 @@
             Importe
         </th>
         <th>
+            Forma de pago
+        </th>
+        <th>
             Saldo
         </th>
         <!-- <th>
@@ -36,6 +39,9 @@ for($i=0;$i<count($items);$i++)
     </td>
     <td>
         <?php echo Yii::app()->numberFormatter->formatCurrency($item->importe,"") ?>
+    </td>
+    <td>
+        <?php echo $item->formaPago->nombreFormaPago; ?>
     </td>
     <td>
         <?php echo Yii::app()->numberFormatter->formatCurrency($saldo,"") ?>

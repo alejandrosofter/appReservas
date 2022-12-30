@@ -17,7 +17,6 @@ $this->menu=array(
 	'columns'=>array(
 		array('header'=>'Fecha','type'=>'html','value'=>'Yii::app()->dateFormatter->format("dd/MM/yyyy",$data->fecha)'),
 
-		array('header'=>'Forma De Pago','type'=>'html','value'=>'isset($data->formaPago)?$data->formaPago->nombreFormaPago:""'),
 		array('header'=>'Importe ','type'=>'html','value'=>'Yii::app()->numberFormatter->formatCurrency($data->importe,"$")'),
 
 		array(

@@ -29,11 +29,6 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'formaDePago',array('class'=>'')); ?>
-		<?php echo $form->dropDownList($model,'formaDePago',CHtml::listData(FormasDePago::model()->findAll(), 'id', 'nombreFormaPago'),array ('onChange'=>"cambia()")); ?>
-		<?php echo $form->error($model,'formaPago'); ?>
-	</div>
-	<div class="row">
 		<?php echo $form->labelEx($model,'importe',array('class'=>'')); ?>
 		<?php echo $form->textField($model,'importe',array('class'=>'','size'=>50,'maxlength'=>50)); ?>
 		<?php echo $form->error($model,'importe'); ?>
@@ -51,7 +46,7 @@
 </div><!-- form -->
 <script>
 	function setGrilla(){
-		const data={"Transacciones[fecha]":$('#CierreCaja_fecha').val(),"Transacciones[idFormaPago]":$('#CierreCaja_formaDePago').val()}
+		const data={"Transacciones[fecha]":$('#CierreCaja_fecha').val()}
 	console.log(data)
 	$.post('index.php?r=transacciones/getTransacciones',data, function(data) {
 		//parse data
@@ -60,8 +55,8 @@
 	});
 	}
 	function setImporte(){
-		const data={"Transacciones[fecha]":$('#CierreCaja_fecha').val(),"Transacciones[idFormaPago]":$('#CierreCaja_formaDePago').val()}
-	console.log(data)
+		const data={"Transacciones[fecha]":$('#CierreCaja_fecha').val()}
+
 	$.post('index.php?r=transacciones/getImporteTransacciones',data, function(data) {
 		//parse data
 
