@@ -4955,3 +4955,574 @@ REQUEST_URI=/africa/index.php?r=reservas/actualizaValores
 in /var/www/html/africa/protected/models/Reservas.php (286)
 in /var/www/html/africa/protected/models/Reservas.php (265)
 in /var/www/html/africa/protected/controllers/ReservasController.php (177)
+2023/05/30 10:12:38 [error] [exception.CException] exception 'CException' with message 'Propiedad "FacturasElectronicas"."esExcento" no se encuentra definida.' in /var/www/html/framework/base/CComponent.php:131
+Stack trace:
+#0 /var/www/html/framework/db/ar/CActiveRecord.php(144): CComponent->__get('esExcento')
+#1 /var/www/html/framework/web/helpers/CHtml.php(2044): CActiveRecord->__get('esExcento')
+#2 /var/www/html/framework/web/helpers/CHtml.php(1347): CHtml::resolveValue(Object(FacturasElectronicas), 'esExcento')
+#3 /var/www/html/framework/web/widgets/CActiveForm.php(658): CHtml::activeCheckBox(Object(FacturasElectronicas), 'esExcento', Array)
+#4 /var/www/html/africa/protected/views/facturasElectronicas/_form.php(53): CActiveForm->checkBox(Object(FacturasElectronicas), 'esExcento', Array)
+#5 /var/www/html/framework/web/CBaseController.php(127): require('/var/www/html/a...')
+#6 /var/www/html/framework/web/CBaseController.php(96): CBaseController->renderInternal('/var/www/html/a...', Array, true)
+#7 /var/www/html/framework/web/CController.php(870): CBaseController->renderFile('/var/www/html/a...', Array, true)
+#8 /var/www/html/africa/protected/views/facturasElectronicas/create.php(14): CController->renderPartial('_form', Array)
+#9 /var/www/html/framework/web/CBaseController.php(127): require('/var/www/html/a...')
+#10 /var/www/html/framework/web/CBaseController.php(96): CBaseController->renderInternal('/var/www/html/a...', Array, true)
+#11 /var/www/html/framework/web/CController.php(870): CBaseController->renderFile('/var/www/html/a...', Array, true)
+#12 /var/www/html/framework/web/CController.php(783): CController->renderPartial('create', Array, true)
+#13 /var/www/html/africa/protected/controllers/FacturasElectronicasController.php(228): CController->render('create', Array)
+#14 /var/www/html/framework/web/actions/CInlineAction.php(50): FacturasElectronicasController->actionCreate()
+#15 /var/www/html/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#16 /var/www/html/framework/web/CController.php(287): CController->runAction(Object(CInlineAction))
+#17 /var/www/html/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 /var/www/html/framework/web/CWebApplication.php(276): CController->run('create')
+#19 /var/www/html/framework/web/CWebApplication.php(135): CWebApplication->runController('facturasElectro...')
+#20 /var/www/html/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#21 /var/www/html/africa/index.php(13): CApplication->run()
+#22 {main}
+REQUEST_URI=/africa/index.php?r=facturasElectronicas/create
+HTTP_REFERER=http://localhost/africa/index.php?r=facturasElectronicas
+---
+2023/05/30 10:13:11 [error] [exception.CException] exception 'CException' with message 'Propiedad "FacturasElectronicas"."esExcento" no se encuentra definida.' in /var/www/html/framework/base/CComponent.php:131
+Stack trace:
+#0 /var/www/html/framework/db/ar/CActiveRecord.php(144): CComponent->__get('esExcento')
+#1 /var/www/html/framework/web/helpers/CHtml.php(2044): CActiveRecord->__get('esExcento')
+#2 /var/www/html/framework/web/helpers/CHtml.php(1347): CHtml::resolveValue(Object(FacturasElectronicas), 'esExcento')
+#3 /var/www/html/framework/web/widgets/CActiveForm.php(658): CHtml::activeCheckBox(Object(FacturasElectronicas), 'esExcento', Array)
+#4 /var/www/html/africa/protected/views/facturasElectronicas/_form.php(53): CActiveForm->checkBox(Object(FacturasElectronicas), 'esExcento', Array)
+#5 /var/www/html/framework/web/CBaseController.php(127): require('/var/www/html/a...')
+#6 /var/www/html/framework/web/CBaseController.php(96): CBaseController->renderInternal('/var/www/html/a...', Array, true)
+#7 /var/www/html/framework/web/CController.php(870): CBaseController->renderFile('/var/www/html/a...', Array, true)
+#8 /var/www/html/africa/protected/views/facturasElectronicas/create.php(14): CController->renderPartial('_form', Array)
+#9 /var/www/html/framework/web/CBaseController.php(127): require('/var/www/html/a...')
+#10 /var/www/html/framework/web/CBaseController.php(96): CBaseController->renderInternal('/var/www/html/a...', Array, true)
+#11 /var/www/html/framework/web/CController.php(870): CBaseController->renderFile('/var/www/html/a...', Array, true)
+#12 /var/www/html/framework/web/CController.php(783): CController->renderPartial('create', Array, true)
+#13 /var/www/html/africa/protected/controllers/FacturasElectronicasController.php(228): CController->render('create', Array)
+#14 /var/www/html/framework/web/actions/CInlineAction.php(50): FacturasElectronicasController->actionCreate()
+#15 /var/www/html/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#16 /var/www/html/framework/web/CController.php(287): CController->runAction(Object(CInlineAction))
+#17 /var/www/html/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 /var/www/html/framework/web/CWebApplication.php(276): CController->run('create')
+#19 /var/www/html/framework/web/CWebApplication.php(135): CWebApplication->runController('facturasElectro...')
+#20 /var/www/html/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#21 /var/www/html/africa/index.php(13): CApplication->run()
+#22 {main}
+REQUEST_URI=/africa/index.php?r=facturasElectronicas/create
+HTTP_REFERER=http://localhost/africa/index.php?r=facturasElectronicas
+---
+2023/05/30 10:13:49 [error] [exception.CException] exception 'CException' with message 'Propiedad "FacturasElectronicas"."esExcento" no se encuentra definida.' in /var/www/html/framework/base/CComponent.php:131
+Stack trace:
+#0 /var/www/html/framework/db/ar/CActiveRecord.php(144): CComponent->__get('esExcento')
+#1 /var/www/html/framework/web/helpers/CHtml.php(2044): CActiveRecord->__get('esExcento')
+#2 /var/www/html/framework/web/helpers/CHtml.php(1347): CHtml::resolveValue(Object(FacturasElectronicas), 'esExcento')
+#3 /var/www/html/framework/web/widgets/CActiveForm.php(658): CHtml::activeCheckBox(Object(FacturasElectronicas), 'esExcento', Array)
+#4 /var/www/html/africa/protected/views/facturasElectronicas/_form.php(53): CActiveForm->checkBox(Object(FacturasElectronicas), 'esExcento', Array)
+#5 /var/www/html/framework/web/CBaseController.php(127): require('/var/www/html/a...')
+#6 /var/www/html/framework/web/CBaseController.php(96): CBaseController->renderInternal('/var/www/html/a...', Array, true)
+#7 /var/www/html/framework/web/CController.php(870): CBaseController->renderFile('/var/www/html/a...', Array, true)
+#8 /var/www/html/africa/protected/views/facturasElectronicas/create.php(14): CController->renderPartial('_form', Array)
+#9 /var/www/html/framework/web/CBaseController.php(127): require('/var/www/html/a...')
+#10 /var/www/html/framework/web/CBaseController.php(96): CBaseController->renderInternal('/var/www/html/a...', Array, true)
+#11 /var/www/html/framework/web/CController.php(870): CBaseController->renderFile('/var/www/html/a...', Array, true)
+#12 /var/www/html/framework/web/CController.php(783): CController->renderPartial('create', Array, true)
+#13 /var/www/html/africa/protected/controllers/FacturasElectronicasController.php(228): CController->render('create', Array)
+#14 /var/www/html/framework/web/actions/CInlineAction.php(50): FacturasElectronicasController->actionCreate()
+#15 /var/www/html/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#16 /var/www/html/framework/web/CController.php(287): CController->runAction(Object(CInlineAction))
+#17 /var/www/html/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 /var/www/html/framework/web/CWebApplication.php(276): CController->run('create')
+#19 /var/www/html/framework/web/CWebApplication.php(135): CWebApplication->runController('facturasElectro...')
+#20 /var/www/html/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#21 /var/www/html/africa/index.php(13): CApplication->run()
+#22 {main}
+REQUEST_URI=/africa/index.php?r=facturasElectronicas/create
+HTTP_REFERER=http://localhost/africa/index.php?r=facturasElectronicas
+---
+2023/05/30 10:14:11 [error] [exception.CException] exception 'CException' with message 'Propiedad "FacturasElectronicas"."esExcento" no se encuentra definida.' in /var/www/html/framework/base/CComponent.php:131
+Stack trace:
+#0 /var/www/html/framework/db/ar/CActiveRecord.php(144): CComponent->__get('esExcento')
+#1 /var/www/html/framework/web/helpers/CHtml.php(2044): CActiveRecord->__get('esExcento')
+#2 /var/www/html/framework/web/helpers/CHtml.php(1347): CHtml::resolveValue(Object(FacturasElectronicas), 'esExcento')
+#3 /var/www/html/framework/web/widgets/CActiveForm.php(658): CHtml::activeCheckBox(Object(FacturasElectronicas), 'esExcento', Array)
+#4 /var/www/html/africa/protected/views/facturasElectronicas/_form.php(53): CActiveForm->checkBox(Object(FacturasElectronicas), 'esExcento', Array)
+#5 /var/www/html/framework/web/CBaseController.php(127): require('/var/www/html/a...')
+#6 /var/www/html/framework/web/CBaseController.php(96): CBaseController->renderInternal('/var/www/html/a...', Array, true)
+#7 /var/www/html/framework/web/CController.php(870): CBaseController->renderFile('/var/www/html/a...', Array, true)
+#8 /var/www/html/africa/protected/views/facturasElectronicas/create.php(14): CController->renderPartial('_form', Array)
+#9 /var/www/html/framework/web/CBaseController.php(127): require('/var/www/html/a...')
+#10 /var/www/html/framework/web/CBaseController.php(96): CBaseController->renderInternal('/var/www/html/a...', Array, true)
+#11 /var/www/html/framework/web/CController.php(870): CBaseController->renderFile('/var/www/html/a...', Array, true)
+#12 /var/www/html/framework/web/CController.php(783): CController->renderPartial('create', Array, true)
+#13 /var/www/html/africa/protected/controllers/FacturasElectronicasController.php(228): CController->render('create', Array)
+#14 /var/www/html/framework/web/actions/CInlineAction.php(50): FacturasElectronicasController->actionCreate()
+#15 /var/www/html/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#16 /var/www/html/framework/web/CController.php(287): CController->runAction(Object(CInlineAction))
+#17 /var/www/html/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 /var/www/html/framework/web/CWebApplication.php(276): CController->run('create')
+#19 /var/www/html/framework/web/CWebApplication.php(135): CWebApplication->runController('facturasElectro...')
+#20 /var/www/html/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#21 /var/www/html/africa/index.php(13): CApplication->run()
+#22 {main}
+REQUEST_URI=/africa/index.php?r=facturasElectronicas/create
+HTTP_REFERER=http://localhost/africa/index.php?r=facturasElectronicas
+---
+2023/05/30 10:14:30 [error] [exception.CException] exception 'CException' with message 'Propiedad "FacturasElectronicas"."esExcento" no se encuentra definida.' in /var/www/html/framework/base/CComponent.php:131
+Stack trace:
+#0 /var/www/html/framework/db/ar/CActiveRecord.php(144): CComponent->__get('esExcento')
+#1 /var/www/html/framework/web/helpers/CHtml.php(2044): CActiveRecord->__get('esExcento')
+#2 /var/www/html/framework/web/helpers/CHtml.php(1347): CHtml::resolveValue(Object(FacturasElectronicas), 'esExcento')
+#3 /var/www/html/framework/web/widgets/CActiveForm.php(658): CHtml::activeCheckBox(Object(FacturasElectronicas), 'esExcento', Array)
+#4 /var/www/html/africa/protected/views/facturasElectronicas/_form.php(53): CActiveForm->checkBox(Object(FacturasElectronicas), 'esExcento', Array)
+#5 /var/www/html/framework/web/CBaseController.php(127): require('/var/www/html/a...')
+#6 /var/www/html/framework/web/CBaseController.php(96): CBaseController->renderInternal('/var/www/html/a...', Array, true)
+#7 /var/www/html/framework/web/CController.php(870): CBaseController->renderFile('/var/www/html/a...', Array, true)
+#8 /var/www/html/africa/protected/views/facturasElectronicas/create.php(14): CController->renderPartial('_form', Array)
+#9 /var/www/html/framework/web/CBaseController.php(127): require('/var/www/html/a...')
+#10 /var/www/html/framework/web/CBaseController.php(96): CBaseController->renderInternal('/var/www/html/a...', Array, true)
+#11 /var/www/html/framework/web/CController.php(870): CBaseController->renderFile('/var/www/html/a...', Array, true)
+#12 /var/www/html/framework/web/CController.php(783): CController->renderPartial('create', Array, true)
+#13 /var/www/html/africa/protected/controllers/FacturasElectronicasController.php(228): CController->render('create', Array)
+#14 /var/www/html/framework/web/actions/CInlineAction.php(50): FacturasElectronicasController->actionCreate()
+#15 /var/www/html/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#16 /var/www/html/framework/web/CController.php(287): CController->runAction(Object(CInlineAction))
+#17 /var/www/html/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 /var/www/html/framework/web/CWebApplication.php(276): CController->run('create')
+#19 /var/www/html/framework/web/CWebApplication.php(135): CWebApplication->runController('facturasElectro...')
+#20 /var/www/html/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#21 /var/www/html/africa/index.php(13): CApplication->run()
+#22 {main}
+REQUEST_URI=/africa/index.php?r=facturasElectronicas/create
+HTTP_REFERER=http://localhost/africa/index.php?r=facturasElectronicas
+---
+2023/05/30 10:14:41 [error] [exception.CException] exception 'CException' with message 'FacturasElectronicas tiene una regla de validación inválida. La regla se debe especificar attributos para ser validados y el nombre de su validador.' in /var/www/html/framework/base/CModel.php:287
+Stack trace:
+#0 /var/www/html/framework/base/CModel.php(259): CModel->createValidators()
+#1 /var/www/html/framework/base/CModel.php(302): CModel->getValidators('fecha')
+#2 /var/www/html/framework/web/helpers/CHtml.php(1185): CModel->isAttributeRequired('fecha')
+#3 /var/www/html/framework/web/widgets/CActiveForm.php(553): CHtml::activeLabelEx(Object(FacturasElectronicas), 'fecha', Array)
+#4 /var/www/html/africa/protected/views/facturasElectronicas/_form.php(11): CActiveForm->labelEx(Object(FacturasElectronicas), 'fecha', Array)
+#5 /var/www/html/framework/web/CBaseController.php(127): require('/var/www/html/a...')
+#6 /var/www/html/framework/web/CBaseController.php(96): CBaseController->renderInternal('/var/www/html/a...', Array, true)
+#7 /var/www/html/framework/web/CController.php(870): CBaseController->renderFile('/var/www/html/a...', Array, true)
+#8 /var/www/html/africa/protected/views/facturasElectronicas/create.php(14): CController->renderPartial('_form', Array)
+#9 /var/www/html/framework/web/CBaseController.php(127): require('/var/www/html/a...')
+#10 /var/www/html/framework/web/CBaseController.php(96): CBaseController->renderInternal('/var/www/html/a...', Array, true)
+#11 /var/www/html/framework/web/CController.php(870): CBaseController->renderFile('/var/www/html/a...', Array, true)
+#12 /var/www/html/framework/web/CController.php(783): CController->renderPartial('create', Array, true)
+#13 /var/www/html/africa/protected/controllers/FacturasElectronicasController.php(228): CController->render('create', Array)
+#14 /var/www/html/framework/web/actions/CInlineAction.php(50): FacturasElectronicasController->actionCreate()
+#15 /var/www/html/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#16 /var/www/html/framework/web/CController.php(287): CController->runAction(Object(CInlineAction))
+#17 /var/www/html/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 /var/www/html/framework/web/CWebApplication.php(276): CController->run('create')
+#19 /var/www/html/framework/web/CWebApplication.php(135): CWebApplication->runController('facturasElectro...')
+#20 /var/www/html/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#21 /var/www/html/africa/index.php(13): CApplication->run()
+#22 {main}
+REQUEST_URI=/africa/index.php?r=facturasElectronicas/create
+HTTP_REFERER=http://localhost/africa/index.php?r=facturasElectronicas
+---
+2023/05/30 10:14:51 [error] [exception.CException] exception 'CException' with message 'Propiedad "FacturasElectronicas"."esExcento" no se encuentra definida.' in /var/www/html/framework/base/CComponent.php:131
+Stack trace:
+#0 /var/www/html/framework/db/ar/CActiveRecord.php(144): CComponent->__get('esExcento')
+#1 /var/www/html/framework/web/helpers/CHtml.php(2044): CActiveRecord->__get('esExcento')
+#2 /var/www/html/framework/web/helpers/CHtml.php(1347): CHtml::resolveValue(Object(FacturasElectronicas), 'esExcento')
+#3 /var/www/html/framework/web/widgets/CActiveForm.php(658): CHtml::activeCheckBox(Object(FacturasElectronicas), 'esExcento', Array)
+#4 /var/www/html/africa/protected/views/facturasElectronicas/_form.php(53): CActiveForm->checkBox(Object(FacturasElectronicas), 'esExcento', Array)
+#5 /var/www/html/framework/web/CBaseController.php(127): require('/var/www/html/a...')
+#6 /var/www/html/framework/web/CBaseController.php(96): CBaseController->renderInternal('/var/www/html/a...', Array, true)
+#7 /var/www/html/framework/web/CController.php(870): CBaseController->renderFile('/var/www/html/a...', Array, true)
+#8 /var/www/html/africa/protected/views/facturasElectronicas/create.php(14): CController->renderPartial('_form', Array)
+#9 /var/www/html/framework/web/CBaseController.php(127): require('/var/www/html/a...')
+#10 /var/www/html/framework/web/CBaseController.php(96): CBaseController->renderInternal('/var/www/html/a...', Array, true)
+#11 /var/www/html/framework/web/CController.php(870): CBaseController->renderFile('/var/www/html/a...', Array, true)
+#12 /var/www/html/framework/web/CController.php(783): CController->renderPartial('create', Array, true)
+#13 /var/www/html/africa/protected/controllers/FacturasElectronicasController.php(228): CController->render('create', Array)
+#14 /var/www/html/framework/web/actions/CInlineAction.php(50): FacturasElectronicasController->actionCreate()
+#15 /var/www/html/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#16 /var/www/html/framework/web/CController.php(287): CController->runAction(Object(CInlineAction))
+#17 /var/www/html/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 /var/www/html/framework/web/CWebApplication.php(276): CController->run('create')
+#19 /var/www/html/framework/web/CWebApplication.php(135): CWebApplication->runController('facturasElectro...')
+#20 /var/www/html/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#21 /var/www/html/africa/index.php(13): CApplication->run()
+#22 {main}
+REQUEST_URI=/africa/index.php?r=facturasElectronicas/create
+HTTP_REFERER=http://localhost/africa/index.php?r=facturasElectronicas
+---
+2023/05/30 10:19:34 [warning] [application] Failed to set unsafe attribute "esExcento" of "FacturasElectronicas".
+in /var/www/html/africa/protected/controllers/FacturasElectronicasController.php (218)
+in /var/www/html/africa/index.php (13)
+2023/05/30 10:28:26 [warning] [application] Failed to set unsafe attribute "esExcento" of "FacturasElectronicas".
+in /var/www/html/africa/protected/controllers/FacturasElectronicasController.php (245)
+in /var/www/html/africa/index.php (13)
+2023/05/30 10:30:54 [error] [exception.CException] exception 'CException' with message 'TbActiveForm and its behaviors do not have a method or closure named "field".' in /var/www/html/framework/base/CComponent.php:266
+Stack trace:
+#0 /var/www/html/africa/protected/views/facturasElectronicas/_form.php(33): CComponent->__call('field', Array)
+#1 /var/www/html/africa/protected/views/facturasElectronicas/_form.php(33): TbActiveForm->field(Object(FacturasElectronicas), 'esExcento')
+#2 /var/www/html/framework/web/CBaseController.php(127): require('/var/www/html/a...')
+#3 /var/www/html/framework/web/CBaseController.php(96): CBaseController->renderInternal('/var/www/html/a...', Array, true)
+#4 /var/www/html/framework/web/CController.php(870): CBaseController->renderFile('/var/www/html/a...', Array, true)
+#5 /var/www/html/africa/protected/views/facturasElectronicas/update.php(11): CController->renderPartial('_form', Array)
+#6 /var/www/html/framework/web/CBaseController.php(127): require('/var/www/html/a...')
+#7 /var/www/html/framework/web/CBaseController.php(96): CBaseController->renderInternal('/var/www/html/a...', Array, true)
+#8 /var/www/html/framework/web/CController.php(870): CBaseController->renderFile('/var/www/html/a...', Array, true)
+#9 /var/www/html/framework/web/CController.php(783): CController->renderPartial('update', Array, true)
+#10 /var/www/html/africa/protected/controllers/FacturasElectronicasController.php(253): CController->render('update', Array)
+#11 [internal function]: FacturasElectronicasController->actionUpdate('20')
+#12 /var/www/html/framework/web/actions/CAction.php(107): ReflectionMethod->invokeArgs(Object(FacturasElectronicasController), Array)
+#13 /var/www/html/framework/web/actions/CInlineAction.php(48): CAction->runWithParamsInternal(Object(FacturasElectronicasController), Object(ReflectionMethod), Array)
+#14 /var/www/html/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#15 /var/www/html/framework/web/CController.php(287): CController->runAction(Object(CInlineAction))
+#16 /var/www/html/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#17 /var/www/html/framework/web/CWebApplication.php(276): CController->run('update')
+#18 /var/www/html/framework/web/CWebApplication.php(135): CWebApplication->runController('facturasElectro...')
+#19 /var/www/html/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#20 /var/www/html/africa/index.php(13): CApplication->run()
+#21 {main}
+REQUEST_URI=/africa/index.php?r=facturasElectronicas/update&id=20
+HTTP_REFERER=http://localhost/africa/index.php?r=facturasElectronicas/index&id=20
+---
+2023/05/30 10:31:04 [error] [exception.CException] exception 'CException' with message 'TbActiveForm and its behaviors do not have a method or closure named "field".' in /var/www/html/framework/base/CComponent.php:266
+Stack trace:
+#0 /var/www/html/africa/protected/views/facturasElectronicas/_form.php(33): CComponent->__call('field', Array)
+#1 /var/www/html/africa/protected/views/facturasElectronicas/_form.php(33): TbActiveForm->field(Object(FacturasElectronicas), 'esExcento')
+#2 /var/www/html/framework/web/CBaseController.php(127): require('/var/www/html/a...')
+#3 /var/www/html/framework/web/CBaseController.php(96): CBaseController->renderInternal('/var/www/html/a...', Array, true)
+#4 /var/www/html/framework/web/CController.php(870): CBaseController->renderFile('/var/www/html/a...', Array, true)
+#5 /var/www/html/africa/protected/views/facturasElectronicas/update.php(11): CController->renderPartial('_form', Array)
+#6 /var/www/html/framework/web/CBaseController.php(127): require('/var/www/html/a...')
+#7 /var/www/html/framework/web/CBaseController.php(96): CBaseController->renderInternal('/var/www/html/a...', Array, true)
+#8 /var/www/html/framework/web/CController.php(870): CBaseController->renderFile('/var/www/html/a...', Array, true)
+#9 /var/www/html/framework/web/CController.php(783): CController->renderPartial('update', Array, true)
+#10 /var/www/html/africa/protected/controllers/FacturasElectronicasController.php(253): CController->render('update', Array)
+#11 [internal function]: FacturasElectronicasController->actionUpdate('20')
+#12 /var/www/html/framework/web/actions/CAction.php(107): ReflectionMethod->invokeArgs(Object(FacturasElectronicasController), Array)
+#13 /var/www/html/framework/web/actions/CInlineAction.php(48): CAction->runWithParamsInternal(Object(FacturasElectronicasController), Object(ReflectionMethod), Array)
+#14 /var/www/html/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#15 /var/www/html/framework/web/CController.php(287): CController->runAction(Object(CInlineAction))
+#16 /var/www/html/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#17 /var/www/html/framework/web/CWebApplication.php(276): CController->run('update')
+#18 /var/www/html/framework/web/CWebApplication.php(135): CWebApplication->runController('facturasElectro...')
+#19 /var/www/html/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#20 /var/www/html/africa/index.php(13): CApplication->run()
+#21 {main}
+REQUEST_URI=/africa/index.php?r=facturasElectronicas/update&id=20
+HTTP_REFERER=http://localhost/africa/index.php?r=facturasElectronicas/index&id=20
+---
+2023/05/30 10:31:39 [warning] [application] Failed to set unsafe attribute "esExcento" of "FacturasElectronicas".
+in /var/www/html/africa/protected/controllers/FacturasElectronicasController.php (245)
+in /var/www/html/africa/index.php (13)
+2023/05/30 10:33:24 [warning] [application] Failed to set unsafe attribute "esExcento" of "FacturasElectronicas".
+in /var/www/html/africa/protected/controllers/FacturasElectronicasController.php (245)
+in /var/www/html/africa/index.php (13)
+2023/05/30 10:44:41 [error] [exception.CHttpException.500] exception 'CHttpException' with message '(10048) El campo  'Importe Total' ImpTotal, debe ser igual  a la  suma de ImpTotConc + ImpNeto + ImpOpEx + ImpTrib + ImpIVA.' in /var/www/html/africa/protected/controllers/FacturasElectronicasController.php:155
+Stack trace:
+#0 [internal function]: FacturasElectronicasController->actionEnviarAfip('22')
+#1 /var/www/html/framework/web/actions/CAction.php(107): ReflectionMethod->invokeArgs(Object(FacturasElectronicasController), Array)
+#2 /var/www/html/framework/web/actions/CInlineAction.php(48): CAction->runWithParamsInternal(Object(FacturasElectronicasController), Object(ReflectionMethod), Array)
+#3 /var/www/html/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#4 /var/www/html/framework/web/CController.php(287): CController->runAction(Object(CInlineAction))
+#5 /var/www/html/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/html/framework/web/CWebApplication.php(276): CController->run('enviarAfip')
+#7 /var/www/html/framework/web/CWebApplication.php(135): CWebApplication->runController('facturasElectro...')
+#8 /var/www/html/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#9 /var/www/html/africa/index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/africa/index.php?r=facturasElectronicas/enviarAfip&id=22
+HTTP_REFERER=http://localhost/africa/index.php?r=facturasElectronicas/sendComprobanteAfip&id=22
+---
+2023/05/30 10:45:12 [error] [exception.CHttpException.500] exception 'CHttpException' with message '(10018) Si ImpIva es igual a 0 el objeto Iva y AlicIva son obligatorios. Id iva = 3 (iva 0)' in /var/www/html/africa/protected/controllers/FacturasElectronicasController.php:155
+Stack trace:
+#0 [internal function]: FacturasElectronicasController->actionEnviarAfip('22')
+#1 /var/www/html/framework/web/actions/CAction.php(107): ReflectionMethod->invokeArgs(Object(FacturasElectronicasController), Array)
+#2 /var/www/html/framework/web/actions/CInlineAction.php(48): CAction->runWithParamsInternal(Object(FacturasElectronicasController), Object(ReflectionMethod), Array)
+#3 /var/www/html/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#4 /var/www/html/framework/web/CController.php(287): CController->runAction(Object(CInlineAction))
+#5 /var/www/html/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/html/framework/web/CWebApplication.php(276): CController->run('enviarAfip')
+#7 /var/www/html/framework/web/CWebApplication.php(135): CWebApplication->runController('facturasElectro...')
+#8 /var/www/html/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#9 /var/www/html/africa/index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/africa/index.php?r=facturasElectronicas/enviarAfip&id=22
+HTTP_REFERER=http://localhost/africa/index.php?r=facturasElectronicas/sendComprobanteAfip&id=22
+---
+2023/05/30 10:50:52 [error] [exception.CHttpException.500] exception 'CHttpException' with message '(10020) El  campo  BaseImp  en AlicIVA es obligatorio  y debe ser mayor a 0 cero.' in /var/www/html/africa/protected/controllers/FacturasElectronicasController.php:155
+Stack trace:
+#0 [internal function]: FacturasElectronicasController->actionEnviarAfip('22')
+#1 /var/www/html/framework/web/actions/CAction.php(107): ReflectionMethod->invokeArgs(Object(FacturasElectronicasController), Array)
+#2 /var/www/html/framework/web/actions/CInlineAction.php(48): CAction->runWithParamsInternal(Object(FacturasElectronicasController), Object(ReflectionMethod), Array)
+#3 /var/www/html/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#4 /var/www/html/framework/web/CController.php(287): CController->runAction(Object(CInlineAction))
+#5 /var/www/html/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/html/framework/web/CWebApplication.php(276): CController->run('enviarAfip')
+#7 /var/www/html/framework/web/CWebApplication.php(135): CWebApplication->runController('facturasElectro...')
+#8 /var/www/html/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#9 /var/www/html/africa/index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/africa/index.php?r=facturasElectronicas/enviarAfip&id=22
+HTTP_REFERER=http://localhost/africa/index.php?r=facturasElectronicas/sendComprobanteAfip&id=22
+---
+2023/05/30 10:51:20 [error] [exception.CHttpException.500] exception 'CHttpException' with message '(10051) Los importes informados en AlicIVA no se corresponden con los porcentajes.' in /var/www/html/africa/protected/controllers/FacturasElectronicasController.php:155
+Stack trace:
+#0 [internal function]: FacturasElectronicasController->actionEnviarAfip('22')
+#1 /var/www/html/framework/web/actions/CAction.php(107): ReflectionMethod->invokeArgs(Object(FacturasElectronicasController), Array)
+#2 /var/www/html/framework/web/actions/CInlineAction.php(48): CAction->runWithParamsInternal(Object(FacturasElectronicasController), Object(ReflectionMethod), Array)
+#3 /var/www/html/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#4 /var/www/html/framework/web/CController.php(287): CController->runAction(Object(CInlineAction))
+#5 /var/www/html/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/html/framework/web/CWebApplication.php(276): CController->run('enviarAfip')
+#7 /var/www/html/framework/web/CWebApplication.php(135): CWebApplication->runController('facturasElectro...')
+#8 /var/www/html/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#9 /var/www/html/africa/index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/africa/index.php?r=facturasElectronicas/enviarAfip&id=22
+HTTP_REFERER=http://localhost/africa/index.php?r=facturasElectronicas/sendComprobanteAfip&id=22
+---
+2023/05/30 10:51:39 [error] [exception.CHttpException.500] exception 'CHttpException' with message '(10048) El campo  'Importe Total' ImpTotal, debe ser igual  a la  suma de ImpTotConc + ImpNeto + ImpOpEx + ImpTrib + ImpIVA.' in /var/www/html/africa/protected/controllers/FacturasElectronicasController.php:155
+Stack trace:
+#0 [internal function]: FacturasElectronicasController->actionEnviarAfip('22')
+#1 /var/www/html/framework/web/actions/CAction.php(107): ReflectionMethod->invokeArgs(Object(FacturasElectronicasController), Array)
+#2 /var/www/html/framework/web/actions/CInlineAction.php(48): CAction->runWithParamsInternal(Object(FacturasElectronicasController), Object(ReflectionMethod), Array)
+#3 /var/www/html/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#4 /var/www/html/framework/web/CController.php(287): CController->runAction(Object(CInlineAction))
+#5 /var/www/html/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/html/framework/web/CWebApplication.php(276): CController->run('enviarAfip')
+#7 /var/www/html/framework/web/CWebApplication.php(135): CWebApplication->runController('facturasElectro...')
+#8 /var/www/html/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#9 /var/www/html/africa/index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/africa/index.php?r=facturasElectronicas/enviarAfip&id=22
+HTTP_REFERER=http://localhost/africa/index.php?r=facturasElectronicas/sendComprobanteAfip&id=22
+---
+2023/05/30 10:52:34 [error] [exception.CHttpException.500] exception 'CHttpException' with message '(10051) Los importes informados en AlicIVA no se corresponden con los porcentajes.' in /var/www/html/africa/protected/controllers/FacturasElectronicasController.php:155
+Stack trace:
+#0 [internal function]: FacturasElectronicasController->actionEnviarAfip('22')
+#1 /var/www/html/framework/web/actions/CAction.php(107): ReflectionMethod->invokeArgs(Object(FacturasElectronicasController), Array)
+#2 /var/www/html/framework/web/actions/CInlineAction.php(48): CAction->runWithParamsInternal(Object(FacturasElectronicasController), Object(ReflectionMethod), Array)
+#3 /var/www/html/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#4 /var/www/html/framework/web/CController.php(287): CController->runAction(Object(CInlineAction))
+#5 /var/www/html/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/html/framework/web/CWebApplication.php(276): CController->run('enviarAfip')
+#7 /var/www/html/framework/web/CWebApplication.php(135): CWebApplication->runController('facturasElectro...')
+#8 /var/www/html/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#9 /var/www/html/africa/index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/africa/index.php?r=facturasElectronicas/enviarAfip&id=22
+HTTP_REFERER=http://localhost/africa/index.php?r=facturasElectronicas/sendComprobanteAfip&id=22
+---
+2023/05/30 10:53:37 [error] [exception.CHttpException.500] exception 'CHttpException' with message 'SOAP Fault: soap:Sender
+Server was unable to read request. ---> There is an error in XML document (2, 1946). ---> Input string was not in a correct format.
+' in /var/www/html/africa/protected/controllers/FacturasElectronicasController.php:155
+Stack trace:
+#0 [internal function]: FacturasElectronicasController->actionEnviarAfip('22')
+#1 /var/www/html/framework/web/actions/CAction.php(107): ReflectionMethod->invokeArgs(Object(FacturasElectronicasController), Array)
+#2 /var/www/html/framework/web/actions/CInlineAction.php(48): CAction->runWithParamsInternal(Object(FacturasElectronicasController), Object(ReflectionMethod), Array)
+#3 /var/www/html/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#4 /var/www/html/framework/web/CController.php(287): CController->runAction(Object(CInlineAction))
+#5 /var/www/html/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/html/framework/web/CWebApplication.php(276): CController->run('enviarAfip')
+#7 /var/www/html/framework/web/CWebApplication.php(135): CWebApplication->runController('facturasElectro...')
+#8 /var/www/html/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#9 /var/www/html/africa/index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/africa/index.php?r=facturasElectronicas/enviarAfip&id=22
+HTTP_REFERER=http://localhost/africa/index.php?r=facturasElectronicas/sendComprobanteAfip&id=22
+---
+2023/05/30 10:53:46 [error] [exception.CHttpException.500] exception 'CHttpException' with message '(10020) El  campo  BaseImp  en AlicIVA es obligatorio  y debe ser mayor a 0 cero.' in /var/www/html/africa/protected/controllers/FacturasElectronicasController.php:155
+Stack trace:
+#0 [internal function]: FacturasElectronicasController->actionEnviarAfip('22')
+#1 /var/www/html/framework/web/actions/CAction.php(107): ReflectionMethod->invokeArgs(Object(FacturasElectronicasController), Array)
+#2 /var/www/html/framework/web/actions/CInlineAction.php(48): CAction->runWithParamsInternal(Object(FacturasElectronicasController), Object(ReflectionMethod), Array)
+#3 /var/www/html/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#4 /var/www/html/framework/web/CController.php(287): CController->runAction(Object(CInlineAction))
+#5 /var/www/html/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/html/framework/web/CWebApplication.php(276): CController->run('enviarAfip')
+#7 /var/www/html/framework/web/CWebApplication.php(135): CWebApplication->runController('facturasElectro...')
+#8 /var/www/html/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#9 /var/www/html/africa/index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/africa/index.php?r=facturasElectronicas/enviarAfip&id=22
+HTTP_REFERER=http://localhost/africa/index.php?r=facturasElectronicas/sendComprobanteAfip&id=22
+---
+2023/05/30 10:55:01 [error] [exception.CHttpException.500] exception 'CHttpException' with message '(10061) La suma de los campos BaseImp en AlicIva debe ser igual al valor ingresado en ImpNeto.' in /var/www/html/africa/protected/controllers/FacturasElectronicasController.php:155
+Stack trace:
+#0 [internal function]: FacturasElectronicasController->actionEnviarAfip('22')
+#1 /var/www/html/framework/web/actions/CAction.php(107): ReflectionMethod->invokeArgs(Object(FacturasElectronicasController), Array)
+#2 /var/www/html/framework/web/actions/CInlineAction.php(48): CAction->runWithParamsInternal(Object(FacturasElectronicasController), Object(ReflectionMethod), Array)
+#3 /var/www/html/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#4 /var/www/html/framework/web/CController.php(287): CController->runAction(Object(CInlineAction))
+#5 /var/www/html/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/html/framework/web/CWebApplication.php(276): CController->run('enviarAfip')
+#7 /var/www/html/framework/web/CWebApplication.php(135): CWebApplication->runController('facturasElectro...')
+#8 /var/www/html/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#9 /var/www/html/africa/index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/africa/index.php?r=facturasElectronicas/enviarAfip&id=22
+HTTP_REFERER=http://localhost/africa/index.php?r=facturasElectronicas/sendComprobanteAfip&id=22
+---
+2023/05/30 10:58:05 [error] [exception.CHttpException.500] exception 'CHttpException' with message '(10048) El campo  'Importe Total' ImpTotal, debe ser igual  a la  suma de ImpTotConc + ImpNeto + ImpOpEx + ImpTrib + ImpIVA.' in /var/www/html/africa/protected/controllers/FacturasElectronicasController.php:155
+Stack trace:
+#0 [internal function]: FacturasElectronicasController->actionEnviarAfip('22')
+#1 /var/www/html/framework/web/actions/CAction.php(107): ReflectionMethod->invokeArgs(Object(FacturasElectronicasController), Array)
+#2 /var/www/html/framework/web/actions/CInlineAction.php(48): CAction->runWithParamsInternal(Object(FacturasElectronicasController), Object(ReflectionMethod), Array)
+#3 /var/www/html/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#4 /var/www/html/framework/web/CController.php(287): CController->runAction(Object(CInlineAction))
+#5 /var/www/html/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/html/framework/web/CWebApplication.php(276): CController->run('enviarAfip')
+#7 /var/www/html/framework/web/CWebApplication.php(135): CWebApplication->runController('facturasElectro...')
+#8 /var/www/html/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#9 /var/www/html/africa/index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/africa/index.php?r=facturasElectronicas/enviarAfip&id=22
+HTTP_REFERER=http://localhost/africa/index.php?r=facturasElectronicas/sendComprobanteAfip&id=22
+---
+2023/05/30 10:59:24 [error] [exception.CHttpException.500] exception 'CHttpException' with message '(10018) Si ImpIva es igual a 0 el objeto Iva y AlicIva son obligatorios. Id iva = 3 (iva 0)' in /var/www/html/africa/protected/controllers/FacturasElectronicasController.php:155
+Stack trace:
+#0 [internal function]: FacturasElectronicasController->actionEnviarAfip('22')
+#1 /var/www/html/framework/web/actions/CAction.php(107): ReflectionMethod->invokeArgs(Object(FacturasElectronicasController), Array)
+#2 /var/www/html/framework/web/actions/CInlineAction.php(48): CAction->runWithParamsInternal(Object(FacturasElectronicasController), Object(ReflectionMethod), Array)
+#3 /var/www/html/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#4 /var/www/html/framework/web/CController.php(287): CController->runAction(Object(CInlineAction))
+#5 /var/www/html/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/html/framework/web/CWebApplication.php(276): CController->run('enviarAfip')
+#7 /var/www/html/framework/web/CWebApplication.php(135): CWebApplication->runController('facturasElectro...')
+#8 /var/www/html/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#9 /var/www/html/africa/index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/africa/index.php?r=facturasElectronicas/enviarAfip&id=22
+HTTP_REFERER=http://localhost/africa/index.php?r=facturasElectronicas/sendComprobanteAfip&id=22
+---
+2023/05/30 11:10:46 [error] [exception.CException] exception 'CException' with message 'Propiedad "Plantillas"."tipo_salida" no se encuentra definida.' in /var/www/html/framework/base/CComponent.php:131
+Stack trace:
+#0 /var/www/html/framework/db/ar/CActiveRecord.php(144): CComponent->__get('tipo_salida')
+#1 /var/www/html/africa/protected/models/Plantillas.php(88): CActiveRecord->__get('tipo_salida')
+#2 /var/www/html/africa/protected/views/plantillas/index.php(15): Plantillas->search()
+#3 /var/www/html/framework/web/CBaseController.php(127): require('/var/www/html/a...')
+#4 /var/www/html/framework/web/CBaseController.php(96): CBaseController->renderInternal('/var/www/html/a...', Array, true)
+#5 /var/www/html/framework/web/CController.php(870): CBaseController->renderFile('/var/www/html/a...', Array, true)
+#6 /var/www/html/framework/web/CController.php(783): CController->renderPartial('index', Array, true)
+#7 /var/www/html/africa/protected/controllers/PlantillasController.php(121): CController->render('index', Array)
+#8 /var/www/html/framework/web/actions/CInlineAction.php(50): PlantillasController->actionIndex()
+#9 /var/www/html/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#10 /var/www/html/framework/web/filters/CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#11 /var/www/html/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#12 /var/www/html/africa/protected/modules/rights/components/RController.php(36): CFilter->filter(Object(CFilterChain))
+#13 /var/www/html/framework/web/filters/CInlineFilter.php(59): RController->filterRights(Object(CFilterChain))
+#14 /var/www/html/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#15 /var/www/html/framework/web/CController.php(292): CFilterChain->run()
+#16 /var/www/html/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#17 /var/www/html/framework/web/CWebApplication.php(276): CController->run('')
+#18 /var/www/html/framework/web/CWebApplication.php(135): CWebApplication->runController('plantillas')
+#19 /var/www/html/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#20 /var/www/html/africa/index.php(13): CApplication->run()
+#21 {main}
+REQUEST_URI=/africa/index.php?r=plantillas
+---
+2023/05/30 12:26:54 [error] [php] Undefined variable: id (/var/www/html/africa/protected/controllers/FacturasElectronicasController.php:39)
+Stack trace:
+#0 /var/www/html/framework/web/CController.php(287): FacturasElectronicasController->runAction()
+#1 /var/www/html/framework/web/CController.php(266): FacturasElectronicasController->runActionWithFilters()
+#2 /var/www/html/framework/web/CWebApplication.php(276): FacturasElectronicasController->run()
+#3 /var/www/html/framework/web/CWebApplication.php(135): CWebApplication->runController()
+#4 /var/www/html/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#5 /var/www/html/africa/index.php(13): CWebApplication->run()
+REQUEST_URI=/africa/index.php?r=facturasElectronicas/getComprobanteAsociado&nroComprobante=4
+in /var/www/html/africa/protected/controllers/FacturasElectronicasController.php (39)
+in /var/www/html/africa/index.php (13)
+2023/05/30 12:27:24 [error] [php] Undefined variable: model (/var/www/html/africa/protected/controllers/FacturasElectronicasController.php:40)
+Stack trace:
+#0 /var/www/html/framework/web/CController.php(287): FacturasElectronicasController->runAction()
+#1 /var/www/html/framework/web/CController.php(266): FacturasElectronicasController->runActionWithFilters()
+#2 /var/www/html/framework/web/CWebApplication.php(276): FacturasElectronicasController->run()
+#3 /var/www/html/framework/web/CWebApplication.php(135): CWebApplication->runController()
+#4 /var/www/html/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#5 /var/www/html/africa/index.php(13): CWebApplication->run()
+REQUEST_URI=/africa/index.php?r=facturasElectronicas/getComprobanteAsociado&nroComprobante=5
+in /var/www/html/africa/protected/controllers/FacturasElectronicasController.php (40)
+in /var/www/html/africa/index.php (13)
+2023/05/30 12:27:33 [error] [php] Undefined variable: model (/var/www/html/africa/protected/controllers/FacturasElectronicasController.php:40)
+Stack trace:
+#0 /var/www/html/framework/web/CController.php(287): FacturasElectronicasController->runAction()
+#1 /var/www/html/framework/web/CController.php(266): FacturasElectronicasController->runActionWithFilters()
+#2 /var/www/html/framework/web/CWebApplication.php(276): FacturasElectronicasController->run()
+#3 /var/www/html/framework/web/CWebApplication.php(135): CWebApplication->runController()
+#4 /var/www/html/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#5 /var/www/html/africa/index.php(13): CWebApplication->run()
+REQUEST_URI=/africa/index.php?r=facturasElectronicas/getComprobanteAsociado&nroComprobante=4
+in /var/www/html/africa/protected/controllers/FacturasElectronicasController.php (40)
+in /var/www/html/africa/index.php (13)
+2023/05/30 12:27:39 [error] [php] Undefined variable: model (/var/www/html/africa/protected/controllers/FacturasElectronicasController.php:40)
+Stack trace:
+#0 /var/www/html/framework/web/CController.php(287): FacturasElectronicasController->runAction()
+#1 /var/www/html/framework/web/CController.php(266): FacturasElectronicasController->runActionWithFilters()
+#2 /var/www/html/framework/web/CWebApplication.php(276): FacturasElectronicasController->run()
+#3 /var/www/html/framework/web/CWebApplication.php(135): CWebApplication->runController()
+#4 /var/www/html/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#5 /var/www/html/africa/index.php(13): CWebApplication->run()
+REQUEST_URI=/africa/index.php?r=facturasElectronicas/getComprobanteAsociado&nroComprobante=3
+in /var/www/html/africa/protected/controllers/FacturasElectronicasController.php (40)
+in /var/www/html/africa/index.php (13)
+2023/05/30 15:34:47 [warning] [application] Failed to set unsafe attribute "comprobanteAsociado" of "FacturasElectronicas".
+in /var/www/html/africa/protected/controllers/FacturasElectronicasController.php (250)
+in /var/www/html/africa/index.php (13)
+2023/05/30 15:35:01 [warning] [application] Failed to set unsafe attribute "comprobanteAsociado" of "FacturasElectronicas".
+in /var/www/html/africa/protected/controllers/FacturasElectronicasController.php (250)
+in /var/www/html/africa/index.php (13)
+2023/05/30 15:35:01 [warning] [application] Failed to set unsafe attribute "comprobanteAsociado" of "FacturasElectronicas".
+in /var/www/html/africa/protected/controllers/FacturasElectronicasController.php (250)
+in /var/www/html/africa/index.php (13)
+2023/05/30 16:14:22 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'comprobanteAsociado' cannot be null. The SQL statement executed was: INSERT INTO `facturasElectronicas` (`fecha`, `estado`, `idTipoComprobante`, `tipoDoc`, `idCliente`, `importe`, `esExcento`, `detalle`, `comprobanteAsociado`, `doc`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6, :yp7, :yp8, :yp9).
+in /var/www/html/africa/protected/controllers/FacturasElectronicasController.php (224)
+in /var/www/html/africa/index.php (13)
+2023/05/30 16:14:22 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand falló al ejecutar la sentencia SQL: SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'comprobanteAsociado' cannot be null. The SQL statement executed was: INSERT INTO `facturasElectronicas` (`fecha`, `estado`, `idTipoComprobante`, `tipoDoc`, `idCliente`, `importe`, `esExcento`, `detalle`, `comprobanteAsociado`, `doc`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6, :yp7, :yp8, :yp9)' in /var/www/html/framework/db/CDbCommand.php:354
+Stack trace:
+#0 /var/www/html/framework/db/ar/CActiveRecord.php(1014): CDbCommand->execute()
+#1 /var/www/html/framework/db/ar/CActiveRecord.php(787): CActiveRecord->insert(NULL)
+#2 /var/www/html/africa/protected/controllers/FacturasElectronicasController.php(224): CActiveRecord->save()
+#3 /var/www/html/framework/web/actions/CInlineAction.php(50): FacturasElectronicasController->actionCreate()
+#4 /var/www/html/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#5 /var/www/html/framework/web/CController.php(287): CController->runAction(Object(CInlineAction))
+#6 /var/www/html/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/html/framework/web/CWebApplication.php(276): CController->run('create')
+#8 /var/www/html/framework/web/CWebApplication.php(135): CWebApplication->runController('facturasElectro...')
+#9 /var/www/html/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#10 /var/www/html/africa/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/africa/index.php?r=facturasElectronicas/create
+HTTP_REFERER=http://localhost/africa/index.php?r=facturasElectronicas/create
+---
+2023/05/30 16:14:54 [error] [exception.CHttpException.500] exception 'CHttpException' with message '(10013) Campo  DocTipo  Para comprobantes clase A y M el campo  DocTipo debe ser igual a 80 (CUIT)' in /var/www/html/africa/protected/controllers/FacturasElectronicasController.php:159
+Stack trace:
+#0 [internal function]: FacturasElectronicasController->actionEnviarAfip('23')
+#1 /var/www/html/framework/web/actions/CAction.php(107): ReflectionMethod->invokeArgs(Object(FacturasElectronicasController), Array)
+#2 /var/www/html/framework/web/actions/CInlineAction.php(48): CAction->runWithParamsInternal(Object(FacturasElectronicasController), Object(ReflectionMethod), Array)
+#3 /var/www/html/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#4 /var/www/html/framework/web/CController.php(287): CController->runAction(Object(CInlineAction))
+#5 /var/www/html/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/html/framework/web/CWebApplication.php(276): CController->run('enviarAfip')
+#7 /var/www/html/framework/web/CWebApplication.php(135): CWebApplication->runController('facturasElectro...')
+#8 /var/www/html/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#9 /var/www/html/africa/index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/africa/index.php?r=facturasElectronicas/enviarAfip&id=23
+HTTP_REFERER=http://localhost/africa/index.php?r=facturasElectronicas/sendComprobanteAfip&id=23
+---
+2023/05/30 16:15:11 [error] [exception.CHttpException.500] exception 'CHttpException' with message '(10015) El campo  DocNro es invalido.' in /var/www/html/africa/protected/controllers/FacturasElectronicasController.php:159
+Stack trace:
+#0 [internal function]: FacturasElectronicasController->actionEnviarAfip('23')
+#1 /var/www/html/framework/web/actions/CAction.php(107): ReflectionMethod->invokeArgs(Object(FacturasElectronicasController), Array)
+#2 /var/www/html/framework/web/actions/CInlineAction.php(48): CAction->runWithParamsInternal(Object(FacturasElectronicasController), Object(ReflectionMethod), Array)
+#3 /var/www/html/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#4 /var/www/html/framework/web/CController.php(287): CController->runAction(Object(CInlineAction))
+#5 /var/www/html/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/html/framework/web/CWebApplication.php(276): CController->run('enviarAfip')
+#7 /var/www/html/framework/web/CWebApplication.php(135): CWebApplication->runController('facturasElectro...')
+#8 /var/www/html/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#9 /var/www/html/africa/index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/africa/index.php?r=facturasElectronicas/enviarAfip&id=23
+HTTP_REFERER=http://localhost/africa/index.php?r=facturasElectronicas/sendComprobanteAfip&id=23
+---

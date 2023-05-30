@@ -30,6 +30,8 @@
 					</div>
 	
 					<?php echo $form->textFieldRow($model,'importe',array('class'=>'span1')); ?>
+					<?php echo $form->labelEx($model,'esExcento',array('class'=>'')); ?>
+		<?php echo $form->checkBox($model,'esExcento',array('class'=>'span1')); ?>
 
 	<?php echo $form->textAreaRow($model,'detalle',array("rows"=>"4",'style'=>"width:100%")); ?>
 
@@ -45,10 +47,12 @@
 	</div>
 
 	
-	<div id="nroComprobanteNotaCredito" >
-		<?php echo $form->textFieldRow($model,'nroComprobanteNotaCredito',array('class'=>'span1')); ?>
-		<i>Solo para notas de credito (nro del comprobante a anular - solo el nro)</i>
-	</div>
+	<div class="">
+						<?php echo $form->labelEx($model,'comprobanteAsociado',array('class'=>'')); ?>
+						<?php echo $form->dropDownList($model,'comprobanteAsociado',CHtml::listData(FacturasElectronicas::model()->findAll(), 'id', 'nombreFactura'),array ('prompt'=>'Comprobante Asociado',"allowClear"=>"true" ,'class'=>'chzn-select','style'=>'width:100%')); ?>
+						<?php echo $form->error($model,'comprobanteAsociado'); ?>
+					</div>
+	
 	<div class="">
 			<?php echo $form->labelEx($model,'tipoDoc',array('class'=>'')); ?>
 			<?php echo $form->dropDownList($model,'tipoDoc',CHtml::listData(FacturasElectronicas::model()->getTipoDocumentos(), 'Id', 'Desc'),array ('style'=>'','onchange'=>'nroFactura()')); ?>
@@ -70,6 +74,12 @@
 <?php $this->endWidget(); ?>
 <script>
 var cliente;
+function cambiaNroComprobanteAsociado(){
+	$.getJSON('index.php?r=facturasElectronicas/getComprobanteAsociado',{nroComprobante:$('#FacturasElectronicas_nroComprobanteNotaCredito').val()}, function(data) {
+    cliente=data;
+	$("#resNroComprobante").val(data);
+})
+}
 function cambiaCliente()
 {
 	$.getJSON('index.php?r=clientes/getCliente',{idCliente:$('#FacturasElectronicas_idCliente').val()}, function(data) {

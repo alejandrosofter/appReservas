@@ -71,12 +71,20 @@ class FacturasElectronicas extends CActiveRecord
 	{
 		return array(3,8,13,53,203,208,213);
 	}
+	public function getComprobante($nroCoprobante)
+	{
+		return FacturasElectronicas::model()->findByAttributes(array('nroComprobante'=>$nroCoprobante));
+
+	}
+	public function getnombreFactura(){
+		return $this->nombreTipoComprobante." ".($this->esExcento?"(exento)":"")." ".str_pad($this->nroComprobante,4,"0",STR_PAD_LEFT);
+	}
 	public function getComprobanteAsociado()
 	{
-		if($this->necesitaNroComprobante())
+		if($this->comprobanteAsociado!==null )
 		{
 			$cuit=Settings::model()->getValorSistema('DATOS_EMPRESA_CUIT');
-			$comprobante=FacturasElectronicas::model()->findByAttributes(array('nroComprobante'=>$this->nroComprobanteNotaCredito));
+			$comprobante=FacturasElectronicas::model()->findByPk($this->comprobanteAsociado);
 			// return 
 			// array("CbteAsoc"=>
 			// 	array(
@@ -100,12 +108,11 @@ class FacturasElectronicas extends CActiveRecord
 public function getData($importeTotal,$calculaIva)
 {
 	$pv=$this->getPuntoVenta();
-	$codigosNotasDeCredito=$this->getCodigosNotasCredito();
 	$importeNeto=$calculaIva?$importeTotal/1.21:$importeTotal;
 	$importeIva=$calculaIva?$importeTotal-$importeNeto:0;
 	$arrIva=$calculaIva?array(
 		'Id' 		=> 5, // Id del tipo de IVA (5 para 21%)(ver tipos disponibles) 
-		'BaseImp' 	=> $this->formatImporte($importeNeto), // Base imponible
+		'BaseImp' 	=>$this->formatImporte($importeNeto), // Base imponible
 		'Importe' 	=> $this->formatImporte($importeIva) // Importe 
 	):array();
 	return  array(
@@ -124,13 +131,13 @@ public function getData($importeTotal,$calculaIva)
 		'FchVtoPago'=>$this->formatearFecha2($this->fecha,1),
 		'ImpTotal' 	=> $this->formatImporte($importeTotal), // Importe total del comprobante
 		'ImpTotConc' 	=> 0,   // Importe neto no gravado
-		'ImpNeto' 	=> $this->formatImporte($importeNeto), // Importe neto gravado
-		'ImpOpEx' 	=> 0,   // Importe exento de IVA
-		'ImpIVA' 	=> $this->formatImporte($importeIva),  //Importe total de IVA
+		'ImpNeto' 	=> $this->esExcento?0:$this->formatImporte($importeNeto), // Importe neto gravado
+		'ImpOpEx' 	=> $this->esExcento?$this->formatImporte($importeTotal):0,   // Importe exento de IVA
+		'ImpIVA' 	=> $this->esExcento?0: $this->formatImporte($importeIva),  //Importe total de IVA
 		'ImpTrib' 	=> 0,   //Importe total de tributos
 		'MonId' 	=> 'PES', //Tipo de moneda usada en el comprobante (ver tipos disponibles)('PES' para pesos argentinos) 
 		'MonCotiz' 	=> 1,     // Cotización de la moneda usada (1 para pesos argentinos)  
-		'Iva' 		=> array( // (Opcional) Alícuotas asociadas al comprobante
+		'Iva' 		=> $this->esExcento?null: array( // (Opcional) Alícuotas asociadas al comprobante
 			$arrIva
 		), 
 	);
@@ -255,14 +262,15 @@ public function infoComprobante($nroComprobante,$ptoVenta,$tipoComprobante)
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('fecha, detalle, importe, estado, idTipoComprobante, doc, tipoDoc, idCliente', 'required'),
+			array('fecha, detalle,esExcento, importe, estado, idTipoComprobante, doc, tipoDoc, idCliente', 'required'),
 			array('nroCae, idTransaccion,nroComprobanteNotaCredito, idTipoComprobante, tipoDoc, idCliente', 'numerical', 'integerOnly'=>true),
-			array('detalle,detalleError, fechaVto,nroComprobante', 'length', 'max'=>255),
+			array('detalle,detalleError,comprobanteAsociado, fechaVto,nroComprobante', 'length', 'max'=>255),
 			array('importe', 'length', 'max'=>10),
 			array('estado, doc', 'length', 'max'=>50),
+			
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('buscar,id, fecha, detalle, importe,nroComprobanteNotaCredito, nroComprobante,fechaVto,detalleError, nroCae, estado, idTransaccion, idTipoComprobante, doc, tipoDoc, idCliente', 'safe', 'on'=>'search'),
+			array('buscar,id,esExcento, fecha, detalle, importe,nroComprobanteNotaCredito, nroComprobante,fechaVto,detalleError, nroCae, estado, idTransaccion, idTipoComprobante, doc, tipoDoc, idCliente', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -298,6 +306,8 @@ public function infoComprobante($nroComprobante,$ptoVenta,$tipoComprobante)
 			'doc' => 'Nro (cuit/dni)',
 			'tipoDoc' => 'Tipo Doc',
 			'idCliente' => 'Cliente',
+			'esExcento'=>"Es excento",
+			"comprobanteAsociado"=>"Comprobante Asociado (notas de credito)",
 		);
 	}
 

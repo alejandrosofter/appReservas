@@ -1,3 +1,8 @@
+-- fecha 30 may 2023
+ALTER TABLE `facturasElectronicas` ADD `comprobanteAsociado` INT(10) NOT NULL AFTER `esExcento`;
+ALTER TABLE `facturasElectronicas` ADD `esExcento` INT(1) NOT NULL AFTER `nroComprobanteNotaCredito`;
+
+
 -- fecha 31 de oct 2022
 -- Autor: alejandro
 
@@ -16,3 +21,5 @@ ALTER TABLE `cierreCaja` ADD `importe` FLOAT NOT NULL AFTER `formaDePago`;
 
 -- cambios 8 dic 2022
 ALTER TABLE `reservas` ADD `fechaUpdateImporte` DATE NOT NULL AFTER `fecha`, ADD `oldImporte` FLOAT NOT NULL AFTER `fechaUpdateImporte`;
+
+

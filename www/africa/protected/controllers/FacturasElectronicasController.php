@@ -35,6 +35,10 @@ class FacturasElectronicasController extends Controller
 		$this->escribeArchivo($fileCsr,$csr);
 		echo CJSON::encode(array('msg'=>'Certificados escritos correctamente!'));
 	}
+	public function actiongetComprobanteAsociado(){
+	
+		echo CJSON::encode(FacturasElectronicas::model()->getComprobante($_GET['nroComprobante']));
+	}
 	public function actionImprimir($id)
 	{
 		$this->layout="//layouts/printFactura";
@@ -141,6 +145,7 @@ class FacturasElectronicasController extends Controller
 		$model=$this->loadModel($id);
 		try{
 			$data=$model->getData($model->importe,true);
+		
 			$comprobante=$model->crearComprobante($data);
 			$model->estado='COMPLETADO';
 			$model->nroCae=$comprobante['CAE'];
@@ -149,7 +154,7 @@ class FacturasElectronicasController extends Controller
 			$model->detalleError="ok";
 			$model->save();
 			$model->actualizarCliente();
-			// $this->redirect(array('imprimir','id'=>$model->id));
+			$this->redirect(array('imprimir','id'=>$model->id));
 		}catch(Exception $e){
 			throw new CHttpException(500,$e->getMessage());
 		// 	echo "ERROR: ";
