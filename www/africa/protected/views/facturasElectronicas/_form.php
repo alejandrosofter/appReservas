@@ -49,7 +49,7 @@
 	
 	<div class="">
 						<?php echo $form->labelEx($model,'comprobanteAsociado',array('class'=>'')); ?>
-						<?php echo $form->dropDownList($model,'comprobanteAsociado',CHtml::listData(FacturasElectronicas::model()->findAll(), 'id', 'nombreFactura'),array ('prompt'=>'Comprobante Asociado',"allowClear"=>"true" ,'class'=>'chzn-select','style'=>'width:100%')); ?>
+						<?php echo $form->dropDownList($model,'comprobanteAsociado',CHtml::listData(FacturasElectronicas::model()->findAll(array("limit"=>100)), 'id', 'nombreFactura'),array ('prompt'=>'Comprobante Asociado',"allowClear"=>"true" ,'class'=>'chzn-select','style'=>'width:100%')); ?>
 						<?php echo $form->error($model,'comprobanteAsociado'); ?>
 					</div>
 	
