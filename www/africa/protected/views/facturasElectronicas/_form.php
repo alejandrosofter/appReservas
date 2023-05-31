@@ -95,8 +95,9 @@ function setOpciones(data)
 	$('#FacturasElectronicas_comprobanteAsociado').html('').trigger('change');
 
 	for(var i=0;i<data.length;i++){
-	console.log(<?=$_POST['FacturasElectronicas']['comprobanteAsociado']?>)
-		var idSeleccion=<?=isset($_POST['FacturasElectronicas']['comprobanteAsociado'])?$_POST['FacturasElectronicas']['comprobanteAsociado']:0?>;
+
+		var idSeleccion=<?=$model->comprobanteAsociado?>;
+		console.log(idSeleccion)
 		var lab=""+data[i].nombreTipoComprobante+"  "+(data[i].esExcento!=='0'?"(Excento)":"")+" NRO "+data[i].nroComprobante+" $"+Number(data[i].importe).toFixed(2);
 		var auxOption=new Option(lab, data[i].id, idSeleccion==data[i].id);
 		auxOption.setAttribute("importe",data[i].importe);
