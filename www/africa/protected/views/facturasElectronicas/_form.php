@@ -96,10 +96,10 @@ function setOpciones(data)
 
 	for(var i=0;i<data.length;i++){
 
-		var idSeleccion=<?=$model->comprobanteAsociado?>;
-		console.log(idSeleccion)
+		var idSeleccion=Number(<?=$model->comprobanteAsociado?>);
+	
 		var lab=""+data[i].nombreTipoComprobante+"  "+(data[i].esExcento!=='0'?"(Excento)":"")+" NRO "+data[i].nroComprobante+" $"+Number(data[i].importe).toFixed(2);
-		var auxOption=new Option(lab, data[i].id, idSeleccion==data[i].id);
+		var auxOption=new Option(lab, data[i].id, idSeleccion==Number(data[i].id));
 		auxOption.setAttribute("importe",data[i].importe);
 		$('#FacturasElectronicas_comprobanteAsociado').append(auxOption).trigger('change');
 		}
