@@ -145,7 +145,13 @@ class FacturasElectronicasController extends Controller
 			'params'=>array(':idCliente'=>$idCliente),
 			'order'=>'fecha DESC'
 		));
-		$salida=array();
+		$salida=array(array(
+			'id'=>null,
+			'nombreTipoComprobante'=>"Seleccione...",
+			'nroComprobante'=>"",
+			'importe'=>"",
+			'esExcento'=>false
+		));
 		$tipos=FacturasElectronicas::model()->getTiposComprobantes();
 		foreach($data as $d){
 			$salida[]=array(

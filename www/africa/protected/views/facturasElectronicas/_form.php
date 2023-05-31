@@ -91,12 +91,7 @@ function init()
 {
 	llenarFacturasCliente();
 }
-function cambiaNroComprobanteAsociado(){
-	$.getJSON('index.php?r=facturasElectronicas/getComprobanteAsociado',{nroComprobante:$('#FacturasElectronicas_nroComprobanteNotaCredito').val()}, function(data) {
-    cliente=data;
-	$("#resNroComprobante").val(data);
-})
-}
+
 function setOpciones(data)
 {
 	var sal=[];
@@ -104,13 +99,14 @@ function setOpciones(data)
 
 	$('#FacturasElectronicas_comprobanteAsociado').empty().trigger('change')
 	for(var i=0;i<data.length;i++){
-
-		var lab=""+data[i].nombreTipoComprobante+"  "+(data[i].esExcento!=='0'?"(Excento)":"")+" NRO "+data[i].nroComprobante+" $"+Number(data[i].importe).toFixed(2);
-		var auxOption=new Option(lab, data[i].id,false,false);
-		auxOption.setAttribute("importe",data[i].importe);
-		$('#FacturasElectronicas_comprobanteAsociado').append(auxOption)
+	
+			var lab=""+data[i].nombreTipoComprobante+"  "+(data[i].esExcento!=='0'?"(Excento)":"")+" NRO "+data[i].nroComprobante+" $"+Number(data[i].importe).toFixed(2);
+			var auxOption=new Option(data[i].id?lab:"Seleccione...", data[i].id);
+			$('#FacturasElectronicas_comprobanteAsociado').append(auxOption)
+		
+		
 		}
-
+		
     // Append it to the select
     return sal;
 }
@@ -122,9 +118,10 @@ function llenarFacturasCliente()
 		
       setOpciones(res);	
 	  const idSelect=(<?=json_encode($model->comprobanteAsociado)?>);
-console.log(idSelect);
+console.log(idSelect)
 	  if(idSelect!=null && idSelect!='0')
 		$('#FacturasElectronicas_comprobanteAsociado').val(idSelect).trigger('change');
+		else $('#FacturasElectronicas_comprobanteAsociado').val("0")
 	  
 		 
     })
