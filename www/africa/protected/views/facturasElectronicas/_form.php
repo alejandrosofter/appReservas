@@ -122,9 +122,8 @@ function llenarFacturasCliente()
 		
       setOpciones(res);	
 	  const idSelect=(<?=json_encode($model->comprobanteAsociado)?>);
-	 
 
-	  if(idSelect!=="0")
+	  if(idSelect!=="0" || idSelect!=null)
 		$('#FacturasElectronicas_comprobanteAsociado').val(idSelect).trigger('change');
 	  
 		 

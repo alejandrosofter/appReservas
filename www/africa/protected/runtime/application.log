@@ -5609,3 +5609,35 @@ Stack trace:
 REQUEST_URI=/africa/index.php?r=facturasElectronicas/update&id=20
 HTTP_REFERER=http://localhost/africa/index.php?r=facturasElectronicas/index
 ---
+2023/05/31 19:18:58 [error] [exception.CHttpException.500] exception 'CHttpException' with message '(10059) De enviarse el tag CbtesAsoc debe enviarse Nro mayor a 0 y menor a 99999999 ' in /var/www/html/africa/protected/controllers/FacturasElectronicasController.php:177
+Stack trace:
+#0 [internal function]: FacturasElectronicasController->actionEnviarAfip('26')
+#1 /var/www/html/framework/web/actions/CAction.php(107): ReflectionMethod->invokeArgs(Object(FacturasElectronicasController), Array)
+#2 /var/www/html/framework/web/actions/CInlineAction.php(48): CAction->runWithParamsInternal(Object(FacturasElectronicasController), Object(ReflectionMethod), Array)
+#3 /var/www/html/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#4 /var/www/html/framework/web/CController.php(287): CController->runAction(Object(CInlineAction))
+#5 /var/www/html/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/html/framework/web/CWebApplication.php(276): CController->run('enviarAfip')
+#7 /var/www/html/framework/web/CWebApplication.php(135): CWebApplication->runController('facturasElectro...')
+#8 /var/www/html/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#9 /var/www/html/africa/index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/africa/index.php?r=facturasElectronicas/enviarAfip&id=26
+HTTP_REFERER=http://localhost/africa/index.php?r=facturasElectronicas/sendComprobanteAfip&id=26
+---
+2023/05/31 19:19:13 [error] [exception.CHttpException.500] exception 'CHttpException' with message '(10059) De enviarse el tag CbtesAsoc debe enviarse Nro mayor a 0 y menor a 99999999 ' in /var/www/html/africa/protected/controllers/FacturasElectronicasController.php:177
+Stack trace:
+#0 [internal function]: FacturasElectronicasController->actionEnviarAfip('26')
+#1 /var/www/html/framework/web/actions/CAction.php(107): ReflectionMethod->invokeArgs(Object(FacturasElectronicasController), Array)
+#2 /var/www/html/framework/web/actions/CInlineAction.php(48): CAction->runWithParamsInternal(Object(FacturasElectronicasController), Object(ReflectionMethod), Array)
+#3 /var/www/html/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#4 /var/www/html/framework/web/CController.php(287): CController->runAction(Object(CInlineAction))
+#5 /var/www/html/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/html/framework/web/CWebApplication.php(276): CController->run('enviarAfip')
+#7 /var/www/html/framework/web/CWebApplication.php(135): CWebApplication->runController('facturasElectro...')
+#8 /var/www/html/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#9 /var/www/html/africa/index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/africa/index.php?r=facturasElectronicas/enviarAfip&id=26
+HTTP_REFERER=http://localhost/africa/index.php?r=facturasElectronicas/sendComprobanteAfip&id=26
+---
