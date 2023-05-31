@@ -81,6 +81,7 @@
 <?php $this->endWidget(); ?>
 <script>
 var cliente;
+llenarFacturasCliente();
 function cambiaNroComprobanteAsociado(){
 	$.getJSON('index.php?r=facturasElectronicas/getComprobanteAsociado',{nroComprobante:$('#FacturasElectronicas_nroComprobanteNotaCredito').val()}, function(data) {
     cliente=data;
