@@ -172,7 +172,7 @@ class FacturasElectronicasController extends Controller
 			$model->detalleError="ok";
 			$model->save();
 			$model->actualizarCliente();
-			$this->redirect(array('imprimir','id'=>$model->id));
+			// $this->redirect(array('imprimir','id'=>$model->id));
 		}catch(Exception $e){
 			throw new CHttpException(500,$e->getMessage());
 		// 	echo "ERROR: ";

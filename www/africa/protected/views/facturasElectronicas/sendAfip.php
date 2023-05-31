@@ -40,7 +40,7 @@ function enviarAfip()
     $("#btnAfip").hide()
     $("#loadingImg").show()
     $.getJSON('index.php?r=facturasElectronicas/enviarAfip',{id:<?=$model->id;?>}, function(data,error) {
-        location.href="index.php?r=facturasElectronicas/imprimir&id=<?=$model->id?>";
+        imprimir()
 })
 .error(function(jqXHR, textStatus, errorThrown) {
         console.log(jqXHR.responseText);
