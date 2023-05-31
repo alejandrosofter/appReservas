@@ -99,13 +99,12 @@ function setOpciones(data)
 {
 	var sal=[];
 	//reset options
-	$('#FacturasElectronicas_comprobanteAsociado').html('').trigger('change');
 
+	$('#FacturasElectronicas_comprobanteAsociado').empty().trigger('change')
 	for(var i=0;i<data.length;i++){
 
-		var idSeleccion=Number(<?=$model->comprobanteAsociado?>);
 		var lab=""+data[i].nombreTipoComprobante+"  "+(data[i].esExcento!=='0'?"(Excento)":"")+" NRO "+data[i].nroComprobante+" $"+Number(data[i].importe).toFixed(2);
-		var auxOption=new Option(lab, data[i].id, idSeleccion===Number(data[i].id));
+		var auxOption=new Option(lab, data[i].id);
 		auxOption.setAttribute("importe",data[i].importe);
 		$('#FacturasElectronicas_comprobanteAsociado').append(auxOption).trigger('change');
 		}
@@ -120,7 +119,8 @@ function llenarFacturasCliente()
 	 $.getJSON("index.php?r=facturasElectronicas/getPorCliente",{idCliente},function(res){
 		
       setOpciones(res);	
-	  $('#FacturasElectronicas_comprobanteAsociado').select2().trigger('change');
+	  const idSelect=(<?=json_encode($model->comprobanteAsociado)?>)
+$('#FacturasElectronicas_comprobanteAsociado').val(idSelect).trigger('change');
     })
 }
 function cambiaCliente()
