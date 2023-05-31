@@ -102,7 +102,7 @@ function setOpciones(data)
 		auxOption.setAttribute("importe",data[i].importe);
 		$('#FacturasElectronicas_comprobanteAsociado').append(auxOption).trigger('change');
 		}
-		$('#FacturasElectronicas_comprobanteAsociado').trigger('change');
+
     // Append it to the select
     return sal;
 }
@@ -113,7 +113,7 @@ function llenarFacturasCliente()
 	 $.getJSON("index.php?r=facturasElectronicas/getPorCliente",{idCliente},function(res){
 		
       setOpciones(res);	
-
+	  $('#FacturasElectronicas_comprobanteAsociado').select2().trigger('change');
     })
 }
 function cambiaCliente()
