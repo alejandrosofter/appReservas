@@ -51,8 +51,10 @@
 		<?php echo $form->labelEx($model,'comprobanteAsociado',array('class'=>'')); ?>
 		<?php $this->widget('ext.2select.ESelect2',array(
   'model'=>$model,
+  "options"=>array('allowClear' => true,'placeholder'=>'seleccione...'),
   'htmlOptions'=>array ('style'=>'width:280px','placeholder'=>'seleccione...'),
   'attribute'=>'comprobanteAsociado',
+  
   // 'data'=>CHtml::listData(FacturasProfesionaNomencladores::model()->findAll(array('order'=>'codigoInterno')), 'id', 'codigoInterno')
 )
 ); 
@@ -104,9 +106,9 @@ function setOpciones(data)
 	for(var i=0;i<data.length;i++){
 
 		var lab=""+data[i].nombreTipoComprobante+"  "+(data[i].esExcento!=='0'?"(Excento)":"")+" NRO "+data[i].nroComprobante+" $"+Number(data[i].importe).toFixed(2);
-		var auxOption=new Option(lab, data[i].id);
+		var auxOption=new Option(lab, data[i].id,false,false);
 		auxOption.setAttribute("importe",data[i].importe);
-		$('#FacturasElectronicas_comprobanteAsociado').append(auxOption).trigger('change');
+		$('#FacturasElectronicas_comprobanteAsociado').append(auxOption)
 		}
 
     // Append it to the select
@@ -119,8 +121,13 @@ function llenarFacturasCliente()
 	 $.getJSON("index.php?r=facturasElectronicas/getPorCliente",{idCliente},function(res){
 		
       setOpciones(res);	
-	  const idSelect=(<?=json_encode($model->comprobanteAsociado)?>)
-$('#FacturasElectronicas_comprobanteAsociado').val(idSelect).trigger('change');
+	  const idSelect=(<?=json_encode($model->comprobanteAsociado)?>);
+	 
+
+	  if(idSelect!=="0")
+		$('#FacturasElectronicas_comprobanteAsociado').val(idSelect).trigger('change');
+	  
+		 
     })
 }
 function cambiaCliente()

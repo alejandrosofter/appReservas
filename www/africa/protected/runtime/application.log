@@ -5580,3 +5580,32 @@ Stack trace:
 REQUEST_URI=/africa/index.php?r=facturasElectronicas/create
 HTTP_REFERER=http://localhost/africa/index.php?r=facturasElectronicas/index
 ---
+2023/05/31 18:43:16 [error] [exception.CException] exception 'CException' with message 'Propiedad "ESelect2"."pluginOptions" no se encuentra definida.' in /var/www/html/framework/base/CComponent.php:174
+Stack trace:
+#0 /var/www/html/framework/web/CWidgetFactory.php(162): CComponent->__set('pluginOptions', Array)
+#1 /var/www/html/framework/web/CBaseController.php(147): CWidgetFactory->createWidget(Object(FacturasElectronicasController), 'ext.2select.ESe...', Array)
+#2 /var/www/html/framework/web/CBaseController.php(173): CBaseController->createWidget('ext.2select.ESe...', Array)
+#3 /var/www/html/africa/protected/views/facturasElectronicas/_form.php(61): CBaseController->widget('ext.2select.ESe...', Array)
+#4 /var/www/html/framework/web/CBaseController.php(127): require('/var/www/html/a...')
+#5 /var/www/html/framework/web/CBaseController.php(96): CBaseController->renderInternal('/var/www/html/a...', Array, true)
+#6 /var/www/html/framework/web/CController.php(870): CBaseController->renderFile('/var/www/html/a...', Array, true)
+#7 /var/www/html/africa/protected/views/facturasElectronicas/update.php(11): CController->renderPartial('_form', Array)
+#8 /var/www/html/framework/web/CBaseController.php(127): require('/var/www/html/a...')
+#9 /var/www/html/framework/web/CBaseController.php(96): CBaseController->renderInternal('/var/www/html/a...', Array, true)
+#10 /var/www/html/framework/web/CController.php(870): CBaseController->renderFile('/var/www/html/a...', Array, true)
+#11 /var/www/html/framework/web/CController.php(783): CController->renderPartial('update', Array, true)
+#12 /var/www/html/africa/protected/controllers/FacturasElectronicasController.php(276): CController->render('update', Array)
+#13 [internal function]: FacturasElectronicasController->actionUpdate('20')
+#14 /var/www/html/framework/web/actions/CAction.php(107): ReflectionMethod->invokeArgs(Object(FacturasElectronicasController), Array)
+#15 /var/www/html/framework/web/actions/CInlineAction.php(48): CAction->runWithParamsInternal(Object(FacturasElectronicasController), Object(ReflectionMethod), Array)
+#16 /var/www/html/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#17 /var/www/html/framework/web/CController.php(287): CController->runAction(Object(CInlineAction))
+#18 /var/www/html/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#19 /var/www/html/framework/web/CWebApplication.php(276): CController->run('update')
+#20 /var/www/html/framework/web/CWebApplication.php(135): CWebApplication->runController('facturasElectro...')
+#21 /var/www/html/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#22 /var/www/html/africa/index.php(13): CApplication->run()
+#23 {main}
+REQUEST_URI=/africa/index.php?r=facturasElectronicas/update&id=20
+HTTP_REFERER=http://localhost/africa/index.php?r=facturasElectronicas/index
+---
