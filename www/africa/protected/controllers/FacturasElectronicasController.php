@@ -137,10 +137,28 @@ class FacturasElectronicasController extends Controller
 		));
 	}
 
-	/**
-	 * Creates a new model.
-	 * If creation is successful, the browser will be redirected to the 'view' page.
-	 */
+	public function actionGetPorCliente()
+	{
+		$idCliente=$_GET['idCliente'];
+		$data=FacturasElectronicas::model()->with("cliente")->findAll(array(
+			'condition'=>'idCliente=:idCliente',
+			'params'=>array(':idCliente'=>$idCliente),
+			'order'=>'fecha DESC'
+		));
+		$salida=array();
+		$tipos=FacturasElectronicas::model()->getTiposComprobantes();
+		foreach($data as $d){
+			$salida[]=array(
+				'id'=>$d->id,
+				'nombreTipoComprobante'=>$d->getNombreTipoComprobante($tipos),
+				'nroComprobante'=>$d->nroComprobante,
+				'importe'=>$d->importe,
+				'esExcento'=>$d->esExcento,
+				'fecha'=>FacturasElectronicas::model()->formatearFecha2($d->fecha,1,"d-m-Y")
+			);
+		}
+		echo CJSON::encode($salida);
+	}
 	public function actionEnviarAfip($id){
 		$model=$this->loadModel($id);
 		try{

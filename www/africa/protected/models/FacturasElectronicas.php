@@ -157,10 +157,10 @@ public function getTiposComprobantes()
 	$afip=$this::model()->getAfip();
 	return $afip->ElectronicBilling->GetVoucherTypes();
 }
-public function getNombreTipoComprobante()
+public function getNombreTipoComprobante($tipos=null)
 {
 	$afip=$this::model()->getAfip();
-	$tipos= $afip->ElectronicBilling->GetVoucherTypes();
+	$tipos= $tipos?$tipos: $afip->ElectronicBilling->GetVoucherTypes();
 	foreach($tipos as $tipo)
 	{
 		if($tipo->Id==$this->idTipoComprobante)

@@ -5526,3 +5526,57 @@ Stack trace:
 REQUEST_URI=/africa/index.php?r=facturasElectronicas/enviarAfip&id=23
 HTTP_REFERER=http://localhost/africa/index.php?r=facturasElectronicas/sendComprobanteAfip&id=23
 ---
+2023/05/31 17:02:03 [error] [exception.CException] exception 'CException' with message 'Alias "ext.2select.ESelect2" is invalid. Make sure it points to an existing PHP file.' in /var/www/html/framework/YiiBase.php:318
+Stack trace:
+#0 /var/www/html/framework/web/CWidgetFactory.php(147): YiiBase::import('ext.2select.ESe...', true)
+#1 /var/www/html/framework/web/CBaseController.php(147): CWidgetFactory->createWidget(Object(FacturasElectronicasController), 'ext.2select.ESe...', Array)
+#2 /var/www/html/framework/web/CBaseController.php(173): CBaseController->createWidget('ext.2select.ESe...', Array)
+#3 /var/www/html/africa/protected/views/facturasElectronicas/_form.php(58): CBaseController->widget('ext.2select.ESe...', Array)
+#4 /var/www/html/framework/web/CBaseController.php(127): require('/var/www/html/a...')
+#5 /var/www/html/framework/web/CBaseController.php(96): CBaseController->renderInternal('/var/www/html/a...', Array, true)
+#6 /var/www/html/framework/web/CController.php(870): CBaseController->renderFile('/var/www/html/a...', Array, true)
+#7 /var/www/html/africa/protected/views/facturasElectronicas/create.php(14): CController->renderPartial('_form', Array)
+#8 /var/www/html/framework/web/CBaseController.php(127): require('/var/www/html/a...')
+#9 /var/www/html/framework/web/CBaseController.php(96): CBaseController->renderInternal('/var/www/html/a...', Array, true)
+#10 /var/www/html/framework/web/CController.php(870): CBaseController->renderFile('/var/www/html/a...', Array, true)
+#11 /var/www/html/framework/web/CController.php(783): CController->renderPartial('create', Array, true)
+#12 /var/www/html/africa/protected/controllers/FacturasElectronicasController.php(238): CController->render('create', Array)
+#13 /var/www/html/framework/web/actions/CInlineAction.php(50): FacturasElectronicasController->actionCreate()
+#14 /var/www/html/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#15 /var/www/html/framework/web/CController.php(287): CController->runAction(Object(CInlineAction))
+#16 /var/www/html/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#17 /var/www/html/framework/web/CWebApplication.php(276): CController->run('create')
+#18 /var/www/html/framework/web/CWebApplication.php(135): CWebApplication->runController('facturasElectro...')
+#19 /var/www/html/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#20 /var/www/html/africa/index.php(13): CApplication->run()
+#21 {main}
+REQUEST_URI=/africa/index.php?r=facturasElectronicas/create
+HTTP_REFERER=http://localhost/africa/index.php?r=facturasElectronicas/index
+---
+2023/05/31 17:04:51 [error] [exception.CException] exception 'CException' with message 'Alias "ext.2select.ESelect2" is invalid. Make sure it points to an existing PHP file.' in /var/www/html/framework/YiiBase.php:318
+Stack trace:
+#0 /var/www/html/framework/web/CWidgetFactory.php(147): YiiBase::import('ext.2select.ESe...', true)
+#1 /var/www/html/framework/web/CBaseController.php(147): CWidgetFactory->createWidget(Object(FacturasElectronicasController), 'ext.2select.ESe...', Array)
+#2 /var/www/html/framework/web/CBaseController.php(173): CBaseController->createWidget('ext.2select.ESe...', Array)
+#3 /var/www/html/africa/protected/views/facturasElectronicas/_form.php(58): CBaseController->widget('ext.2select.ESe...', Array)
+#4 /var/www/html/framework/web/CBaseController.php(127): require('/var/www/html/a...')
+#5 /var/www/html/framework/web/CBaseController.php(96): CBaseController->renderInternal('/var/www/html/a...', Array, true)
+#6 /var/www/html/framework/web/CController.php(870): CBaseController->renderFile('/var/www/html/a...', Array, true)
+#7 /var/www/html/africa/protected/views/facturasElectronicas/create.php(14): CController->renderPartial('_form', Array)
+#8 /var/www/html/framework/web/CBaseController.php(127): require('/var/www/html/a...')
+#9 /var/www/html/framework/web/CBaseController.php(96): CBaseController->renderInternal('/var/www/html/a...', Array, true)
+#10 /var/www/html/framework/web/CController.php(870): CBaseController->renderFile('/var/www/html/a...', Array, true)
+#11 /var/www/html/framework/web/CController.php(783): CController->renderPartial('create', Array, true)
+#12 /var/www/html/africa/protected/controllers/FacturasElectronicasController.php(238): CController->render('create', Array)
+#13 /var/www/html/framework/web/actions/CInlineAction.php(50): FacturasElectronicasController->actionCreate()
+#14 /var/www/html/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#15 /var/www/html/framework/web/CController.php(287): CController->runAction(Object(CInlineAction))
+#16 /var/www/html/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#17 /var/www/html/framework/web/CWebApplication.php(276): CController->run('create')
+#18 /var/www/html/framework/web/CWebApplication.php(135): CWebApplication->runController('facturasElectro...')
+#19 /var/www/html/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#20 /var/www/html/africa/index.php(13): CApplication->run()
+#21 {main}
+REQUEST_URI=/africa/index.php?r=facturasElectronicas/create
+HTTP_REFERER=http://localhost/africa/index.php?r=facturasElectronicas/index
+---

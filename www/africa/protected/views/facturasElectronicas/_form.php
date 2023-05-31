@@ -48,10 +48,17 @@
 
 	
 	<div class="">
-						<?php echo $form->labelEx($model,'comprobanteAsociado',array('class'=>'')); ?>
-						<?php echo $form->dropDownList($model,'comprobanteAsociado',CHtml::listData(FacturasElectronicas::model()->findAll(array("limit"=>100)), 'id', 'nombreFactura'),array ('prompt'=>'Comprobante Asociado',"allowClear"=>"true" ,'class'=>'chzn-select','style'=>'width:100%')); ?>
-						<?php echo $form->error($model,'comprobanteAsociado'); ?>
-					</div>
+		<?php echo $form->labelEx($model,'comprobanteAsociado',array('class'=>'')); ?>
+		<?php $this->widget('ext.2select.ESelect2',array(
+  'model'=>$model,
+  'htmlOptions'=>array ('style'=>'width:280px','placeholder'=>'seleccione...'),
+  'attribute'=>'comprobanteAsociado',
+  // 'data'=>CHtml::listData(FacturasProfesionaNomencladores::model()->findAll(array('order'=>'codigoInterno')), 'id', 'codigoInterno')
+)
+); 
+?>
+		<?php echo $form->error($model,'comprobanteAsociado'); ?>
+	</div>
 	
 	<div class="">
 			<?php echo $form->labelEx($model,'tipoDoc',array('class'=>'')); ?>
@@ -80,6 +87,34 @@ function cambiaNroComprobanteAsociado(){
 	$("#resNroComprobante").val(data);
 })
 }
+function setOpciones(data)
+{
+	var sal=[];
+	//reset options
+	$('#FacturasElectronicas_comprobanteAsociado').html('').trigger('change');
+
+	for(var i=0;i<data.length;i++){
+		console.log()
+		var idSeleccion=<?=isset($_GET['FacturasElectronicas']['comprobanteAsociado'])?$_GET['FacturasElectronicas']['comprobanteAsociado']:0?>;
+		var lab=""+data[i].nombreTipoComprobante+"  "+(data[i].esExcento!=='0'?"(Excento)":"")+" NRO "+data[i].nroComprobante+" $"+Number(data[i].importe).toFixed(2);
+		var auxOption=new Option(lab, data[i].id, idSeleccion==data[i].id);
+		auxOption.setAttribute("importe",data[i].importe);
+		$('#FacturasElectronicas_comprobanteAsociado').append(auxOption).trigger('change');
+		}
+	
+    // Append it to the select
+    return sal;
+}
+function llenarFacturasCliente()
+{
+	const idCliente=$("#FacturasElectronicas_idCliente").val();
+
+	 $.getJSON("index.php?r=facturasElectronicas/getPorCliente",{idCliente},function(res){
+		
+      setOpciones(res);	
+
+    })
+}
 function cambiaCliente()
 {
 	$.getJSON('index.php?r=clientes/getCliente',{idCliente:$('#FacturasElectronicas_idCliente').val()}, function(data) {
@@ -87,6 +122,7 @@ function cambiaCliente()
 	$("#FacturasElectronicas_doc").val(data.cuit);
 	$("#FacturasElectronicas_idTipoComprobante").val(data.idTipoComprobante);
 	$("#FacturasElectronicas_tipoDoc").val(data.tipoDoc);
+	llenarFacturasCliente();
 });
 }
 //ALTER TABLE `facturasElectronicas` ADD `nroComprobanteNotaCredito` INT(50) NULL AFTER `nroComprobante`;
