@@ -81,7 +81,7 @@ class FacturasElectronicas extends CActiveRecord
 	}
 	public function getComprobanteAsociado()
 	{
-		if($this->comprobanteAsociado!==null )
+		if($this->comprobanteAsociado!==null || $this->comprobanteAsociado!=='0' )
 		{
 			$cuit=Settings::model()->getValorSistema('DATOS_EMPRESA_CUIT');
 			$comprobante=FacturasElectronicas::model()->findByPk($this->comprobanteAsociado);
@@ -101,7 +101,7 @@ class FacturasElectronicas extends CActiveRecord
 					'Cuit' => $cuit,
 					'CbteFch' => intval(date('Ymd', strtotime($comprobante->fecha)))
 					));		
-					else throw new CHttpException(500, 'No se encontro el comprobante asociado');							
+					else return null;							
 		}
 		return null;
 	}
