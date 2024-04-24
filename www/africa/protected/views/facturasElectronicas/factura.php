@@ -107,7 +107,7 @@ function imprimir()
     <div style="position:absolute;top:10.60in;left:5.58in;width:2.49in;line-height:0.18in;"><DIV style="position:relative; left:1.69in;"><span style="font-style:normal;font-weight:normal;font-size:10pt;font-family:Helvetica;color:#000000"><?=$vtoCae;?></span><span style="font-style:normal;font-weight:normal;font-size:10pt;font-family:Helvetica;color:#000000"> </span><br/></SPAN></DIV></div>
     <div style="position:absolute;top:10.37in;left:6.61in;width:1.88in;line-height:0.18in;"><DIV style="position:relative; left:0.66in;"><span style="font-style:normal;font-weight:normal;font-size:10pt;font-family:Helvetica;color:#000000"><?=$nroCae;?></span><span style="font-style:normal;font-weight:normal;font-size:10pt;font-family:Helvetica;color:#000000"> </span><br/></SPAN></DIV></div>
 
-    <img style="position:absolute;top:10.36in;left:0.30in;width:1.21in;height:1.21in" src="https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl=<?=$linkQr;?>&choe=UTF-8" title="Link to Google.com" />
+    <img style="position:absolute;top:10.36in;left:0.30in;width:1.21in;height:1.21in" src="https://quickchart.io/chart?chs=300x300&cht=qr&chl=<?=$linkQr;?>&choe=UTF-8" title="Link to Google.com" />
 
 </div>
 <style>
