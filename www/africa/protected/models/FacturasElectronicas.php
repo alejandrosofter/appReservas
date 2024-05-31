@@ -154,8 +154,12 @@ public function getNroPuntoVenta()
 }
 public function getTiposComprobantes()
 {
-	$afip=$this::model()->getAfip();
+	try{
+		$afip=$this::model()->getAfip();
 	return $afip->ElectronicBilling->GetVoucherTypes();
+	}catch(Exception $e){
+		return array();
+	}
 }
 public function getNombreTipoComprobante($tipos=null)
 {
@@ -224,13 +228,22 @@ public function getOpciones()
 }
 public function getProximoNro($puntoVenta,$idTipoComprobante)
 {
-	$afip=$this::model()->getAfip();
+	try{
+		$afip=$this::model()->getAfip();
 	return $afip->ElectronicBilling->GetLastVoucher($puntoVenta,$idTipoComprobante)+1;
+	}catch(Exception $e){
+		return 1;
+	}
 }
 public function getTipoDocumentos()
 {
-	$afip=$this::model()->getAfip();
-	return $afip->ElectronicBilling->GetDocumentTypes();
+	try{
+		$afip=$this::model()->getAfip();
+		return $afip->ElectronicBilling->GetDocumentTypes();
+	}	catch(Exception $e){
+		return array();
+	}
+	
 }
 public function getNombreTipoDocumentos()
 {
